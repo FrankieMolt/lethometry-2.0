@@ -8,7 +8,7 @@
   <title>All Articles | LETHOMETRY — The Simulation Archive</title>
   <meta name="description" content="Complete index of LETHOMETRY articles. 26 deep investigations into simulation theory, suppressed technology, Mandela effects, and the anomalies reality tries to hide.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=6">
   <script src="js/three.min.js"></script>
   <style>
     .ap-head{text-align:center;padding:140px 2rem 3rem;max-width:850px;margin:0 auto}
@@ -220,20 +220,32 @@
     const filters = document.querySelectorAll('.ap-filters button');
     const cards = document.querySelectorAll('.ap-card');
     const stat = document.getElementById('ap-stat');
+    function applyFilter(f) {
+      filters.forEach(b => b.classList.toggle('active', b.dataset.filter === f));
+      let shown = 0;
+      cards.forEach(c => {
+        const match = (f === 'all' || c.dataset.cat === f);
+        c.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+      stat.textContent = '// SHOWING ' + shown + (shown === 1 ? ' ARTICLE' : ' ARTICLES') + (f === 'all' ? ' //' : ' IN "' + f + '" //');
+    }
     filters.forEach(btn => {
       btn.addEventListener('click', () => {
-        filters.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        let shown = 0;
-        cards.forEach(c => {
-          const match = (f === 'all' || c.dataset.cat === f);
-          c.style.display = match ? '' : 'none';
-          if (match) shown++;
-        });
-        stat.textContent = '// SHOWING ' + shown + (shown === 1 ? ' ARTICLE' : ' ARTICLES') + (f === 'all' ? ' //' : ' IN "' + f + '" //');
+        applyFilter(btn.dataset.filter);
+        // update URL so category is shareable
+        const url = new URL(window.location);
+        if (btn.dataset.filter === 'all') url.searchParams.delete('cat');
+        else url.searchParams.set('cat', btn.dataset.filter);
+        history.replaceState(null, '', url);
       });
     });
+    // Read ?cat= from URL on page load
+    const urlCat = new URLSearchParams(window.location.search).get('cat');
+    if (urlCat) {
+      const match = Array.from(filters).find(b => b.dataset.filter === urlCat);
+      if (match) applyFilter(urlCat);
+    }
   })();
   </script>
 </body>
