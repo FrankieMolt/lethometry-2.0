@@ -7,7 +7,17 @@ let mouse={x:0,y:0,tx:0,ty:0},distort=0;
 
 function init3D(){
   const c=document.getElementById('hero-canvas');
-  if(!c||typeof THREE==='undefined')return;
+  if(!c||typeof THREE==='undefined'){
+    // Three.js may still be loading (lazy). Poll for it briefly.
+    if(c && typeof THREE==='undefined'){
+      let tries=0;
+      const poll=setInterval(()=>{
+        if(typeof THREE!=='undefined'){clearInterval(poll);init3D();}
+        else if(++tries>60){clearInterval(poll);} // give up after ~6s
+      },100);
+    }
+    return;
+  }
   clock=new THREE.Clock();
   scene=new THREE.Scene();
   scene.fog=new THREE.FogExp2(0x050508,.007);
@@ -211,9 +221,23 @@ function init3DCards(){
 function initSearch(){
   const inp=document.getElementById('search-input');
   if(!inp)return;
+  // Add live region for results announcement (a11y)
+  const live=document.createElement('div');
+  live.id='search-status';
+  live.setAttribute('role','status');
+  live.setAttribute('aria-live','polite');
+  live.style.cssText='position:absolute;left:-9999px;width:1px;height:1px;';
+  inp.parentNode.appendChild(live);
   inp.addEventListener('input',e=>{
     const q=e.target.value.toLowerCase();
-    document.querySelectorAll('.cc,.ac').forEach(card=>{card.style.display=card.textContent.toLowerCase().includes(q)?'':'none';});
+    let visible=0,total=0;
+    document.querySelectorAll('.cc,.ac').forEach(card=>{
+      total++;
+      const match=card.textContent.toLowerCase().includes(q);
+      card.style.display=match?'':'none';
+      if(match)visible++;
+    });
+    live.textContent=q?`${visible} of ${total} results`:`${total} items`;
   });
 }
 

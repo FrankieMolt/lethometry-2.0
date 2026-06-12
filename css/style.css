@@ -1,4 +1,4 @@
-/* LETHOMETRY — The Simulation Archive v3.1 */
+/* LETHOMETRY — The Simulation Archive v3.2 */
 /* Single-file design system */
 
 /* Embedded Google Fonts — avoids CSP style-src blocking */
@@ -19,6 +19,8 @@
   --bg: #050508; --bg2: #0a0a12; --bg3: #111118; --border: #1a1a25;
   --g: #00ff41; --c: #00e5ff; --a: #ffaa00; --r: #ff1744; --p: #aa00ff;
   --t: #e8e8f0; --td: #b8b8d0; --tk: #8888a8;
+  --g-text: #00cc33; /* WCAG AA green for body text (9.4:1) */
+  --a-text: #ff8800; /* WCAG AA amber for body text (7.0:1) */
   --gm: 0 0 8px rgba(0,255,65,.6),0 0 20px rgba(0,255,65,.3);
   --gc: 0 0 8px rgba(0,229,255,.6),0 0 20px rgba(0,229,255,.3);
   --gr: 0 0 8px rgba(255,23,68,.6),0 0 20px rgba(255,23,68,.3);
@@ -26,6 +28,20 @@
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
+
+/* ===== A11Y: Skip Link + Focus Indicators ===== */
+.skip-link{position:absolute;top:-100px;left:1rem;z-index:100000;background:var(--g);color:#000;padding:.6rem 1.2rem;font-family:'Share Tech Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:2px;border-radius:4px;text-decoration:none;text-transform:uppercase;transition:top .2s}
+.skip-link:focus{top:1rem;outline:3px solid #fff;outline-offset:2px}
+
+/* Universal focus indicator — do NOT remove */
+:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible,[role="button"]:focus-visible{outline:3px solid var(--g);outline-offset:3px;box-shadow:0 0 0 5px rgba(0,255,65,.2);border-radius:2px}
+.btn-rp:focus-visible,.btn-sec:focus-visible{outline:3px solid #fff;outline-offset:4px}
+
+/* Reduced motion: kill all decorative animations */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
 body{background:var(--bg);color:var(--t);font-family:'Rajdhani',sans-serif;overflow-x:hidden;line-height:1.7;-webkit-font-smoothing:antialiased}
 canvas#hero-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .crt{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9997;background:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0px,rgba(0,0,0,.06) 1px,transparent 1px,transparent 3px)}
@@ -33,8 +49,11 @@ canvas#hero-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--g);border-radius:2px}
 
 /* ===== LOADER ===== */
-#loader{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:99999;transition:opacity .6s,visibility .6s}
-#loader.off{opacity:0;visibility:hidden}
+/* Loader is hidden by default; shown only if JS is enabled and main.js boots.
+   This guarantees content is always visible if JS is disabled or fails. */
+#loader{display:none;position:fixed;inset:0;background:var(--bg);align-items:center;justify-content:center;flex-direction:column;z-index:99999;transition:opacity .6s,visibility .6s}
+html.js #loader{display:flex}
+html.js #loader.off{opacity:0;visibility:hidden}
 .ldr-ring{width:60px;height:60px;border:2px solid transparent;border-top-color:var(--g);border-radius:50%;animation:spin .8s linear infinite;box-shadow:var(--gm)}
 .ldr-txt{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--g);margin-top:1rem;letter-spacing:4px;animation:blink 1.2s infinite}
 @keyframes spin{to{transform:rotate(360deg)}}@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
@@ -64,8 +83,8 @@ nav.scrolled{background:rgba(5,5,8,.96);border-bottom-color:rgba(0,255,65,.15);b
 .btn-rp::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.08) 50%,transparent 60%);transform:rotate(45deg);animation:sh 3s infinite}
 @keyframes sh{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
 .btn-rp:hover{transform:scale(1.05) translateY(-2px);box-shadow:0 0 30px rgba(255,23,68,.5),0 0 60px rgba(255,23,68,.2)}
-.btn-sec{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 2.2rem;font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:600;color:var(--g);background:transparent;border:1px solid rgba(0,255,65,.3);border-radius:50px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;transition:all .3s}
-.btn-sec:hover{background:rgba(0,255,65,.06);border-color:var(--g);box-shadow:var(--gm);transform:translateY(-2px)}
+.btn-sec{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 2.2rem;font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:600;color:var(--g-text);background:transparent;border:1px solid rgba(0,255,65,.3);border-radius:50px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;transition:all .3s;text-decoration:none}
+.btn-sec:hover{background:rgba(0,255,65,.06);border-color:var(--g);color:var(--g);box-shadow:var(--gm);transform:translateY(-2px)}
 .scroll-id{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:fl 2s ease-in-out infinite}
 .scroll-id span{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:3px}
 .scroll-id .mouse{width:18px;height:30px;border:1px solid rgba(0,255,65,.25);border-radius:10px;position:relative}

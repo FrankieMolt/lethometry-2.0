@@ -6,10 +6,57 @@
   <meta name="theme-color" content="#050508">
   <meta name="color-scheme" content="dark">
   <title>All Articles | LETHOMETRY — The Simulation Archive</title>
-  <meta name="description" content="Complete index of LETHOMETRY articles. 26 deep investigations into simulation theory, suppressed technology, Mandela effects, and the anomalies reality tries to hide.">
+  <meta name="description" content="Complete index of LETHOMETRY articles. 25 deep investigations into simulation theory, suppressed technology, Mandela effects, and the anomalies reality tries to hide.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="css/style.css?v=6">
-  <script src="js/three.min.js"></script>
+  <meta property="og:title" content="All Articles | LETHOMETRY">
+  <meta property="og:description" content="Complete index of 25 deep investigations into simulation theory, suppressed technology, and the anomalies reality tries to hide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lethometry.com/articles.html">
+  <meta property="og:image" content="https://lethometry.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="canonical" href="https://lethometry.com/articles.html">
+  <meta name="robots" content="index, follow">
+
+  <!-- Structured Data: ItemList of articles -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "LETHOMETRY Articles",
+    "description": "Complete index of all 25 deep investigations into simulation theory and reality anomalies.",
+    "url": "https://lethometry.com/articles.html",
+    "numberOfItems": 25,
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"url":"https://lethometry.com/articles/simulation-theory.html","name":"We Are Almost Certainly Living in a Simulation"},
+      {"@type":"ListItem","position":2,"url":"https://lethometry.com/articles/mandela-effect.html","name":"Collective False Memory"},
+      {"@type":"ListItem","position":3,"url":"https://lethometry.com/articles/quantum-consciousness.html","name":"Quantum Consciousness"},
+      {"@type":"ListItem","position":4,"url":"https://lethometry.com/articles/baron-trump.html","name":"Baron Trump's Marvelous Underground Journey"},
+      {"@type":"ListItem","position":5,"url":"https://lethometry.com/articles/thanksgiving-glitch.html","name":"The 1939 Thanksgiving Glitch"},
+      {"@type":"ListItem","position":6,"url":"https://lethometry.com/articles/mkultra.html","name":"MKUltra: The CIA's Mind Control Program"},
+      {"@type":"ListItem","position":7,"url":"https://lethometry.com/articles/operation-northwoods.html","name":"Operation Northwoods"},
+      {"@type":"ListItem","position":8,"url":"https://lethometry.com/articles/philadelphia-experiment.html","name":"The Philadelphia Experiment"},
+      {"@type":"ListItem","position":9,"url":"https://lethometry.com/articles/tesla-free-energy.html","name":"Tesla's Free Energy Suppressed"},
+      {"@type":"ListItem","position":10,"url":"https://lethometry.com/articles/hydrogen-bomb-ufos.html","name":"The Hydrogen Bomb Attracted Something"},
+      {"@type":"ListItem","position":11,"url":"https://lethometry.com/articles/religion-simulation.html","name":"Religion as the Original Simulation"},
+      {"@type":"ListItem","position":12,"url":"https://lethometry.com/articles/social-media-control.html","name":"Social Media Is the New Religion"},
+      {"@type":"ListItem","position":13,"url":"https://lethometry.com/articles/longevity-simulation.html","name":"Longevity Escape Velocity"},
+      {"@type":"ListItem","position":14,"url":"https://lethometry.com/articles/fermi-paradox.html","name":"The Fermi Paradox"},
+      {"@type":"ListItem","position":15,"url":"https://lethometry.com/articles/gobekli-tepe.html","name":"Göbekli Tepe"},
+      {"@type":"ListItem","position":16,"url":"https://lethometry.com/articles/haarp.html","name":"HAARP"},
+      {"@type":"ListItem","position":17,"url":"https://lethometry.com/articles/project-blue-book.html","name":"Project Blue Book"},
+      {"@type":"ListItem","position":18,"url":"https://lethometry.com/articles/platos-cave.html","name":"Plato's Cave"},
+      {"@type":"ListItem","position":19,"url":"https://lethometry.com/articles/cicero-somnium.html","name":"Cicero's Somnium Scipionis"},
+      {"@type":"ListItem","position":20,"url":"https://lethometry.com/articles/antikythera-mechanism.html","name":"The Antikythera Mechanism"},
+      {"@type":"ListItem","position":21,"url":"https://lethometry.com/articles/baghdad-battery.html","name":"The Baghdad Battery"},
+      {"@type":"ListItem","position":22,"url":"https://lethometry.com/articles/tuskegee-experiment.html","name":"Tuskegee"},
+      {"@type":"ListItem","position":23,"url":"https://lethometry.com/articles/kecksburg-ufo.html","name":"The Kecksburg UFO"},
+      {"@type":"ListItem","position":24,"url":"https://lethometry.com/articles/uap-2023-report.html","name":"The Pentagon's 2023 UAP Report"},
+      {"@type":"ListItem","position":25,"url":"https://lethometry.com/articles/de-beers-diamonds.html","name":"De Beers and the Diamond Programming"}
+    ]
+  }
+  </script>
+
   <style>
     .ap-head{text-align:center;padding:140px 2rem 3rem;max-width:850px;margin:0 auto}
     .ap-head h1{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:#fff;text-shadow:0 0 30px rgba(0,255,65,.3);letter-spacing:4px;margin-bottom:1rem}
@@ -23,17 +70,19 @@
     .ap-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--g);transition:height .4s}
     .ap-card:hover::before{height:100%}
     .ap-card:hover{transform:translateY(-4px);border-color:rgba(0,255,65,.12);box-shadow:0 12px 35px rgba(0,0,0,.25)}
-    .ap-card .cls{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--a);letter-spacing:2px;display:inline-block;padding:.15rem .5rem;background:rgba(255,170,0,.06);border:1px solid rgba(255,170,0,.12);border-radius:4px;margin-bottom:.6rem}
+    .ap-card .cls{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--a-text);letter-spacing:2px;display:inline-block;padding:.15rem .5rem;background:rgba(255,136,0,.06);border:1px solid rgba(255,136,0,.12);border-radius:4px;margin-bottom:.6rem}
     .ap-card h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:#fff;margin-bottom:.4rem;letter-spacing:1px;line-height:1.4}
     .ap-card p{font-size:.85rem;color:var(--td);line-height:1.6;margin-bottom:.8rem}
     .ap-card .meta{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:1px;margin-bottom:.6rem}
     .ap-card .rm{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c);letter-spacing:2px;display:inline-flex;align-items:center;gap:.4rem;transition:all .3s}
     .ap-card:hover .rm{gap:.8rem;text-shadow:var(--gc)}
-    .ap-stat{text-align:center;color:var(--tk);font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:2px;margin-bottom:2rem}
+    .ap-stat{text-align:center;color:var(--tk);font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:2px;margin-bottom:2rem;min-height:1.5em}
+    .no-results{grid-column:1/-1;text-align:center;padding:3rem;color:var(--td);font-family:'Share Tech Mono',monospace;font-size:.9rem;letter-spacing:2px}
     @media(max-width:768px){.ap-list{grid-template-columns:1fr}.ap-filters{padding:0 1rem}}
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <div class="crt" aria-hidden="true"></div>
   <nav role="navigation" aria-label="Main navigation">
     <div class="n-logo">LETHOMETRY</div>
@@ -47,26 +96,27 @@
     </ul>
   </nav>
 
+  <main id="main">
   <div class="ap-head">
     <div class="h-badge" style="display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--c);letter-spacing:4px;padding:.3rem .8rem;border:1px solid rgba(0,229,255,.25);border-radius:20px;margin-bottom:1.5rem;background:rgba(0,229,255,.04)">// COMPLETE ARCHIVE //</div>
     <h1>ALL ARTICLES</h1>
     <p>25 deep investigations into the anomalies reality tries to hide. Filter by category or scroll the full index.</p>
   </div>
 
-  <div class="ap-stat" id="ap-stat">// SHOWING ALL 25 ARTICLES //</div>
+  <div class="ap-stat" id="ap-stat" role="status" aria-live="polite">// SHOWING ALL 25 ARTICLES //</div>
 
-  <div class="ap-filters" id="ap-filters">
-    <button data-filter="all" class="active">ALL</button>
-    <button data-filter="TEMPORAL ANOMALY">TEMPORAL</button>
-    <button data-filter="GOVERNMENT — DECLASSIFIED">GOVERNMENT</button>
-    <button data-filter="THE WATCHERS">WATCHERS</button>
-    <button data-filter="SUPPRESSED TECHNOLOGY">SUPPRESSED</button>
-    <button data-filter="ANCIENT SIMULATION CLUES">ANCIENT</button>
-    <button data-filter="SIMULATION THEORY">SIMULATION</button>
-    <button data-filter="MANDELA EFFECT LAB">MANDELA</button>
-    <button data-filter="RELIGION AS SIMULATION">RELIGION</button>
-    <button data-filter="SOCIAL MEDIA CONTROL">SOCIAL</button>
-    <button data-filter="LONGEVITY NEXUS">LONGEVITY</button>
+  <div class="ap-filters" id="ap-filters" role="group" aria-label="Filter articles by category">
+    <button data-filter="all" class="active" type="button">ALL</button>
+    <button data-filter="TEMPORAL ANOMALY" type="button">TEMPORAL</button>
+    <button data-filter="GOVERNMENT — DECLASSIFIED" type="button">GOVERNMENT</button>
+    <button data-filter="THE WATCHERS" type="button">WATCHERS</button>
+    <button data-filter="SUPPRESSED TECHNOLOGY" type="button">SUPPRESSED</button>
+    <button data-filter="ANCIENT SIMULATION CLUES" type="button">ANCIENT</button>
+    <button data-filter="SIMULATION THEORY" type="button">SIMULATION</button>
+    <button data-filter="MANDELA EFFECT LAB" type="button">MANDELA</button>
+    <button data-filter="RELIGION AS SIMULATION" type="button">RELIGION</button>
+    <button data-filter="SOCIAL MEDIA CONTROL" type="button">SOCIAL</button>
+    <button data-filter="LONGEVITY NEXUS" type="button">LONGEVITY</button>
   </div>
 
   <div class="ap-list" id="ap-list">
@@ -214,12 +264,13 @@
   </footer>
 
   <div class="dc" aria-hidden="true"><label>REALITY</label><input type="range" id="distortion-slider" min="0" max="1" step="0.01" value="0"></div>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
   <script>
   (function(){
     const filters = document.querySelectorAll('.ap-filters button');
     const cards = document.querySelectorAll('.ap-card');
     const stat = document.getElementById('ap-stat');
+    const list = document.getElementById('ap-list');
     function applyFilter(f) {
       filters.forEach(b => b.classList.toggle('active', b.dataset.filter === f));
       let shown = 0;
@@ -228,12 +279,22 @@
         c.style.display = match ? '' : 'none';
         if (match) shown++;
       });
+      // Empty state
+      let empty = list.querySelector('.no-results');
+      if (shown === 0) {
+        if (!empty) {
+          empty = document.createElement('div');
+          empty.className = 'no-results';
+          empty.setAttribute('role','status');
+          empty.textContent = '// NO ARTICLES IN THIS CATEGORY //';
+          list.appendChild(empty);
+        }
+      } else if (empty) { empty.remove(); }
       stat.textContent = '// SHOWING ' + shown + (shown === 1 ? ' ARTICLE' : ' ARTICLES') + (f === 'all' ? ' //' : ' IN "' + f + '" //');
     }
     filters.forEach(btn => {
       btn.addEventListener('click', () => {
         applyFilter(btn.dataset.filter);
-        // update URL so category is shareable
         const url = new URL(window.location);
         if (btn.dataset.filter === 'all') url.searchParams.delete('cat');
         else url.searchParams.set('cat', btn.dataset.filter);
@@ -248,5 +309,6 @@
     }
   })();
   </script>
+  </main>
 </body>
 </html>

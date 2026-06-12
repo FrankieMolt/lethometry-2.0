@@ -16,19 +16,72 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LETHOMETRY — The Simulation Archive">
   <meta name="twitter:description" content="What Time Tries to Forget, We Defy.">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
   <link rel="canonical" href="https://lethometry.com/">
   <meta property="og:site_name" content="LETHOMETRY">
   <meta property="article:author" content="Lethometry Research">
+  <meta name="robots" content="index, follow">
+  <link rel="alternate" hreflang="en" href="https://lethometry.com/">
+  <link rel="alternate" hreflang="x-default" href="https://lethometry.com/">
+
+  <!-- Preconnect to font CDN -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//static.cloudflareinsights.com">
+
+  <!-- Skip-link: target is the main content region -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Structured Data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "LETHOMETRY",
+    "alternateName": "The Simulation Archive",
+    "url": "https://lethometry.com",
+    "description": "Simulation theory, Mandela effects, suppressed technology, and the anomalies reality tries to hide.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lethometry Research",
+      "url": "https://lethometry.com"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://lethometry.com/articles.html?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LETHOMETRY",
+    "url": "https://lethometry.com",
+    "logo": "https://lethometry.com/favicon.svg",
+    "sameAs": ["https://github.com/NosytLabs"]
+  }
+  </script>
 </head>
 <body>
+
+<!-- Detect JS early; controls loader visibility. Content is visible without JS. -->
+<script>document.documentElement.classList.add('js');</script>
+<noscript>
+  <div style="background:#ff3;padding:.8rem 1rem;text-align:center;color:#000;font-family:monospace;font-size:.85rem;border-bottom:2px solid #000;">
+    ⚠️ JavaScript is disabled. All articles and content remain fully readable — only the 3D hero animation and interactive lab are unavailable.
+  </div>
+</noscript>
 
 <div id="loader" aria-hidden="true"><div class="ldr-ring"></div><div class="ldr-txt">INITIALIZING ARCHIVE...</div></div>
 <div class="crt" aria-hidden="true"></div>
 
 <!-- Easter Egg -->
 <div id="eg" role="dialog" aria-label="Developer Console" aria-hidden="true">
-  <div class="eh"><span>// DEVELOPER CONSOLE</span><button id="eg-close" type="button">[X]</button></div>
+  <div class="eh"><span>// DEVELOPER CONSOLE</span><button id="eg-close" type="button" aria-label="Close developer console">[X]</button></div>
   <div class="ec"></div>
 </div>
 
@@ -46,6 +99,8 @@
   </ul>
 </nav>
 
+<main id="main">
+
 <!-- Hero -->
 <section id="hero" aria-label="Hero">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
@@ -56,7 +111,7 @@
     <p class="h-desc">An immersive exploration of simulation theory, Mandela effects, suppressed technology, and the anomalies that reality tries to hide.</p>
     <div class="h-btns">
       <button class="btn-rp" id="red-pill-btn" type="button">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
         Take the Red Pill
       </button>
       <a href="#categories" class="btn-sec">Explore the Archive →</a>
@@ -70,40 +125,40 @@
   <div class="sh fu"><span class="stag">// ARCHIVE DATABASE</span><h2>EXPLORE THE ARCHIVE</h2><p>Nine categories of anomalies, each meticulously documented and sourced.</p></div>
   <div class="srch fu"><input type="text" id="search-input" placeholder="Search the archive..." aria-label="Search archive"></div>
   <div class="cgrid sca">
-    <div class="cc fu" data-scrollto="mandela" tabindex="0" role="button">
-      <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 7V7a3 3 0 0 1 6 0v2H9z"/></svg></div>
+    <button class="cc fu" type="button" data-scrollto="mandela">
+      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 7V7a3 3 0 0 1 6 0v2H9z"/></svg></div>
       <h3>MANDELA EFFECT LAB</h3><p>Interactive comparisons documenting 69+ reality shifts. Berenstain vs Berenstein, Shazaam, Mirror Mirror.</p><span class="cnt">69+ DOCUMENTED CASES</span>
-    </div>
-    <div class="cc fu" data-scrollto="timeline" tabindex="0" role="button">
-      <div class="cc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+    </button>
+    <button class="cc fu" type="button" data-scrollto="timeline">
+      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
       <h3>TEMPORAL ANOMALIES</h3><p>Events that shouldn't align but do. FDR's Thanksgiving, Baron Trump, De Beers, Fermi Paradox, Philadelphia Experiment.</p><span class="cnt">15 ANOMALIES CATALOGED</span>
-    </div>
+    </button>
     <a class="cc fu" href="articles.html?cat=SUPPRESSED%20TECHNOLOGY">
-      <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
       <h3>SUPPRESSED TECHNOLOGY</h3><p>Tesla's free energy, Baghdad Battery, Dendera Light Bulb, Coral Castle, HAARP, Electrogravitics.</p><span class="cnt">10 TECHNOLOGIES EXPOSED</span>
     </a>
     <a class="cc fu" href="articles.html?cat=ANCIENT%20SIMULATION%20CLUES">
-      <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
       <h3>ANCIENT SIMULATION CLUES</h3><p>Cicero's Somnium Scipionis, Plato's Cave, Emerald Tablet, Egyptian Helicopter Hieroglyphs, Göbekli Tepe, Antikythera Mechanism.</p><span class="cnt">12 ANCIENT ANOMALIES</span>
     </a>
     <a class="cc fu" href="articles.html?cat=LONGEVITY%20NEXUS">
-      <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg></div>
+      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg></div>
       <h3>LONGEVITY NEXUS</h3><p>Aubrey de Grey's Longevity Escape Velocity, rapamycin, NAD+, senolytics, cryonics as save states.</p><span class="cnt">6 BREAKTHROUGHS TRACKED</span>
     </a>
     <a class="cc fu" href="articles.html?cat=GOVERNMENT%20%E2%80%94%20DECLASSIFIED">
-      <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
       <h3>GOVERNMENT REALITY MANUFACTURING</h3><p>MKUltra, Operation Northwoods, Tuskegee, Philadelphia Experiment. Declassified proof.</p><span class="cnt">5 PROGRAMS DECLASSIFIED</span>
     </a>
     <a class="cc fu" href="articles.html?cat=THE%20WATCHERS">
-      <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
+      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
       <h3>THE WATCHERS</h3><p>Hydrogen Bomb UFO spike (1952), Project Blue Book, Kecksburg, UFO flap patterns, USO encounters.</p><span class="cnt">10 ENCOUNTERS DOCUMENTED</span>
     </a>
     <a class="cc fu" href="articles.html?cat=RELIGION%20AS%20SIMULATION">
-      <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg></div>
+      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg></div>
       <h3>RELIGION AS SIMULATION</h3><p>Roman Imperial Cult, Constantine's Nicaea, Indulgences, Divine Right of Kings. The original control system.</p><span class="cnt">5 CONTROL SYSTEMS ANALYZED</span>
     </a>
     <a class="cc fu" href="articles.html?cat=SOCIAL%20MEDIA%20CONTROL">
-      <div class="cc-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
       <h3>SOCIAL MEDIA CONTROL</h3><p>Attention economy, algorithmic manipulation, dopamine hacking, surveillance capitalism. The new religion.</p><span class="cnt">6 MECHANISMS EXPOSED</span>
     </a>
   </div>
@@ -208,6 +263,39 @@
 <!-- Distortion Control -->
 <div class="dc" aria-hidden="true"><label>REALITY</label><input type="range" id="distortion-slider" min="0" max="1" step="0.01" value="0"></div>
 
-<script src="js/main.js"></script>
+<!-- main.js: deferred. three.min.js: lazy-loaded only when hero canvas is visible.
+     This saves ~600KB on article pages (which never need Three.js). -->
+<script src="js/main.js" defer></script>
+<script>
+  // Lazy-load Three.js only when hero canvas scrolls into view.
+  if ('IntersectionObserver' in window) {
+    const c = document.getElementById('hero-canvas');
+    if (c) {
+      const io = new IntersectionObserver((es) => {
+        if (es[0].isIntersecting) {
+          const s = document.createElement('script');
+          s.src = 'js/three.min.js';
+          s.async = true;
+          document.head.appendChild(s);
+          io.disconnect();
+        }
+      }, { rootMargin: '200px' });
+      io.observe(c);
+    }
+  }
+</script>
+
+<!-- Lightweight error reporting -->
+<script>
+  window.addEventListener('error', (e) => {
+    try {
+      navigator.sendBeacon('/api/errors', JSON.stringify({
+        msg: e.message, file: e.filename, line: e.lineno, col: e.colno,
+        url: location.href, ua: navigator.userAgent, ts: Date.now()
+      }));
+    } catch (_) {}
+  });
+</script>
+</main>
 </body>
 </html>
