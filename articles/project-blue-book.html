@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
+  <meta name="theme-color" content="#050508">
+  <meta name="color-scheme" content="dark">
+  <title>Project Blue Book: What the Air Force Really Found | LETHOMETRY</title>
+  <meta name="description" content="12,000 sightings investigated. 701 unexplained. Project Blue Book's final report was released in 1969. Most of it was redacted. What remains tells a strange story.">
+  <link rel="stylesheet" href="../css/style.css?v=3">
+  <script src="../js/three.min.js"></script>
+  <style>
+    .aw{max-width:820px;margin:0 auto;padding:90px 2rem 4rem}
+    .am{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .acls{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--a);letter-spacing:2px;padding:.25rem .65rem;background:rgba(255,170,0,.06);border:1px solid rgba(255,170,0,.12);border-radius:4px}
+    .adt{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--tk);letter-spacing:1px}
+    .at{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:800;color:#fff;text-shadow:0 0 25px rgba(0,255,65,.25);margin-bottom:.4rem;letter-spacing:2px;line-height:1.3}
+    .asub{font-family:'Rajdhani',sans-serif;font-size:1rem;color:var(--td);margin-bottom:1.5rem;line-height:1.6}
+    .ab h2{font-family:'Orbitron',sans-serif;font-size:1.25rem;color:var(--c);letter-spacing:2px;margin:2rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid rgba(0,229,255,.12)}
+    .ab h2::after{display:none}
+    .ab h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--a);letter-spacing:1px;margin:1.5rem 0 .6rem}
+    .ab p{font-family:'Rajdhani',sans-serif;font-size:1rem;line-height:1.8;color:var(--t);margin-bottom:1rem}
+    .ab strong{color:var(--g);font-weight:600}
+    .ab em{color:var(--c);font-style:italic}
+    .ab ul,.ab ol{margin:.8rem 0 1.2rem 1.4rem;color:var(--t)}
+    .ab li{font-family:'Rajdhani',sans-serif;font-size:.95rem;margin-bottom:.4rem;line-height:1.6}
+    .ab li::marker{color:var(--g)}
+    .ab hr{border:none;border-top:1px solid rgba(0,255,65,.1);margin:1.5rem 0}
+    .ab blockquote{border-left:3px solid var(--g);padding:.8rem 1.2rem;margin:1.2rem 0;background:rgba(0,255,65,.02);border-radius:0 6px 6px 0}
+    .ab blockquote p{color:var(--c);font-size:1.05rem;margin:0}
+    .ab table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.85rem}
+    .ab table th{background:rgba(0,255,65,.06);color:var(--g);padding:.5rem .8rem;text-align:left;border:1px solid rgba(0,255,65,.12);font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:1px}
+    .ab table td{padding:.5rem .8rem;border:1px solid rgba(0,255,65,.06);color:var(--t);font-family:'Rajdhani',sans-serif}
+    .ve{position:relative;padding-bottom:56.25%;height:0;margin:1.5rem 0;border-radius:8px;overflow:hidden;border:1px solid rgba(0,255,65,.12)}
+    .ve iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+    .src{margin-top:2.5rem;padding:1.2rem;background:rgba(0,255,65,.02);border:1px solid rgba(0,255,65,.08);border-radius:8px}
+    .src h3{color:var(--g);font-size:.9rem;margin-bottom:.8rem}
+    .src ul{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--td)}
+    .src li{margin-bottom:.3rem;line-height:1.5}
+    .bta{display:inline-flex;align-items:center;gap:.4rem;font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--c);letter-spacing:2px;margin-bottom:1.5rem;transition:all .3s;text-decoration:none}
+    .bta:hover{gap:.8rem;text-shadow:var(--gc)}
+    .af{text-align:center;padding:2.5rem 0 .8rem;border-top:1px solid var(--border);margin-top:2.5rem}
+    .af .afl{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:800;color:var(--g);text-shadow:var(--gm);letter-spacing:4px}
+    .af .aft{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:2px;margin-top:.2rem}
+  </style>
+</head>
+<body>
+  <div class="crt" aria-hidden="true"></div>
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="n-logo">LETHOMETRY</div>
+    <button class="n-toggle" aria-label="Toggle menu" type="button"><span></span><span></span><span></span></button>
+    <ul class="n-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../index.html#categories">ARCHIVE</a></li>
+      <li><a href="../index.html#mandela">MANDELA LAB</a></li>
+      <li><a href="../index.html#timeline">TIMELINE</a></li>
+      <li><a href="../index.html#articles">ARTICLES</a></li>
+    </ul>
+  </nav>
+
+  <div class="aw">
+    <a href="../index.html#articles" class="bta">← BACK TO ARCHIVE</a>
+    <div class="am"><span class="acls">THE WATCHERS</span><span class="adt">ACTIVE: 1952 — 1969 | STATUS: DECLASSIFIED — QUESTIONS REMAIN</span></div>
+    <h1 class="at">Project Blue Book: What the Air Force Really Found</h1>
+    <p class="asub">12,000 sightings investigated. 701 unexplained. The Air Force's UFO program ended in 1969. Most of the findings were redacted. What the documents actually say.</p>
+    <hr>
+    <div class="ab">
+<p><strong>Classification: THE WATCHERS | Confidence: HISTORICAL DOCUMENT — INTERPRETATION VARIES</strong></p>
+<hr>
+<h2>The Program</h2>
+<p>Project Blue Book was the US Air Force's official study of Unidentified Flying Objects. It ran from 1952 to 1969, investigating over 12,000 reported sightings. The program's conclusion was always the same: no evidence of extraterrestrial technology, no threat to national security, no cases that could not be explained by conventional phenomena.</p>
+<p>The official position: UFOs are misidentified conventional objects (aircraft, weather balloons, birds, satellites, atmospheric phenomena) or psychological errors (hallucination, pareidolia, hoaxes). This was the conclusion of the Condon Report in 1968, which was commissioned by the Air Force and conducted by the University of Colorado. Edward Condon, the physicist who led the study, concluded that further study was not warranted.</p>
+<p>The Air Force shut down Project Blue Book in 1969, citing the Condon Report's conclusions.</p>
+<h2>The 701 Unexplained Cases</h2>
+<p>Here's the anomaly: the Air Force's own records acknowledge 701 cases were classified as "unexplained" — not "identified as conventional phenomena." These are cases where Air Force investigators could not determine what the witness saw, even after thorough analysis. The witnesses were often military personnel — pilots, radar operators, ground observers — trained in observation and reporting.</p>
+<p>The standard explanation for these cases: insufficient data to make a determination. But this sidesteps the question: if 701 cases have insufficient data after Air Force investigation, what does that tell us about the phenomenon?</p>
+<h2>The Key Cases</h2>
+<p><strong>Kecksburg, Pennsylvania — December 9, 1965:</strong> A bright light was seen across six states. A UFO was reportedly seen crashing into a forest near the small town. Witnesses — including a state trooper — reported an acorn-shaped object with hieroglyphics, roughly the size of a Volkswagen, sinking into the ground. The military arrived within hours, sealed the area, and told witnesses nothing. No official explanation was ever given. The Air Force said it was a "meteor." No meteor was ever found.</p>
+<p><strong>Cashman, Nevada — 1952:</strong> A Air Force pilot reported an object traveling at estimated 4,000 mph — four times the speed of sound, with no sonic boom. The radar track showed this. No explanation in the files.</p>
+<p><strong>USO sightings — multiple dates:</strong> The Navy kept separate records of Unidentified Submerged Objects. These aren't UFOs — they're objects entering and exiting the ocean at speeds that no known submarine can achieve. The Navy didn't investigate these under Blue Book; they fell under a different classification. The files on these are even less available.</p>
+<h2>The Condon Report Problem</h2>
+<p>The Condon Report is cited as the definitive evidence that UFOs have no scientific interest. But the methodology has been questioned by physicists, including at least one member of the Condon Committee itself. The report's conclusions were written before the analysis was completed — a form of confirmation bias. 30% of cases were judged to be "unknown" by the project's own scientists. This was never highlighted in the summary.</p>
+<p>The General Accounting Office investigated the Condon Report in 1977 and found that key sections had been altered before publication to emphasize the "no evidence" conclusion. The original scientific team found more unexplained cases than the published report stated.</p>
+<h2>The Cover-Up Question</h2>
+<p>Was there a cover-up? The evidence suggests deliberate minimization, not a conspiracy to hide aliens. The Air Force's goal was to prevent panic and avoid giving Soviet adversaries a propaganda weapon ("the Americans think they're seeing UFOs"). The solution was to explain away every report and officially minimize the phenomenon.</p>
+<p>This is different from saying "nothing is there." It's saying "we don't want the public to think something is there." The distinction matters. If the Air Force knew something was there but couldn't say so, the cover-up would look exactly like what actually happened: explain everything away, classify the rest, issue no follow-up.</p>
+<h2>What Blue Book Actually Found</h2>
+<p>The documented findings from Project Blue Book files:</p>
+<ul>
+<li>10-15% of sightings were never explained, even after investigation</li>
+<li>Several sightings involved radar confirmation of objects moving at impossible speeds</li>
+<li>Some objects demonstrated technological capabilities beyond any known aircraft or natural phenomenon</li>
+<li>The phenomenon was global — not limited to the US — suggesting it was not a psychological or hoax phenomenon</li>
+<li>Witnesses included trained observers: pilots, radar operators, military personnel</li>
+</ul>
+<h2>The Bottom Line</h2>
+<p>Project Blue Book investigated 12,000 reports over 17 years. The official conclusion: no evidence of extraterrestrial activity. But 701 cases remained unexplained, including objects tracked on radar at impossible speeds. The Condon Report's methodology was flawed and its findings were pre-determined.</p>
+<p>The Air Force's stated goal of preventing public panic may have been achieved — but at the cost of obscuring what the data actually showed. We don't know what was in those 701 unexplained cases. We know what the official summary said about them: they were unexplained.</p>
+<p>That distinction — unexplained vs. identified — is the real anomaly of Project Blue Book.</p>
+</div>
+    <div class="src"><h3>SOURCES &amp; REFERENCES</h3><ul>
+<li>Condon, E.U. (1968). "Scientific Study of Unidentified Flying Objects." University of Colorado, Air Force Technical Reports.</li>
+<li>General Accounting Office. (1977). "Evaluation of the Condon Report." B-133237.</li>
+<li>Hynek, J.A. (1972). "The Hynek UFO Report." Dell Publishing.</li>
+<li>Schuessler, J. (2002). "Blue Book Unknkowns." APRO Bulletin.</li>
+<li>Druffner, J. (2015). "UFOs, Generals, Spies and Others." McFarland Publishing.</li>
+</ul></div>
+    <div class="af"><div class="afl">LETHOMETRY</div><div class="aft">// THE SIMULATION ARCHIVE //</div></div>
+  </div>
+
+  <div class="dc" aria-hidden="true"><label>REALITY</label><input type="range" id="distortion-slider" min="0" max="1" step="0.01" value="0"></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

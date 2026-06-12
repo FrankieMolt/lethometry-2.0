@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
+  <meta name="theme-color" content="#050508">
+  <meta name="color-scheme" content="dark">
+  <title>All Articles | LETHOMETRY — The Simulation Archive</title>
+  <meta name="description" content="Complete index of LETHOMETRY articles. 26 deep investigations into simulation theory, suppressed technology, Mandela effects, and the anomalies reality tries to hide.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <script src="js/three.min.js"></script>
+  <style>
+    .ap-head{text-align:center;padding:140px 2rem 3rem;max-width:850px;margin:0 auto}
+    .ap-head h1{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:#fff;text-shadow:0 0 30px rgba(0,255,65,.3);letter-spacing:4px;margin-bottom:1rem}
+    .ap-head p{color:var(--td);font-size:1.05rem;max-width:600px;margin:0 auto;line-height:1.7}
+    .ap-filters{max-width:1300px;margin:0 auto 2rem;padding:0 2rem;display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+    .ap-filters button{padding:.5rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;background:rgba(17,17,24,.7);border:1px solid var(--border);color:var(--td);border-radius:6px;cursor:pointer;transition:all .3s}
+    .ap-filters button:hover{border-color:rgba(0,255,65,.3);color:var(--g)}
+    .ap-filters button.active{background:rgba(0,255,65,.08);border-color:var(--g);color:var(--g);box-shadow:var(--gm)}
+    .ap-list{max-width:1300px;margin:0 auto 4rem;padding:0 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:1.2rem}
+    .ap-card{background:linear-gradient(145deg,rgba(17,17,24,.75),rgba(10,10,18,.85));border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:all .4s;position:relative;overflow:hidden;text-decoration:none;display:block}
+    .ap-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--g);transition:height .4s}
+    .ap-card:hover::before{height:100%}
+    .ap-card:hover{transform:translateY(-4px);border-color:rgba(0,255,65,.12);box-shadow:0 12px 35px rgba(0,0,0,.25)}
+    .ap-card .cls{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--a);letter-spacing:2px;display:inline-block;padding:.15rem .5rem;background:rgba(255,170,0,.06);border:1px solid rgba(255,170,0,.12);border-radius:4px;margin-bottom:.6rem}
+    .ap-card h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:#fff;margin-bottom:.4rem;letter-spacing:1px;line-height:1.4}
+    .ap-card p{font-size:.85rem;color:var(--td);line-height:1.6;margin-bottom:.8rem}
+    .ap-card .meta{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:1px;margin-bottom:.6rem}
+    .ap-card .rm{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c);letter-spacing:2px;display:inline-flex;align-items:center;gap:.4rem;transition:all .3s}
+    .ap-card:hover .rm{gap:.8rem;text-shadow:var(--gc)}
+    .ap-stat{text-align:center;color:var(--tk);font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:2px;margin-bottom:2rem}
+    @media(max-width:768px){.ap-list{grid-template-columns:1fr}.ap-filters{padding:0 1rem}}
+  </style>
+</head>
+<body>
+  <div class="crt" aria-hidden="true"></div>
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="n-logo">LETHOMETRY</div>
+    <button class="n-toggle" aria-label="Toggle menu" type="button"><span></span><span></span><span></span></button>
+    <ul class="n-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="index.html#categories">ARCHIVE</a></li>
+      <li><a href="index.html#mandela">MANDELA LAB</a></li>
+      <li><a href="index.html#timeline">TIMELINE</a></li>
+      <li><a href="articles.html">ARTICLES</a></li>
+    </ul>
+  </nav>
+
+  <div class="ap-head">
+    <div class="h-badge" style="display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--c);letter-spacing:4px;padding:.3rem .8rem;border:1px solid rgba(0,229,255,.25);border-radius:20px;margin-bottom:1.5rem;background:rgba(0,229,255,.04)">// COMPLETE ARCHIVE //</div>
+    <h1>ALL ARTICLES</h1>
+    <p>25 deep investigations into the anomalies reality tries to hide. Filter by category or scroll the full index.</p>
+  </div>
+
+  <div class="ap-stat" id="ap-stat">// SHOWING ALL 25 ARTICLES //</div>
+
+  <div class="ap-filters" id="ap-filters">
+    <button data-filter="all" class="active">ALL</button>
+    <button data-filter="TEMPORAL ANOMALY">TEMPORAL</button>
+    <button data-filter="GOVERNMENT — DECLASSIFIED">GOVERNMENT</button>
+    <button data-filter="THE WATCHERS">WATCHERS</button>
+    <button data-filter="SUPPRESSED TECHNOLOGY">SUPPRESSED</button>
+    <button data-filter="ANCIENT SIMULATION CLUES">ANCIENT</button>
+    <button data-filter="SIMULATION THEORY">SIMULATION</button>
+    <button data-filter="MANDELA EFFECT LAB">MANDELA</button>
+    <button data-filter="RELIGION AS SIMULATION">RELIGION</button>
+    <button data-filter="SOCIAL MEDIA CONTROL">SOCIAL</button>
+    <button data-filter="LONGEVITY NEXUS">LONGEVITY</button>
+  </div>
+
+  <div class="ap-list" id="ap-list">
+    <a href="articles/thanksgiving-glitch.html" class="ap-card" data-cat="TEMPORAL ANOMALY">
+      <span class="cls">TEMPORAL ANOMALY</span><h3>The 1939 Thanksgiving Glitch: How Retailers Rewrote Time</h3>
+      <p class="exc">FDR moved Thanksgiving by executive decree to extend Christmas shopping. The nation split. Proof that traditions are manufactured.</p>
+      <div class="meta">1939</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/baron-trump.html" class="ap-card" data-cat="TEMPORAL ANOMALY">
+      <span class="cls">TEMPORAL ANOMALY</span><h3>Baron Trump's Marvelous Underground Journey (1893)</h3>
+      <p class="exc">Ingersoll Lockwood's novel features Von Trump traveling to Russia with a guide named "Don." 123 years before the 45th President.</p>
+      <div class="meta">1893</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/de-beers-diamonds.html" class="ap-card" data-cat="TEMPORAL ANOMALY">
+      <span class="cls">TEMPORAL ANOMALY</span><h3>De Beers and the Diamond Programming (1947)</h3>
+      <p class="exc">The diamond engagement ring "tradition" is 78 years old. Invented by marketing. Before 1947: 10% had diamonds. By 1990: 80%.</p>
+      <div class="meta">1947</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/fermi-paradox.html" class="ap-card" data-cat="TEMPORAL ANOMALY">
+      <span class="cls">TEMPORAL ANOMALY</span><h3>The Fermi Paradox: Where Is Everyone?</h3>
+      <p class="exc">400 billion stars. Billions of years. No signal. No visitors. The silence isn't a mystery — it may be a feature of the design.</p>
+      <div class="meta">MODERN</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/philadelphia-experiment.html" class="ap-card" data-cat="TEMPORAL ANOMALY">
+      <span class="cls">TEMPORAL ANOMALY</span><h3>The Philadelphia Experiment: When the Navy Tried to Make a Ship Invisible</h3>
+      <p class="exc">Oct 28, 1943. The USS Eldridge. Cloaking device. Men teleported. Time slips. The story that won't stay in the past.</p>
+      <div class="meta">1943</div><span class="rm">READ →</span>
+    </a>
+
+    <a href="articles/operation-northwoods.html" class="ap-card" data-cat="GOVERNMENT — DECLASSIFIED">
+      <span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>Operation Northwoods: They Planned It</h3>
+      <p class="exc">Joint Chiefs proposed staging terrorist attacks on US soil and blaming Cuba. JFK rejected it. Declassified in 2001.</p>
+      <div class="meta">1962</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/mkultra.html" class="ap-card" data-cat="GOVERNMENT — DECLASSIFIED">
+      <span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>MKUltra: The CIA's Mind Control Program</h3>
+      <p class="exc">20 years of experiments on unwitting subjects. LSD, sensory deprivation, electroshock. Helms destroyed the evidence.</p>
+      <div class="meta">1953–1973</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/tuskegee-experiment.html" class="ap-card" data-cat="GOVERNMENT — DECLASSIFIED">
+      <span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>Tuskegee: The 40-Year Medical Experiment</h3>
+      <p class="exc">The US Public Health Service watched 600 Black men die of syphilis. They told the men they were being treated.</p>
+      <div class="meta">1932–1972</div><span class="rm">READ →</span>
+    </a>
+
+    <a href="articles/hydrogen-bomb-ufos.html" class="ap-card" data-cat="THE WATCHERS">
+      <span class="cls">THE WATCHERS</span><h3>The Hydrogen Bomb Attracted Something (1952)</h3>
+      <p class="exc">UFO sightings spiked 162% after the first hydrogen bomb. The nuclear-UFO correlation has repeated throughout history.</p>
+      <div class="meta">1952</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/project-blue-book.html" class="ap-card" data-cat="THE WATCHERS">
+      <span class="cls">THE WATCHERS</span><h3>Project Blue Book: What the Air Force Really Found</h3>
+      <p class="exc">12,000 sightings. 701 unexplained. Project Blue Book ended in 1969. Most of the findings were redacted.</p>
+      <div class="meta">1952–1969</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/kecksburg-ufo.html" class="ap-card" data-cat="THE WATCHERS">
+      <span class="cls">THE WATCHERS</span><h3>The Kecksburg UFO: 60 Years of Denial</h3>
+      <p class="exc">December 9, 1965. A fireball over Ohio. A metallic acorn in the Pennsylvania woods. The official story changed six times.</p>
+      <div class="meta">1965</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/uap-2023-report.html" class="ap-card" data-cat="THE WATCHERS">
+      <span class="cls">THE WATCHERS</span><h3>The Pentagon's 2023 UAP Report: What They Admitted</h3>
+      <p class="exc">AARO's 2023 report admitted 800+ UAP encounters. Most remain unexplained. Physics-defying maneuvers. No origins.</p>
+      <div class="meta">2023</div><span class="rm">READ →</span>
+    </a>
+
+    <a href="articles/tesla-free-energy.html" class="ap-card" data-cat="SUPPRESSED TECHNOLOGY">
+      <span class="cls">SUPPRESSED TECHNOLOGY</span><h3>Tesla's Free Energy Suppressed</h3>
+      <p class="exc">"Where do I put the meter?" — J.P. Morgan. Tesla's free energy system could not be metered. The tower was demolished.</p>
+      <div class="meta">1901</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/haarp.html" class="ap-card" data-cat="SUPPRESSED TECHNOLOGY">
+      <span class="cls">SUPPRESSED TECHNOLOGY</span><h3>HAARP: Weather Weapon or Science Project?</h3>
+      <p class="exc">180 antennas. 3.6 megawatts. Conspiracy theories from earthquakes to mind control. What's real and what's not.</p>
+      <div class="meta">1997</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/baghdad-battery.html" class="ap-card" data-cat="SUPPRESSED TECHNOLOGY">
+      <span class="cls">SUPPRESSED TECHNOLOGY</span><h3>The Baghdad Battery: 2,000-Year-Old Electrochemistry</h3>
+      <p class="exc">A clay jar. A copper cylinder. An iron rod. Is it a battery, an electroplating device, or a Sumerian religious relic?</p>
+      <div class="meta">250 BCE</div><span class="rm">READ →</span>
+    </a>
+
+    <a href="articles/platos-cave.html" class="ap-card" data-cat="ANCIENT SIMULATION CLUES">
+      <span class="cls">ANCIENT SIMULATION CLUES</span><h3>Plato's Cave: The First Simulation Theory</h3>
+      <p class="exc">400 BCE. A philosopher describes prisoners chained watching shadows. The original proof that reality might not be what it seems.</p>
+      <div class="meta">380 BCE</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/gobekli-tepe.html" class="ap-card" data-cat="ANCIENT SIMULATION CLUES">
+      <span class="cls">ANCIENT SIMULATION CLUES</span><h3>Göbekli Tepe: The World's First Monument</h3>
+      <p class="exc">Built 12,000 years ago. Pre-agricultural. Pre-writing. Pre-stone tools. Who built it and why was it buried?</p>
+      <div class="meta">9500 BCE</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/cicero-somnium.html" class="ap-card" data-cat="ANCIENT SIMULATION CLUES">
+      <span class="cls">ANCIENT SIMULATION CLUES</span><h3>Cicero's Somnium Scipionis: The First Simulation Story</h3>
+      <p class="exc">Cicero's Dream of Scipio (c. 50 BCE) describes a multiverse of nested realities — written 2,000 years before the simulation hypothesis.</p>
+      <div class="meta">50 BCE</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/antikythera-mechanism.html" class="ap-card" data-cat="ANCIENT SIMULATION CLUES">
+      <span class="cls">ANCIENT SIMULATION CLUES</span><h3>The Antikythera Mechanism: A Computer from 100 BCE</h3>
+      <p class="exc">A 2,000-year-old Greek analog computer that predicted eclipses. We had to wait until 2021 to understand how it worked.</p>
+      <div class="meta">100 BCE</div><span class="rm">READ →</span>
+    </a>
+
+    <a href="articles/simulation-theory.html" class="ap-card" data-cat="SIMULATION THEORY">
+      <span class="cls">SIMULATION THEORY</span><h3>We Are Almost Certainly Living in a Simulation</h3>
+      <p class="exc">Bostrom's trilemma, fine-tuning, Planck length, quantum observer effect, holographic principle. The mathematical case.</p>
+      <div class="meta">2003</div><span class="rm">READ →</span>
+    </a>
+    <a href="articles/quantum-consciousness.html" class="ap-card" data-cat="SIMULATION THEORY">
+      <span class="cls">SIMULATION THEORY</span><h3>Quantum Consciousness: Does Observation Create Reality?</h3>
+      <p class="exc">The double-slit experiment. Wave function collapse. Why the observer may be the most important part of physics.</p>
+      <div class="meta">MODERN</div><span class="rm">READ →</span>
+    </a>
+
+    <a href="articles/mandela-effect.html" class="ap-card" data-cat="MANDELA EFFECT LAB">
+      <span class="cls">MANDELA EFFECT LAB</span><h3>Collective False Memory: Why Millions Remember Things That Never Happened</h3>
+      <p class="exc">Berenstain, Shazaam, Cornucopia. The science of why large groups of people share the same false memories.</p>
+      <div class="meta">MODERN</div><span class="rm">READ →</span>
+    </a>
+
+    <a href="articles/religion-simulation.html" class="ap-card" data-cat="RELIGION AS SIMULATION">
+      <span class="cls">RELIGION AS SIMULATION</span><h3>Religion as the Original Simulation</h3>
+      <p class="exc">Roman Imperial Cult, Constantine's Nicaea, Indulgences. The first control technology: invisible authorities enforcing visible control.</p>
+      <div class="meta">ANCIENT</div><span class="rm">READ →</span>
+    </a>
+
+    <a href="articles/social-media-control.html" class="ap-card" data-cat="SOCIAL MEDIA CONTROL">
+      <span class="cls">SOCIAL MEDIA CONTROL</span><h3>Social Media Is the New Religion</h3>
+      <p class="exc">"Your phone is a slot machine in your pocket." — Tristan Harris. The attention economy, algorithmic manipulation, dopamine hacking.</p>
+      <div class="meta">MODERN</div><span class="rm">READ →</span>
+    </a>
+
+    <a href="articles/longevity-simulation.html" class="ap-card" data-cat="LONGEVITY NEXUS">
+      <span class="cls">LONGEVITY NEXUS</span><h3>Longevity Escape Velocity: Outrunning the Simulation?</h3>
+      <p class="exc">Aubrey de Grey's thesis: if we cure aging faster than it kills us, we achieve escape velocity. If we live forever, do we break the code?</p>
+      <div class="meta">MODERN</div><span class="rm">READ →</span>
+    </a>
+  </div>
+
+  <footer role="contentinfo">
+    <div class="f-logo">LETHOMETRY</div>
+    <div class="f-tag">// THE SIMULATION ARCHIVE //</div>
+    <div class="f-links"><a href="index.html">HOME</a><a href="index.html#categories">ARCHIVE</a><a href="articles.html">ALL ARTICLES</a></div>
+    <div class="f-copy">WHAT TIME TRIES TO FORGET, WE DEFY © 2026</div>
+  </footer>
+
+  <div class="dc" aria-hidden="true"><label>REALITY</label><input type="range" id="distortion-slider" min="0" max="1" step="0.01" value="0"></div>
+  <script src="js/main.js"></script>
+  <script>
+  (function(){
+    const filters = document.querySelectorAll('.ap-filters button');
+    const cards = document.querySelectorAll('.ap-card');
+    const stat = document.getElementById('ap-stat');
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        let shown = 0;
+        cards.forEach(c => {
+          const match = (f === 'all' || c.dataset.cat === f);
+          c.style.display = match ? '' : 'none';
+          if (match) shown++;
+        });
+        stat.textContent = '// SHOWING ' + shown + (shown === 1 ? ' ARTICLE' : ' ARTICLES') + (f === 'all' ? ' //' : ' IN "' + f + '" //');
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
