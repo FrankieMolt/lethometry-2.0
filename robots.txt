@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: http://lethometry.com/sitemap.xml
+Disallow: /articles/_*
+Sitemap: https://lethometry.com/sitemap.xml
