@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://lethometry.com/articles.html">
   <meta property="og:image" content="https://lethometry.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=10">
   <link rel="canonical" href="https://lethometry.com/articles.html">
   <meta name="robots" content="index, follow">
 
@@ -66,15 +66,15 @@
     .ap-filters button:hover{border-color:rgba(0,255,65,.3);color:var(--g)}
     .ap-filters button.active{background:rgba(0,255,65,.08);border-color:var(--g);color:var(--g);box-shadow:var(--gm)}
     .ap-list{max-width:1300px;margin:0 auto 4rem;padding:0 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:1.2rem}
-    .ap-card{background:linear-gradient(145deg,rgba(17,17,24,.75),rgba(10,10,18,.85));border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:all .4s;position:relative;overflow:hidden;text-decoration:none;display:block}
+    .ap-card{background:linear-gradient(145deg,rgba(17,17,24,.75),rgba(10,10,18,.85));border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:all .4s;position:relative;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;min-height:260px}
     .ap-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--g);transition:height .4s}
     .ap-card:hover::before{height:100%}
     .ap-card:hover{transform:translateY(-4px);border-color:rgba(0,255,65,.12);box-shadow:0 12px 35px rgba(0,0,0,.25)}
-    .ap-card .cls{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--a-text);letter-spacing:2px;display:inline-block;padding:.15rem .5rem;background:rgba(255,136,0,.06);border:1px solid rgba(255,136,0,.12);border-radius:4px;margin-bottom:.6rem}
-    .ap-card h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:#fff;margin-bottom:.4rem;letter-spacing:1px;line-height:1.4}
-    .ap-card p{font-size:.85rem;color:var(--td);line-height:1.6;margin-bottom:.8rem}
+    .ap-card .cls{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--a-text);letter-spacing:2px;display:inline-block;padding:.15rem .5rem;background:rgba(255,136,0,.06);border:1px solid rgba(255,136,0,.12);border-radius:4px;margin-bottom:.6rem;align-self:flex-start}
+    .ap-card h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:#fff;margin-bottom:.4rem;letter-spacing:1px;line-height:1.4;min-height:2.8em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .ap-card p{font-size:.85rem;color:var(--td);line-height:1.6;margin-bottom:.8rem;flex-grow:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
     .ap-card .meta{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:1px;margin-bottom:.6rem}
-    .ap-card .rm{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c);letter-spacing:2px;display:inline-flex;align-items:center;gap:.4rem;transition:all .3s}
+    .ap-card .rm{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c);letter-spacing:2px;display:inline-flex;align-items:center;gap:.4rem;transition:all .3s;margin-top:auto}
     .ap-card:hover .rm{gap:.8rem;text-shadow:var(--gc)}
     .ap-stat{text-align:center;color:var(--tk);font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:2px;margin-bottom:2rem;min-height:1.5em}
     .no-results{grid-column:1/-1;text-align:center;padding:3rem;color:var(--td);font-family:'Share Tech Mono',monospace;font-size:.9rem;letter-spacing:2px}
