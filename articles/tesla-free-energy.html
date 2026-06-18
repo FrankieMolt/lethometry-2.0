@@ -19,7 +19,7 @@
   <meta property="article:section" content="ARCHIVE">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="../css/style.css?v=15">
+<link rel="stylesheet" href="../css/style.css?v=16">
   <style>
     .aw{max-width:880px;margin:0 auto;padding:90px 2rem 4rem}
     .am{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;flex-wrap:wrap}
@@ -78,8 +78,9 @@
     <ul class="n-links">
       <li><a href="../index.html">HOME</a></li>
       <li><a href="../index.html#categories">ARCHIVE</a></li>
-      <li><a href="../index.html#mandela">MANDELA LAB</a></li>
-      <li><a href="../index.html#timeline">TIMELINE</a></li>
+      <li><a href="../mandela.html">MANDELA LAB</a></li>
+      <li><a href="../timeline.html">TIMELINE</a></li>
+      <li><a href="../calculator.html">CALCULATOR</a></li>
       <li><a href="../index.html#articles">ARTICLES</a></li>
     </ul>
   </nav>
@@ -113,7 +114,14 @@
   </div>
 
   
-    <div class="related">
+        <div class="share-block">
+      <span class="share-lbl">// SHARE //</span>
+      <a data-share="twitter" href="#" rel="noopener" target="_blank"><span class="share-icon">𝕏</span> TWITTER</a>
+      <a data-share="facebook" href="#" rel="noopener" target="_blank"><span class="share-icon">f</span> FACEBOOK</a>
+      <a data-share="linkedin" href="#" rel="noopener" target="_blank"><span class="share-icon">in</span> LINKEDIN</a>
+      <button data-share="copy" type="button"><span class="share-icon">⎘</span> COPY LINK</button>
+    </div>
+  <div class="related">
       <h3 class="rh">// RELATED INVESTIGATIONS //</h3>
       <div class="rg">
         <a href="baghdad-battery.html" class="rc">
@@ -137,6 +145,12 @@
       </div>
     </div>
   <div class="dc" hidden><label>REALITY</label><input type="range" id="distortion-slider" min="0" max="1" step="0.01" value="0"></div>
+    <!-- Article page UX v3.6: progress, back-to-top, TOC (desktop+mobile), share. -->
+  <div id="rp" class="rp" aria-hidden="true"></div>
+  <button id="btt" class="btt" type="button" aria-label="Back to top" title="Back to top">↑</button>
+  <aside id="toc-side" class="toc-side" aria-label="Table of contents"><h4>// CONTENTS //</h4></aside>
+  <button id="toc-mob-btn" class="toc-mob-btn" type="button" aria-expanded="false" aria-controls="toc-mob"><span>// CONTENTS //</span><span class="toc-mob-arrow">▾</span></button>
+  <nav id="toc-mob" class="toc-mob" aria-label="Table of contents (mobile)"></nav>
   <script src="../js/main.js" defer></script>
 </main>
 </body>

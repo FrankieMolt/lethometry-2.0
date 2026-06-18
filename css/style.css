@@ -1,5 +1,5 @@
-/* LETHOMETRY — The Simulation Archive v3.5 */
-/* Single-file design system — v3.5: Modern 2026 dark palette, subtle body gradient, refined card hovers */
+/* LETHOMETRY — The Simulation Archive v3.6 */
+/* Single-file design system — v3.6: Article page UX — reading progress, back-to-top, TOC, share, header meta. */
 
 /* Embedded Google Fonts — only weights actually used:
    - Orbitron: 400 (regular), 600 (semi-bold), 700 (bold), 800 (extra-bold), 900 (black) — used in titles, headers
@@ -351,3 +351,78 @@ footer{position:relative;z-index:1;text-align:center;padding:3.5rem 2rem;border-
   .h-btns{gap:.8rem}
   .n-logo{font-size:1.05rem;letter-spacing:2px}
 }
+
+/* ===== ARTICLE PAGE UX (v3.6) ===== */
+/* Reading progress bar, back-to-top, table of contents, header meta, share. */
+
+/* Reading progress: 3px mint bar fixed to top of viewport. Sits BELOW the nav (z-index 9998). */
+.rp{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--g),#86efac);box-shadow:0 0 8px rgba(74,222,128,.6),0 0 18px rgba(74,222,128,.3);z-index:9998;transition:width 80ms linear;pointer-events:none;will-change:width}
+@media(prefers-reduced-motion:reduce){.rp{transition:none}}
+
+/* Back-to-top: 48x48 mint-border circle, bottom-right, hidden by default. */
+.btt{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;background:rgba(5,5,8,.82);border:1px solid rgba(74,222,128,.4);color:var(--g);font-size:1.1rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .25s,transform .25s,visibility .25s,background .2s,border-color .2s,box-shadow .2s;z-index:9990;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:'Share Tech Mono',monospace}
+.btt.show{opacity:1;visibility:visible;transform:translateY(0)}
+.btt:hover{background:rgba(0,255,65,.08);border-color:var(--g);box-shadow:0 0 18px rgba(74,222,128,.35),0 0 32px rgba(74,222,128,.15)}
+.btt:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:480px){.btt{right:14px;bottom:14px;width:44px;height:44px;font-size:1rem}}
+@media(prefers-reduced-motion:reduce){.btt{transition:opacity .01s,visibility .01s;transform:none}}
+
+/* Article header — promoted to feel like a publication masthead. */
+.aw{position:relative}
+.at-meta{display:flex;align-items:center;flex-wrap:wrap;gap:.6rem;margin:0 0 1.4rem;padding:.7rem 0;border-top:1px solid rgba(74,222,128,.15);border-bottom:1px solid rgba(74,222,128,.15)}
+.at-cat{font-family:'Share Tech Mono',monospace;font-size:.7rem;font-weight:700;color:var(--bg);background:linear-gradient(135deg,var(--a),#fbbf24);padding:.3rem .75rem;border-radius:4px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;box-shadow:0 0 12px rgba(245,158,11,.25)}
+.at-filed{font-family:'Orbitron',sans-serif;font-size:.85rem;font-weight:700;color:var(--g);letter-spacing:2px;text-shadow:var(--gm);text-transform:uppercase}
+.at-sep{color:var(--tk);font-family:'Share Tech Mono',monospace;opacity:.5}
+.at-stat{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c);letter-spacing:1px}
+.at-stat b{color:var(--t);font-weight:600}
+.at-stat.at-warn{color:var(--a)}
+
+/* Table of contents — desktop sticky sidebar */
+.toc-side{position:sticky;top:90px;width:200px;flex-shrink:0;font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--td);letter-spacing:1px;align-self:flex-start;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:.5rem;scrollbar-width:thin;scrollbar-color:rgba(74,222,128,.3) transparent}
+.toc-side::-webkit-scrollbar{width:3px}
+.toc-side::-webkit-scrollbar-thumb{background:rgba(74,222,128,.3);border-radius:2px}
+.toc-side h4{font-family:'Orbitron',sans-serif;font-size:.7rem;color:var(--g);letter-spacing:2px;margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid rgba(74,222,128,.15);text-shadow:var(--gm)}
+.toc-side ol{list-style:none;counter-reset:toc;padding:0;margin:0}
+.toc-side li{counter-increment:toc;margin:0;padding:0;line-height:1.4}
+.toc-side a{color:var(--td);text-decoration:none;display:block;padding:.35rem 0 .35rem 1rem;position:relative;border-left:2px solid transparent;transition:all .2s;word-break:break-word}
+.toc-side a::before{content:counter(toc,decimal-leading-zero);position:absolute;left:0;top:.35rem;font-size:.55rem;color:var(--tk);letter-spacing:1px;width:1rem;text-align:right;opacity:.7}
+.toc-side a:hover{color:var(--g);border-left-color:rgba(74,222,128,.3);background:rgba(74,222,128,.04)}
+.toc-side a.active{color:var(--g);border-left-color:var(--g);background:rgba(74,222,128,.06);text-shadow:var(--gm)}
+/* Hide desktop TOC on mobile (the mobile accordion below handles it). */
+@media(max-width:1024px){.toc-side{display:none}}
+
+/* Article body — when TOC is present, the body sits in a flex row with the sidebar. */
+.aw.toc-on{display:flex;gap:2.5rem;align-items:flex-start}
+.aw.toc-on > .bta,
+.aw.toc-on > .at-meta,
+.aw.toc-on > .at,
+.aw.toc-on > .asub,
+.aw.toc-on > hr,
+.aw.toc-on > .ab,
+.aw.toc-on > .src,
+.aw.toc-on > .af{flex:1;min-width:0}
+.aw.toc-on > hr{flex:0 0 auto;width:100%}
+@media(max-width:1024px){.aw.toc-on{display:block}}
+
+/* Mobile TOC accordion (toggled by .toc-mob-btn). Hidden by default. */
+.toc-mob-btn{display:none;width:100%;padding:.7rem 1rem;margin:.5rem 0 1rem;background:rgba(17,17,24,.6);border:1px solid rgba(74,222,128,.2);border-radius:6px;color:var(--g);font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:2px;cursor:pointer;text-align:left;align-items:center;justify-content:space-between;transition:all .2s}
+.toc-mob-btn:hover{background:rgba(74,222,128,.06);border-color:rgba(74,222,128,.4)}
+.toc-mob-btn .toc-mob-arrow{display:inline-block;transition:transform .25s;color:var(--c);font-size:.9rem}
+.toc-mob-btn.open .toc-mob-arrow{transform:rotate(180deg)}
+@media(max-width:1024px){.toc-mob-btn{display:flex}}
+.toc-mob{display:none;background:rgba(17,17,24,.5);border:1px solid rgba(74,222,128,.12);border-radius:6px;padding:.8rem 1rem;margin-bottom:1.2rem;font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:1px}
+.toc-mob.open{display:block}
+.toc-mob ol{list-style:none;counter-reset:toc;padding:0;margin:0}
+.toc-mob li{counter-increment:toc;margin:0;padding:0;line-height:1.5}
+.toc-mob a{color:var(--td);text-decoration:none;display:block;padding:.3rem 0 .3rem 1.4rem;position:relative;transition:color .2s}
+.toc-mob a::before{content:counter(toc,decimal-leading-zero);position:absolute;left:0;top:.3rem;font-size:.55rem;color:var(--tk);letter-spacing:1px;width:1.2rem;text-align:right;opacity:.7}
+.toc-mob a:hover,.toc-mob a.active{color:var(--g)}
+
+/* Share buttons — text links at the end of the article. */
+.share-block{margin:2rem 0 1rem;padding:1rem 1.2rem;background:rgba(17,17,24,.5);border:1px solid rgba(0,229,255,.1);border-radius:8px;display:flex;align-items:center;flex-wrap:wrap;gap:.8rem;font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--td);letter-spacing:1px}
+.share-block .share-lbl{color:var(--c);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-right:.3rem}
+.share-block a,.share-block button{color:var(--td);text-decoration:none;background:none;border:1px solid rgba(0,229,255,.2);padding:.4rem .8rem;border-radius:4px;cursor:pointer;font-family:inherit;font-size:inherit;letter-spacing:1px;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}
+.share-block a:hover,.share-block button:hover{color:var(--c);border-color:var(--c);background:rgba(0,229,255,.05);text-shadow:var(--gc)}
+.share-block .share-icon{font-weight:700;font-size:.85rem}
+.share-block .share-copied{color:var(--g);border-color:var(--g);background:rgba(74,222,128,.06);text-shadow:var(--gm)}
+@media(max-width:480px){.share-block{font-size:.65rem;padding:.8rem .9rem;gap:.5rem}.share-block a,.share-block button{padding:.35rem .6rem}}

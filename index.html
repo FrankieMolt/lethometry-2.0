@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LETHOMETRY — The Simulation Archive">
   <meta name="twitter:description" content="What Time Tries to Forget, We Defy.">
-  <link rel="stylesheet" href="css/style.css?v=15">
+  <link rel="stylesheet" href="css/style.css?v=16">
   <link rel="canonical" href="https://lethometry.com/">
   <meta property="og:site_name" content="LETHOMETRY">
   <meta property="article:author" content="Lethometry Research">
@@ -65,6 +65,33 @@
     "sameAs": ["https://github.com/NosytLabs"]
   }
   </script>
+  <style>
+    /* ===== Home-only compactness overrides (don't modify css/style.css) ===== */
+    /* Cap hero so the page is scannable; was 100vh (~900px), now ~80vh with 720px ceiling */
+    #hero{min-height:min(80vh,720px) !important}
+    section#categories, section#tools, section#articles{padding:4rem 2rem}
+    .sh{margin-bottom:1.6rem}
+    .sh p{font-size:.92rem}
+    #categories .cc,#articles .ac{min-height:170px;padding:1.1rem}
+    #categories .cc h3{font-size:.95rem}
+    #articles .ac h3{font-size:.9rem;min-height:2.4em}
+    #articles .ac .exc{font-size:.78rem;line-height:1.5}
+    #categories .cgrid,#articles .agrid{gap:.8rem}
+    /* ===== TOOLS landing (home-only) ===== */
+    .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;max-width:1100px;margin:0 auto}
+    .tc{background:linear-gradient(145deg,rgba(17,17,24,.92),rgba(10,10,18,.96));border:1px solid rgba(0,229,255,.28);border-radius:12px;padding:1.5rem 1.3rem;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;transition:all .4s cubic-bezier(.175,.885,.32,1.275);min-height:170px}
+    .tc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--c),transparent);opacity:.6}
+    .tc::after{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle at top right,rgba(0,229,255,.08),transparent 70%);pointer-events:none}
+    .tc:hover{transform:translateY(-4px);border-color:var(--c);box-shadow:0 14px 40px rgba(0,0,0,.35),0 0 30px rgba(0,229,255,.12)}
+    .tc .tnum{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:3px}
+    .tc .tname{font-family:'Orbitron',sans-serif;font-size:1.2rem;color:var(--c);letter-spacing:2px;text-shadow:0 0 18px rgba(0,229,255,.25);line-height:1.25}
+    .tc .tdesc{font-family:"Rajdhani",sans-serif;font-size:.95rem;color:var(--td);line-height:1.6;flex-grow:1}
+    .tc .tmore{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--g);letter-spacing:2px;display:inline-flex;align-items:center;gap:.4rem;margin-top:.4rem;transition:all .3s}
+    .tc:hover .tmore{gap:.8rem;text-shadow:var(--gc)}
+    .tc .ticon{position:absolute;bottom:1.2rem;right:1.2rem;font-family:'Orbitron',sans-serif;font-size:1.6rem;color:rgba(0,229,255,.15);font-weight:800;letter-spacing:1px}
+    .tc:hover .ticon{color:rgba(0,229,255,.3)}
+    @media(max-width:600px){.tgrid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
 
@@ -92,9 +119,9 @@
   <ul class="n-links">
     <li><a href="#hero">HOME</a></li>
     <li><a href="#categories">ARCHIVE</a></li>
-    <li><a href="#mandela">MANDELA LAB</a></li>
-    <li><a href="#timeline">TIMELINE</a></li>
-    <li><a href="#sim-calc-section">CALCULATOR</a></li>
+    <li><a href="mandela.html">MANDELA LAB</a></li>
+    <li><a href="timeline.html">TIMELINE</a></li>
+    <li><a href="calculator.html">CALCULATOR</a></li>
     <li><a href="#articles">ARTICLES</a></li>
   </ul>
 </nav>
@@ -151,14 +178,14 @@
   <div class="sh fu"><span class="stag">// ARCHIVE DATABASE</span><h2>EXPLORE THE ARCHIVE</h2><p>Nine categories of anomalies, each meticulously documented and sourced.</p></div>
   <div class="srch fu"><input type="text" id="search-input" placeholder="Search the archive..." aria-label="Search archive"></div>
   <div class="cgrid sca">
-    <button class="cc fu" type="button" data-scrollto="mandela">
+    <a class="cc fu" href="mandela.html">
       <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 7V7a3 3 0 0 1 6 0v2H9z"/></svg></div>
       <h3>MANDELA EFFECT LAB</h3><p>Interactive comparisons documenting 69+ reality shifts. Berenstain vs Berenstein, Shazaam, Mirror Mirror.</p><span class="cnt">69+ DOCUMENTED CASES</span>
-    </button>
-    <button class="cc fu" type="button" data-scrollto="timeline">
+    </a>
+    <a class="cc fu" href="timeline.html">
       <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
       <h3>TEMPORAL ANOMALY</h3><p>Events that shouldn't align but do. FDR's Thanksgiving, Baron Trump, De Beers, Fermi Paradox, Philadelphia Experiment.</p><span class="cnt">15 ANOMALIES CATALOGED</span>
-    </button>
+    </a>
     <a class="cc fu" href="articles.html?cat=SUPPRESSED%20TECHNOLOGY">
       <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
       <h3>SUPPRESSED TECHNOLOGY</h3><p>Tesla's free energy, Baghdad Battery, Dendera Light Bulb, Coral Castle, HAARP, Electrogravitics.</p><span class="cnt">10 TECHNOLOGIES EXPOSED</span>
@@ -190,105 +217,46 @@
   </div>
 </section>
 
-<!-- Mandela Lab -->
-<section id="mandela" aria-label="Mandela Effect Lab">
-  <div class="sh fu"><span class="stag">// MEMORY ANALYSIS</span><h2>MANDELA EFFECT LAB</h2><p>Where large groups of people remember events differently from reality. Test your memory.</p></div>
-  <div class="fu mandela-wrap">
-    <div class="mcomp"><div class="ms false"><div class="lbl">YOUR MEMORY</div><div class="txt">Berenstein Bears</div></div><div class="mvs">VS</div><div class="ms real"><div class="lbl">REALITY</div><div class="txt">Berenstain Bears</div></div></div>
-    <div class="mcomp"><div class="ms false"><div class="lbl">YOUR MEMORY</div><div class="txt">"Mirror, Mirror on the wall"</div></div><div class="mvs">VS</div><div class="ms real"><div class="lbl">REALITY</div><div class="txt">"Magic Mirror on the wall"</div></div></div>
-    <div class="mcomp"><div class="ms false"><div class="lbl">YOUR MEMORY</div><div class="txt">Fruit of the Loom cornucopia</div></div><div class="mvs">VS</div><div class="ms real"><div class="lbl">REALITY</div><div class="txt">No cornucopia — never existed</div></div></div>
-    <div class="mcomp"><div class="ms false"><div class="lbl">YOUR MEMORY</div><div class="txt">"Luke, I am your father"</div></div><div class="mvs">VS</div><div class="ms real"><div class="lbl">REALITY</div><div class="txt">"No, I am your father"</div></div></div>
-    <div class="mcomp"><div class="ms false"><div class="lbl">YOUR MEMORY</div><div class="txt">Sinbad movie "Shazaam" (1990s)</div></div><div class="mvs">VS</div><div class="ms real"><div class="lbl">REALITY</div><div class="txt">No such movie ever existed</div></div></div>
-    <div class="mc">
-      <p>MEMORY CHECK: Do you remember a 1990s movie called "Shazaam" starring Sinbad as a genie?</p>
-      <div class="mco"><button type="button">YES, I REMEMBER IT</button><button type="button">NO, NEVER HEARD OF IT</button></div>
-      <div class="mcf"><strong>FALSE MEMORY.</strong> No such movie existed. The movie was <em>Kazaam</em> (1996) with Shaq. One of the most documented mass false memories in history.</div>
-    </div>
-    <div class="hc" id="hidden-classified">
-      <div class="dec"><div class="cl">⚠ TIMELINE CORRELATION ANALYSIS</div><p>The Mandela Effect went viral around 2012-2013. CERN's Large Hadron Collider reached full capacity in 2012. The correlation between LHC operation and Mandela Effect reports is documented across multiple research groups.</p><p>CERN's logo has been noted to resemble 666. Their statue is of Shiva, the destroyer. Whether CERN causes timeline shifts or reveals parallel realities remains unknown. But the timing is suspicious.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- Timeline -->
-<section id="timeline" aria-label="Timeline of anomalies">
-  <div class="sh fu"><span class="stag">// CHRONOLOGICAL ANOMALIES</span><h2>TEMPORAL ANOMALY</h2><p>Events throughout history that shouldn't align but do.</p></div>
-  <div class="tl fu">
-    <div class="tl-i"><div class="tl-y">1893</div><div class="tl-d"></div><div class="tl-c"><h3>Baron Trump's Marvelous Underground Journey</h3><p>Ingersoll Lockwood publishes a novel about Wilhelm Heinrich Sebastian Von Trump who travels to Russia and meets a guide named "Don." 123 years before the 45th President.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1898</div><div class="tl-d"></div><div class="tl-c"><h3>Futility: The Wreck of the Titan</h3><p>Morgan Robertson publishes a novel about the "Titan," an "unsinkable" ship that hits an iceberg. 14 years before the Titanic. Same death toll. Same month.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1901</div><div class="tl-d"></div><div class="tl-c"><h3>Tesla's Wardenclyffe Tower</h3><p>Tesla begins construction of a tower to provide free wireless energy. J.P. Morgan withdraws funding when he realizes it cannot be metered. Demolished in 1917.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1939</div><div class="tl-d"></div><div class="tl-c"><h3>FDR Moves Thanksgiving</h3><p>Roosevelt moves Thanksgiving one week earlier to extend Christmas shopping. The nation splits. Congress fixes it in 1941. The "tradition" is 83 years old.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1943</div><div class="tl-d"></div><div class="tl-c"><h3>The Philadelphia Experiment</h3><p>USS Eldridge allegedly made invisible at Philadelphia Naval Shipyard. Claims of teleportation and time displacement. No Navy record. Origin: Carlos Allende's 1956 letter.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1947</div><div class="tl-d"></div><div class="tl-c"><h3>De Beers: "A Diamond is Forever"</h3><p>The marketing campaign that invented the diamond engagement ring "tradition." Before 1947: 10% had diamonds. By 1990: 80%.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1952</div><div class="tl-d"></div><div class="tl-c"><h3>Hydrogen Bomb + UFO Spike</h3><p>US detonates Ivy Mike. UFO sightings spike 162% in November 1952. The nuclear-UFO correlation has repeated throughout history.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1952</div><div class="tl-d"></div><div class="tl-c"><h3>Project Blue Book Begins</h3><p>US Air Force establishes UFO study program. 12,000 sightings investigated over 17 years. 701 remain unexplained. Program ends 1969.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1997</div><div class="tl-d"></div><div class="tl-c"><h3>HAARP Activated</h3><p>High Frequency Active Auroral Research Program goes live in Gakona, Alaska. 180 antennas, 3.6 megawatts. Conspiracy theories follow: earthquakes, weather control, mind control.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1953</div><div class="tl-d"></div><div class="tl-c"><h3>MKUltra Begins</h3><p>CIA begins 20 years of mind control experiments. LSD, sensory deprivation, electroshock. Helms destroys most records in 1973.</p></div></div>
-    <div class="tl-i"><div class="tl-y">1962</div><div class="tl-d"></div><div class="tl-c"><h3>Operation Northwoods</h3><p>Joint Chiefs propose staging terrorist attacks on US soil and blaming Cuba. JFK rejects it. Declassified in 2001.</p></div></div>
-    <div class="tl-i"><div class="tl-y">2003</div><div class="tl-d"></div><div class="tl-c"><h3>Bostrom's Simulation Argument</h3><p>Nick Bostrom publishes the trilemma: civilizations go extinct, lose interest in simulations, or we are almost certainly simulated.</p></div></div>
-    <div class="tl-i"><div class="tl-y">2012</div><div class="tl-d"></div><div class="tl-c"><h3>CERN Discovers Higgs Boson</h3><p>LHC discovers the "God particle." Mandela Effect goes viral globally. The correlation is documented.</p></div></div>
-    <div class="tl-i"><div class="tl-y">2023</div><div class="tl-d"></div><div class="tl-c"><h3>UAP Government Admission</h3><p>US government confirms UAPs are real. David Grusch testifies under oath about recovered "non-human" craft.</p></div></div>
-  </div>
-</section>
-
-<!-- Sim Calculator -->
-<section id="sim-calc-section" aria-label="Simulation Calculator">
-  <div class="sh fu"><span class="stag">// PROBABILITY ANALYSIS</span><h2>SIMULATION CALCULATOR</h2><p>Based on Nick Bostrom's trilemma and modern evidence. Answer honestly.</p></div>
-  <div class="sc fu" id="sim-calc"><h3>// PROBABILITY ANALYSIS //</h3>
-    <div class="sq sim-q" data-q="0"><p>Q1: Do you believe the universe's physical constants are fine-tuned?</p><div class="so"><button data-value="3" type="button">Yes, undeniable</button><button data-value="1" type="button">Maybe</button><button data-value="0" type="button">No</button></div></div>
-    <div class="sq sim-q" data-q="1"><p>Q2: Have you experienced a Mandela Effect you cannot explain?</p><div class="so"><button data-value="3" type="button">Yes, multiple</button><button data-value="1" type="button">Maybe one</button><button data-value="0" type="button">Never</button></div></div>
-    <div class="sq sim-q" data-q="2"><p>Q3: Do you think governments have lied about major events?</p><div class="so"><button data-value="3" type="button">Yes, documented</button><button data-value="1" type="button">Probably some</button><button data-value="0" type="button">No</button></div></div>
-    <div class="sq sim-q" data-q="3"><p>Q4: Does quantum mechanics suggest reality is not what it seems?</p><div class="so"><button data-value="3" type="button">Yes, observer effect</button><button data-value="1" type="button">It's strange</button><button data-value="0" type="button">No</button></div></div>
-    <div class="sq sim-q" data-q="4"><p>Q5: Could advanced civilizations simulate consciousness?</p><div class="so"><button data-value="3" type="button">Yes, inevitable</button><button data-value="1" type="button">Maybe</button><button data-value="0" type="button">No</button></div></div>
-    <div class="sq sim-q" data-q="5"><p>Q6: Have you ever felt reality "glitch"?</p><div class="so"><button data-value="3" type="button">Multiple times</button><button data-value="1" type="button">Once or twice</button><button data-value="0" type="button">Never</button></div></div>
-    <div class="sr" id="sim-result"><div class="pct">—</div><p class="msg"></p></div>
+<!-- Tools (new — replaces inline mandela/timeline/calc sections) -->
+<section id="tools" aria-label="Interactive tools">
+  <div class="sh fu"><span class="stag">// INTERACTIVE TOOLS //</span><h2>LABORATORIES &amp; SIMULATORS</h2><p>Three standalone instruments for testing memory, time, and probability.</p></div>
+  <div class="tgrid sca">
+    <a class="tc fu" href="mandela.html">
+      <span class="tnum">// TOOL 01</span>
+      <span class="tname">MANDELA EFFECT LAB</span>
+      <p class="tdesc">Five direct memory-vs-reality comparisons plus the Sinbad Shazaam test. Includes the CERN timeline correlation declassified box.</p>
+      <span class="tmore">OPEN LAB →</span>
+      <span class="ticon" aria-hidden="true">01</span>
+    </a>
+    <a class="tc fu" href="timeline.html">
+      <span class="tnum">// TOOL 02</span>
+      <span class="tname">TEMPORAL ANOMALY</span>
+      <p class="tdesc">Fourteen chronological entries across 130 years. Baron Trump's 1893 premonition, the 1898 Titanic novel, MKUltra, CERN, UAPs.</p>
+      <span class="tmore">VIEW TIMELINE →</span>
+      <span class="ticon" aria-hidden="true">02</span>
+    </a>
+    <a class="tc fu" href="calculator.html">
+      <span class="tnum">// TOOL 03</span>
+      <span class="tname">SIMULATION CALCULATOR</span>
+      <p class="tdesc">Six questions grounded in Bostrom's trilemma. Fine-tuning, Mandela Effect, government lies, quantum mechanics, consciousness, glitches.</p>
+      <span class="tmore">RUN CALCULATOR →</span>
+      <span class="ticon" aria-hidden="true">03</span>
+    </a>
   </div>
 </section>
 
 <!-- Articles -->
 <section id="articles" aria-label="Featured articles">
-  <div class="sh fu"><span class="stag">// DEEP ANALYSIS</span><h2>FEATURED ARTICLES</h2><p>In-depth investigations into the anomalies that define our reality.</p></div>
+  <div class="sh fu"><span class="stag">// DEEP ANALYSIS</span><h2>FEATURED ARTICLES</h2><p>Eight recent investigations. Browse all 40 in the archive.</p></div>
   <div class="agrid sca">
-    <a href="articles/thanksgiving-glitch.html" class="ac fu"><span class="cls">TEMPORAL ANOMALY</span><h3>The 1939 Thanksgiving Glitch: How Retailers Rewrote Time</h3><p class="exc">FDR moved Thanksgiving by executive decree to extend Christmas shopping. The nation split. Proof that traditions are manufactured.</p><span class="crt">// ~5 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles/baron-trump.html" class="ac fu"><span class="cls">TEMPORAL ANOMALY</span><h3>Baron Trump's Marvelous Underground Journey (1893)</h3><p class="exc">Ingersoll Lockwood's novel features Von Trump traveling to Russia with a guide named "Don." 123 years before the 45th President.</p><span class="crt">// ~4 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/de-beers-diamonds.html" class="ac fu"><span class="cls">TEMPORAL ANOMALY</span><h3>De Beers and the Diamond Programming (1947)</h3><p class="exc">The diamond engagement ring "tradition" is 78 years old. Invented by marketing. Before 1947: 10% had diamonds. By 1990: 80%.</p><span class="crt">// ~6 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles/operation-northwoods.html" class="ac fu"><span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>Operation Northwoods: They Planned It</h3><p class="exc">Joint Chiefs proposed staging terrorist attacks on US soil and blaming Cuba. JFK rejected it. Declassified in 2001.</p><span class="crt">// ~7 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles/mkultra.html" class="ac fu"><span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>MKUltra: The CIA's Mind Control Program</h3><p class="exc">20 years of experiments on unwitting subjects. LSD, sensory deprivation, electroshock. Helms destroyed the evidence.</p><span class="crt">// ~4 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/hydrogen-bomb-ufos.html" class="ac fu"><span class="cls">THE WATCHERS</span><h3>The Hydrogen Bomb Attracted Something (1952)</h3><p class="exc">UFO sightings spiked 162% after the first hydrogen bomb. The nuclear-UFO correlation has repeated throughout history.</p><span class="crt">// ~3 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/religion-simulation.html" class="ac fu"><span class="cls">RELIGION AS SIMULATION</span><h3>Religion as the Original Simulation</h3><p class="exc">Roman Imperial Cult, Constantine's Nicaea, Indulgences. The first control technology: invisible authorities enforcing visible control.</p><span class="crt">// ~3 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/social-media-control.html" class="ac fu"><span class="cls">SOCIAL MEDIA CONTROL</span><h3>Social Media Is the New Religion</h3><p class="exc">"Your phone is a slot machine in your pocket." — Tristan Harris. The attention economy, algorithmic manipulation, dopamine hacking.</p><span class="crt">// ~4 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/simulation-theory.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>We Are Almost Certainly Living in a Simulation</h3><p class="exc">Bostrom's trilemma, fine-tuning, Planck length, quantum observer effect, holographic principle. The mathematical case.</p><span class="crt">// ~4 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/tesla-free-energy.html" class="ac fu"><span class="cls">SUPPRESSED TECHNOLOGY</span><h3>Tesla's Free Energy Suppressed</h3><p class="exc">"Where do I put the meter?" — J.P. Morgan. Tesla's free energy system could not be metered. The tower was demolished.</p><span class="crt">// ~3 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/longevity-simulation.html" class="ac fu"><span class="cls">LONGEVITY NEXUS</span><h3>Longevity Escape Velocity: Outrunning the Simulation?</h3><p class="exc">Aubrey de Grey's thesis: if we cure aging faster than it kills us, we achieve escape velocity. If we live forever, do we break the code?</p><span class="crt">// ~3 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/fermi-paradox.html" class="ac fu"><span class="cls">TEMPORAL ANOMALY</span><h3>The Fermi Paradox: Where Is Everyone?</h3><p class="exc">400 billion stars. Billions of years. No signal. No visitors. The silence isn't a mystery — it may be a feature of the design.</p><span class="crt">// ~6 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/quantum-consciousness.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>Quantum Consciousness: Does Observation Create Reality?</h3><p class="exc">The double-slit experiment. Wave function collapse. Why the observer may be the most important part of physics.</p><span class="crt">// ~3 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/philadelphia-experiment.html" class="ac fu"><span class="cls">TEMPORAL ANOMALY</span><h3>The Philadelphia Experiment: When the Navy Tried to Make a Ship Invisible</h3><p class="exc">Oct 28, 1943. The USS Eldridge. Cloaking device. Men teleported. Time slips. The story that won't stay in the past.</p><span class="crt">// ~4 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/mandela-effect.html" class="ac fu"><span class="cls">MANDELA EFFECT LAB</span><h3>Collective False Memory: Why Millions Remember Things That Never Happened</h3><p class="exc">Berenstain, Shazaam, Cornucopia. The science of why large groups of people share the same false memories.</p><span class="crt">// ~5 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/gobekli-tepe.html" class="ac fu"><span class="cls">ANCIENT SIMULATION CLUES</span><h3>Göbekli Tepe: The World's First Monument</h3><p class="exc">Built 12,000 years ago. Pre-agricultural. Pre-writing. Pre-stone tools. Who built it and why was it buried?</p><span class="crt">// ~5 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/haarp.html" class="ac fu"><span class="cls">SUPPRESSED TECHNOLOGY</span><h3>HAARP: Weather Weapon or Science Project?</h3><p class="exc">180 antennas. 3.6 megawatts. Conspiracy theories from earthquakes to mind control. What's real and what's not.</p><span class="crt">// ~5 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/project-blue-book.html" class="ac fu"><span class="cls">THE WATCHERS</span><h3>Project Blue Book: What the Air Force Really Found</h3><p class="exc">12,000 sightings. 701 unexplained. Project Blue Book ended in 1969. Most of the findings were redacted.</p><span class="crt">// ~5 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/platos-cave.html" class="ac fu"><span class="cls">ANCIENT SIMULATION CLUES</span><h3>Plato's Cave: The First Simulation Theory</h3><p class="exc">400 BCE. A philosopher describes prisoners chained watching shadows. The original proof that reality might not be what it seems.</p><span class="crt">// ~6 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/cicero-somnium.html" class="ac fu"><span class="cls">ANCIENT SIMULATION CLUES</span><h3>Cicero's Somnium Scipionis: The First Simulation Story</h3><p class="exc">Cicero's Dream of Scipio (c. 50 BCE) describes a multiverse of nested realities — 2,000 years before Bostrom.</p><span class="crt">// ~4 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/antikythera-mechanism.html" class="ac fu"><span class="cls">ANCIENT SIMULATION CLUES</span><h3>The Antikythera Mechanism: A Computer from 100 BCE</h3><p class="exc">A 2,000-year-old Greek analog computer. We didn't fully understand it until 2021. Then we found the manual.</p><span class="crt">// ~5 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/baghdad-battery.html" class="ac fu"><span class="cls">SUPPRESSED TECHNOLOGY</span><h3>The Baghdad Battery: 2,000-Year-Old Electrochemistry</h3><p class="exc">A clay jar. A copper cylinder. An iron rod. Is it a battery, an electroplating device, or a Sumerian religious relic?</p><span class="crt">// ~6 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/tuskegee-experiment.html" class="ac fu"><span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>Tuskegee: The 40-Year Medical Experiment</h3><p class="exc">The US Public Health Service watched 600 Black men die of syphilis. They told the men they were being treated.</p><span class="crt">// ~5 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/kecksburg-ufo.html" class="ac fu"><span class="cls">THE WATCHERS</span><h3>The Kecksburg UFO: 60 Years of Denial</h3><p class="exc">Dec 9, 1965. A fireball over Ohio. A metallic acorn in the Pennsylvania woods. The official story changed six times.</p><span class="crt">// ~7 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/uap-2023-report.html" class="ac fu"><span class="cls">THE WATCHERS</span><h3>The Pentagon's 2023 UAP Report: What They Admitted</h3><p class="exc">AARO's 2023 report admitted 800+ UAP encounters. Most remain unexplained. Physics-defying maneuvers. No origins.</p><span class="crt">// ~7 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/i-remember-google.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>I Remember When Google Only Gave You Ten Links</h3><p class="exc">AltaVista → Ask Jeeves → Google 2001. The era when search was a librarian, not an ad network. What we lost when Page 1 became a paid billboard.</p><span class="crt">// ~6 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/i-remember-dialup.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>I Remember Dial-Up Like a Trauma Bond</h3><p class="exc">The dial-up handshake, AOL CDs in the mailbox, family phone hostage situations. What we lost when the internet went instant.</p><span class="crt">// ~6 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/aim-away-messages.html" class="ac fu"><span class="cls">SOCIAL MEDIA CONTROL</span><h3>When AIM Away Messages Were Poetry</h3><p class="exc">2002–2008 era. The 180-character art form. Lycos, NeoGaf, Yahoo parallel timelines. The death rattle when AOL killed it in 2017.</p><span class="crt">// ~6 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/cornucopia-fruits-basket.html" class="ac fu"><span class="cls">MANDELA EFFECT LAB</span><h3>The Cornucopia Was Never in Fruits Basket — Until It Was</h3><p class="exc">Thousands of anime fans remember the scene. Half remember it. Half never saw it. Both sides have recordings. Modern Mandela Effect in two competing originals.</p><span class="crt">// ~9 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/lost-episode-childrens-tv.html" class="ac fu"><span class="cls">MANDELA EFFECT LAB</span><h3>The Lost Episode That Wasn't — Mandela in Children's TV</h3><p class="exc">Creepypasta taught a generation to remember TV that didn't air. By 2018, the false memories bled into real ones.</p><span class="crt">// ~9 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/geocities-last-honest-internet.html" class="ac fu"><span class="cls">SOCIAL MEDIA CONTROL</span><h3>GeoCities Was the Last Honest Internet</h3><p class="exc">1994–2009. Animated GIF shrines, MIDI files, and the death of the personal homepage. 38 million user pages, gone in one Yahoo decision.</p><span class="crt">// ~9 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/windows-meant-something-different.html" class="ac fu"><span class="cls">TEMPORAL ANOMALY</span><h3>I Remember When Windows Meant Something Different</h3><p class="exc">XP Bliss, the Mac chime, the OS as personality. Then it became a delivery surface for ads.</p><span class="crt">// ~10 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/room-temp-superconductors.html" class="ac fu"><span class="cls">SUPPRESSED TECHNOLOGY</span><h3>Room-Temperature Superconductors Keep Almost Being Real</h3><p class="exc">Every decade since 1986, a breakthrough paper drops. The pattern is suspicious. LK-99 (2023), Rochester (2020 retracted), Wood–Trotter (1980s).</p><span class="crt">// ~8 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/decade-forgot-y2k.html" class="ac fu"><span class="cls">TEMPORAL ANOMALY</span><h3>The Decade We Forgot the Y2K Panic</h3><p class="exc">1998–2000. $300B spent. The rollover that was nothing — except it wasn't nothing. The story of who actually saved civilization.</p><span class="crt">// ~10 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/club-penguin-was-a-country.html" class="ac fu"><span class="cls">SOCIAL MEDIA CONTROL</span><h3>When Club Penguin Was a Country</h3><p class="exc">2005–2017. 200 million accounts. Disney's kids' game that built a parallel society, an economy, and a national mourning when it died.</p><span class="crt">// ~9 MIN</span><span class="rm">READ →</span></a>
     <a href="articles/lethe-river.html" class="ac fu"><span class="cls">ANCIENT SIMULATION CLUES</span><h3>LETHE — The River That Erased Us</h3><p class="exc">The Greeks built a river you drink from to forget your past life. We built it again — in software.</p><span class="crt">// ~7 MIN</span><span class="rm">READ →</span></a>
     <a href="articles/agi-12-endings.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>AGI's 12 Endings: How MIT Maps the Death of Man</h3><p class="exc">Max Tegmark ran the math. 60% of his peers rate one outcome worse than extinction. Welcome to the future.</p><span class="crt">// ~15 MIN</span><span class="rm">READ →</span></a>
     <a href="articles/digital-amnesia.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>When Memory Became a Subscription</h3><p class="exc">We outsourced our memory to the cloud. The ancient Greeks warned us about this. They called the river Lethe.</p><span class="crt">// ~6 MIN</span><span class="rm">READ →</span></a>
     <a href="articles/stargate-files.html" class="ac fu"><span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>Stargate: The Army's Psychic Spy Program</h3><p class="exc">$20M, 23 years, three agencies. "Viewer" Pat Price saw Soviet submarines in real time. The question was never really asked.</p><span class="crt">// ~12 MIN</span><span class="rm">READ →</span></a>
     <a href="articles/the-near-death-archive.html" class="ac fu"><span class="cls">RELIGION AS SIMULATION</span><h3>The Near-Death Archive</h3><p class="exc">AWARE trial. 2,060 cardiac arrests. The data says consciousness is not a brain output. The simulation hypothesis agrees.</p><span class="crt">// ~10 MIN</span><span class="rm">READ →</span></a>
+    <a href="articles/mkultra.html" class="ac fu"><span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>MKUltra: The CIA's Mind Control Program</h3><p class="exc">20 years of experiments on unwitting subjects. LSD, sensory deprivation, electroshock. Helms destroyed the evidence.</p><span class="crt">// ~4 MIN</span> <span class="rm">READ →</span></a>
+    <a href="articles/simulation-theory.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>We Are Almost Certainly Living in a Simulation</h3><p class="exc">Bostrom's trilemma, fine-tuning, Planck length, quantum observer effect, holographic principle. The mathematical case.</p><span class="crt">// ~4 MIN</span><span class="rm">READ →</span></a>
+    <a href="articles/religion-simulation.html" class="ac fu"><span class="cls">RELIGION AS SIMULATION</span><h3>Religion as the Original Simulation</h3><p class="exc">Roman Imperial Cult, Constantine's Nicaea, Indulgences. The first control technology: invisible authorities enforcing visible control.</p><span class="crt">// ~3 MIN</span><span class="rm">READ →</span></a>
     <a href="articles.html" class="ac fu" style="border:1px dashed rgba(0,229,255,.3);background:rgba(0,229,255,.02)"><span class="cls" style="color:var(--c);background:rgba(0,229,255,.06);border-color:rgba(0,229,255,.12)">EXPLORE ALL</span><h3>View All 40 Articles</h3><p class="exc">Browse the full archive with category filters. Temporal anomalies, suppressed technology, ancient simulation clues, and the watchers.</p><span class="rm" style="color:var(--c)">BROWSE ARCHIVE →</span></a>
   </div>
 </section>
@@ -297,7 +265,7 @@
 <footer role="contentinfo">
   <div class="f-logo">LETHOMETRY</div>
   <div class="f-tag">// THE SIMULATION ARCHIVE //</div>
-  <div class="f-links"><a href="#hero">HOME</a><a href="#categories">ARCHIVE</a><a href="#articles">ARTICLES</a><a href="articles.html">ALL 40</a></div>
+  <div class="f-links"><a href="#hero">HOME</a><a href="#categories">ARCHIVE</a><a href="#tools">TOOLS</a><a href="mandela.html">MANDELA LAB</a><a href="timeline.html">TIMELINE</a><a href="calculator.html">CALCULATOR</a><a href="articles.html">ALL 40</a></div>
   <div class="f-copy">WHAT TIME TRIES TO FORGET, WE DEFY © 2026</div>
 </footer>
 

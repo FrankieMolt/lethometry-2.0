@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
+  <meta name="theme-color" content="#050508">
+  <meta name="color-scheme" content="dark">
+  <title>Simulation Calculator — Test Your Probability | LETHOMETRY</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="Six questions based on Nick Bostrom's simulation trilemma and modern evidence. How likely are you to be in a simulation?">
+  <link rel="canonical" href="https://lethometry.com/calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Simulation Calculator — Test Your Probability">
+  <meta property="og:description" content="Six questions based on Nick Bostrom's simulation trilemma and modern evidence. How likely are you to be in a simulation?">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lethometry.com/calculator.html">
+  <meta property="og:image" content="https://lethometry.com/og-image.png">
+  <meta property="og:site_name" content="LETHOMETRY">
+  <meta property="article:section" content="SIMULATION THEORY">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css?v=16">
+  <style>
+    .calc-page{max-width:720px;margin:0 auto;padding:90px 2rem 4rem}
+    .calc-head{text-align:center;margin-bottom:2.5rem}
+    .calc-head h1{font-family:'Orbitron',sans-serif;font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:800;color:#fff;text-shadow:0 0 25px rgba(0,255,65,.25);letter-spacing:3px;margin-bottom:.8rem;line-height:1.2}
+    .calc-head .sub{font-family:"Rajdhani",sans-serif;font-size:1.1rem;color:var(--td);max-width:600px;margin:0 auto;line-height:1.65}
+    .calc-intro{font-family:"Rajdhani",sans-serif;font-size:1.05rem;color:var(--t);line-height:1.8;margin-bottom:2rem;text-align:center}
+    .calc-intro strong{color:var(--g);font-weight:600}
+    .calc-intro em{color:var(--c);font-style:italic}
+    .sc{margin:2rem 0}
+    .sc h3{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--c);letter-spacing:2px;text-align:center;margin-bottom:1.5rem}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:3rem}
+    .calc-rel{background:rgba(17,17,24,.7);border:1px solid var(--border);border-radius:8px;padding:1rem;transition:all .3s;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.4rem}
+    .calc-rel:hover{border-color:rgba(0,255,65,.3);transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.25)}
+    .calc-rel .rcls{font-family:'Share Tech Mono',monospace;font-size:.55rem;color:var(--a);letter-spacing:2px}
+    .calc-rel h4{font-family:'Orbitron',sans-serif;font-size:.85rem;color:#fff;letter-spacing:1px;line-height:1.35}
+    .calc-rel .rgo{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--c);letter-spacing:2px;margin-top:auto}
+    .calc-explore{margin-top:3rem;padding:1.5rem;background:rgba(0,255,65,.02);border:1px solid rgba(0,255,65,.1);border-radius:10px;text-align:center}
+    .calc-explore h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--g);letter-spacing:2px;margin-bottom:1rem}
+    .calc-explore .exlinks{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+    .calc-explore a{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c);letter-spacing:2px;padding:.6rem 1.1rem;border:1px solid rgba(0,229,255,.2);background:rgba(0,229,255,.04);border-radius:6px;text-decoration:none;transition:all .3s}
+    .calc-explore a:hover{background:rgba(0,229,255,.1);border-color:var(--c);box-shadow:var(--gc)}
+    .bta{display:inline-flex;align-items:center;gap:.4rem;font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--c);letter-spacing:2px;margin-bottom:1.5rem;transition:all .3s;text-decoration:none}
+    .bta:hover{gap:.8rem;text-shadow:var(--gc)}
+    .af{text-align:center;padding:2.5rem 0 .8rem;border-top:1px solid var(--border);margin-top:3rem}
+    .af .afl{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:800;color:var(--g);text-shadow:var(--gm);letter-spacing:4px}
+    .af .aft{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:2px;margin-top:.2rem}
+    /* Make .sc full-width inside .calc-page (it has max-width:560px) */
+    .calc-page .sc{max-width:none}
+  </style>
+  <!-- Structured Data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Simulation Calculator — Test Your Probability",
+    "description": "Six questions based on Nick Bostrom's simulation trilemma and modern evidence.",
+    "url": "https://lethometry.com/calculator.html",
+    "isPartOf": {"@type": "WebSite", "name": "LETHOMETRY", "url": "https://lethometry.com"},
+    "publisher": {"@type": "Organization", "name": "LETHOMETRY", "logo": {"@type": "ImageObject", "url": "https://lethometry.com/favicon.svg"}}
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="crt" aria-hidden="true"></div>
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="n-logo">LETHOMETRY</div>
+    <button class="n-toggle" aria-label="Toggle menu" type="button"><span></span><span></span><span></span></button>
+    <ul class="n-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="index.html#categories">ARCHIVE</a></li>
+      <li><a href="mandela.html">MANDELA LAB</a></li>
+      <li><a href="timeline.html">TIMELINE</a></li>
+      <li><a href="calculator.html" aria-current="page" style="color:var(--g)">CALCULATOR</a></li>
+      <li><a href="articles.html">ARTICLES</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <div class="calc-page">
+      <a href="index.html" class="bta">← BACK TO ARCHIVE</a>
+
+      <header class="calc-head">
+        <div class="h-badge" style="display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--c);letter-spacing:4px;padding:.3rem .8rem;border:1px solid rgba(0,229,255,.25);border-radius:20px;margin-bottom:1.2rem;background:rgba(0,229,255,.04)">// PROBABILITY ANALYSIS //</div>
+        <h1>SIMULATION CALCULATOR</h1>
+        <p class="sub">Based on Nick Bostrom's trilemma and modern evidence. Answer honestly.</p>
+      </header>
+
+      <p class="calc-intro">In 2003, philosopher <strong>Nick Bostrom</strong> published the simulation argument: civilizations either go extinct, lose interest in running simulations, or we are almost certainly living in one. These six questions are an informal test of how compatible your worldview is with that trilemma. <em>There are no wrong answers. Only probabilities.</em></p>
+
+      <div class="sc fu" id="sim-calc">
+        <h3>// PROBABILITY ANALYSIS //</h3>
+        <div class="sq sim-q" data-q="0"><p><strong style="color:var(--g)">Q1.</strong> Do you believe the universe's physical constants are fine-tuned?</p><div class="so"><button data-value="3" type="button">Yes, undeniable</button><button data-value="1" type="button">Maybe</button><button data-value="0" type="button">No</button></div></div>
+        <div class="sq sim-q" data-q="1"><p><strong style="color:var(--g)">Q2.</strong> Have you experienced a Mandela Effect you cannot explain?</p><div class="so"><button data-value="3" type="button">Yes, multiple</button><button data-value="1" type="button">Maybe one</button><button data-value="0" type="button">Never</button></div></div>
+        <div class="sq sim-q" data-q="2"><p><strong style="color:var(--g)">Q3.</strong> Do you think governments have lied about major events?</p><div class="so"><button data-value="3" type="button">Yes, documented</button><button data-value="1" type="button">Probably some</button><button data-value="0" type="button">No</button></div></div>
+        <div class="sq sim-q" data-q="3"><p><strong style="color:var(--g)">Q4.</strong> Does quantum mechanics suggest reality is not what it seems?</p><div class="so"><button data-value="3" type="button">Yes, observer effect</button><button data-value="1" type="button">It's strange</button><button data-value="0" type="button">No</button></div></div>
+        <div class="sq sim-q" data-q="4"><p><strong style="color:var(--g)">Q5.</strong> Could advanced civilizations simulate consciousness?</p><div class="so"><button data-value="3" type="button">Yes, inevitable</button><button data-value="1" type="button">Maybe</button><button data-value="0" type="button">No</button></div></div>
+        <div class="sq sim-q" data-q="5"><p><strong style="color:var(--g)">Q6.</strong> Have you ever felt reality "glitch"?</p><div class="so"><button data-value="3" type="button">Multiple times</button><button data-value="1" type="button">Once or twice</button><button data-value="0" type="button">Never</button></div></div>
+        <div class="sr" id="sim-result"><div class="pct">—</div><p class="msg"></p></div>
+      </div>
+
+      <section class="related-grid">
+        <a href="mandela.html" class="calc-rel">
+          <span class="rcls">MANDELA EFFECT LAB</span>
+          <h4>Memory vs. Reality</h4>
+          <p>Evidence of timelines shifting.</p>
+          <span class="rgo">OPEN LAB →</span>
+        </a>
+        <a href="timeline.html" class="calc-rel">
+          <span class="rcls">TEMPORAL ANOMALY</span>
+          <h4>The Timeline That Aligns</h4>
+          <p>130 years of events that shouldn't line up.</p>
+          <span class="rgo">VIEW TIMELINE →</span>
+        </a>
+        <a href="articles/simulation-theory.html" class="calc-rel">
+          <span class="rcls">DEEP ANALYSIS</span>
+          <h4>The Mathematical Case</h4>
+          <p>Bostrom's trilemma, fine-tuning, Planck length.</p>
+          <span class="rgo">READ →</span>
+        </a>
+      </section>
+
+      <div class="calc-explore">
+        <h3>// EXPLORE THE ARCHIVE //</h3>
+        <div class="exlinks">
+          <a href="index.html">← HOME</a>
+          <a href="index.html#categories">ARCHIVE</a>
+          <a href="articles.html">ALL 40 ARTICLES</a>
+        </div>
+      </div>
+
+      <div class="af"><div class="afl">LETHOMETRY</div><div class="aft">// THE SIMULATION ARCHIVE //</div></div>
+    </div>
+
+    <div class="dc" hidden><label>REALITY</label><input type="range" id="distortion-slider" min="0" max="1" step="0.01" value="0"></div>
+    <script src="js/main.js" defer></script>
+  </main>
+</body>
+</html>
