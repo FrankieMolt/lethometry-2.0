@@ -60,7 +60,7 @@ html.js #loader.off{opacity:0;visibility:hidden}
 @keyframes spin{to{transform:rotate(360deg)}}@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
 /* ===== NAV ===== */
-nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 2rem;height:60px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,8,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,255,65,.08);transition:all .3s}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 2rem;height:60px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,8,.92);border-bottom:1px solid rgba(0,255,65,.08);transition:all .3s}
 nav.scrolled{background:rgba(5,5,8,.96);border-bottom-color:rgba(0,255,65,.15);box-shadow:0 2px 30px rgba(0,255,65,.04)}
 .n-logo{font-family:'Orbitron',sans-serif;font-size:1.3rem;font-weight:800;color:var(--g);text-shadow:var(--gm);letter-spacing:4px}
 .n-links{display:flex;list-style:none;gap:.3rem}

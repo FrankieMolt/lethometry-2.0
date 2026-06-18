@@ -119,6 +119,8 @@ function initLoader(){
 
 // ===== PARTICLE RAIN =====
 function initRain(){
+  // Home-only: don't add 40 DOM divs to every article page.
+  if(!document.querySelector('.h-title,#hero'))return;
   const c=document.createElement('div');c.className='rain';
   document.body.insertBefore(c,document.body.firstChild);
   for(let i=0;i<40;i++){const d=document.createElement('div');d.className='dr';d.style.left=Math.random()*100+'%';d.style.height=(Math.random()*25+8)+'px';d.style.animationDuration=(Math.random()*3+2)+'s';d.style.animationDelay=Math.random()*5+'s';d.style.opacity=Math.random()*.2+.08;c.appendChild(d);}
@@ -197,8 +199,10 @@ function initScroll(){
 
 // ===== GLITCH RANDOM =====
 function initGlitch(){
+  // Home-only: scope to the hero title/sub. Article h2s must stay readable.
+  if(!document.querySelector('.h-title,.h-sub'))return;
   setInterval(()=>{
-    const els=document.querySelectorAll('.h-title,.h-sub,h2');
+    const els=document.querySelectorAll('.h-title,.h-sub');
     if(!els.length)return;
     const el=els[Math.floor(Math.random()*els.length)],orig=el.textContent;
     el.textContent=orig.split('').map(c=>Math.random()<.06?'アイウエオカキクケコ0123456789@#$%&'[Math.floor(Math.random()*22)]:c).join('');
