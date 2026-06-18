@@ -1,110 +1,7 @@
-// LETHOMETRY 3.1 — Main JS
+// LETHOMETRY 3.2 — Main JS
+// v3.2: Removed three.js hero (replaced with pure CSS+SVG in index.html).
+//        Saves ~145KB gzip on every page that loads main.js.
 'use strict';
-
-// ===== THREE.JS HERO =====
-let scene,camera,renderer,clock,particles,rings,textSprites;
-let mouse={x:0,y:0,tx:0,ty:0},distort=0;
-
-function init3D(){
-  const c=document.getElementById('hero-canvas');
-  if(!c||typeof THREE==='undefined'){
-    // Three.js may still be loading (lazy). Poll for it briefly.
-    if(c && typeof THREE==='undefined'){
-      let tries=0;
-      const poll=setInterval(()=>{
-        if(typeof THREE!=='undefined'){clearInterval(poll);init3D();}
-        else if(++tries>60){clearInterval(poll);} // give up after ~6s
-      },100);
-    }
-    return;
-  }
-  clock=new THREE.Clock();
-  scene=new THREE.Scene();
-  scene.fog=new THREE.FogExp2(0x050508,.007);
-  camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,400);
-  camera.position.set(0,0,35);
-  renderer=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});
-  renderer.setSize(innerWidth,innerHeight);
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-
-  // Particles
-  const n=4000,pos=new Float32Array(n*3),col=new Float32Array(n*3),vel=new Float32Array(n*3);
-  for(let i=0;i<n;i++){
-    const i3=i*3;
-    pos[i3]=(Math.random()-.5)*140;pos[i3+1]=(Math.random()-.5)*140;pos[i3+2]=(Math.random()-.5)*70;
-    const t=Math.random();
-    col[i3]=0;col[i3+1]=.5+t*.5;col[i3+2]=t;
-    vel[i3]=(Math.random()-.5)*.015;vel[i3+1]=(Math.random()-.5)*.015;vel[i3+2]=(Math.random()-.5)*.008;
-  }
-  const geo=new THREE.BufferGeometry();
-  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  geo.setAttribute('color',new THREE.BufferAttribute(col,3));
-  geo.userData.vel=vel;
-  particles=new THREE.Points(geo,new THREE.PointsMaterial({size:.7,vertexColors:true,transparent:true,opacity:.6,blending:THREE.AdditiveBlending,sizeAttenuation:true,depthWrite:false}));
-  scene.add(particles);
-
-  // Grid
-  const g1=new THREE.GridHelper(180,36,0x00ff41,0x002200);
-  g1.position.y=-28;g1.material.transparent=true;g1.material.opacity=.12;scene.add(g1);
-  const g2=new THREE.GridHelper(180,36,0x00e5ff,0x002222);
-  g2.position.y=-28;g2.rotation.x=Math.PI/2;g2.position.z=-18;g2.material.transparent=true;g2.material.opacity=.06;scene.add(g2);
-
-  // Rings
-  rings=new THREE.Group();
-  for(let i=0;i<5;i++){
-    const r=new THREE.Mesh(new THREE.TorusGeometry(7+i*3,.04,8,64),new THREE.MeshBasicMaterial({color:i%2?0x00e5ff:0x00ff41,transparent:true,opacity:.25-i*.03,wireframe:true}));
-    r.rotation.x=Math.PI/2+(Math.random()-.5)*.4;r.rotation.y=(Math.random()-.5)*.4;
-    r.position.set((Math.random()-.5)*25,(Math.random()-.5)*15,-8-i*4);
-    r.userData={rsx:(Math.random()-.5)*.004,rsy:(Math.random()-.5)*.006,fs:Math.random()*.4+.4,fo:Math.random()*Math.PI*2};
-    rings.add(r);
-  }
-  scene.add(rings);
-
-  // Floating text
-  textSprites=new THREE.Group();
-  const words=['BERENSTEIN','SHAZAAM','CORNUCOPIA','1939','BARON TRUMP','MKULTRA','NORTHWOODS','TUNGUSKA','GÖBEKLI TEPE','SIRIUS','CERN','PLANCK','SIMULATION','LETHE','MEMORY','DECLASSIFIED','TESLA','HAARP','UFO','NEXUS'];
-  const colors=[0x00ff41,0x00e5ff,0xffaa00,0xaa00ff,0xff1744];
-  words.forEach((w,i)=>{
-    const cv=document.createElement('canvas');cv.width=512;cv.height=64;
-    const cx=cv.getContext('2d');cx.fillStyle='#'+colors[i%5].toString(16).padStart(6,'0');
-    cx.font='bold 32px monospace';cx.textAlign='center';cx.textBaseline='middle';cx.fillText(w,256,32);
-    const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(cv),transparent:true,opacity:.35,blending:THREE.AdditiveBlending,depthWrite:false}));
-    s.position.set((Math.random()-.5)*110,(Math.random()-.5)*50,-5-Math.random()*35);
-    const sc=7+Math.random()*5;s.scale.set(sc,sc*.15,1);
-    s.userData={vx:(Math.random()-.5)*.012,vy:(Math.random()-.5)*.008,vr:(Math.random()-.5)*.002};
-    textSprites.add(s);
-  });
-  scene.add(textSprites);
-
-  // Orb
-  const orb=new THREE.Mesh(new THREE.SphereGeometry(2.5,32,32),new THREE.MeshBasicMaterial({color:0x00ff41,transparent:true,opacity:.12}));
-  orb.position.set(0,0,-12);orb.userData.orb=true;scene.add(orb);
-
-  addEventListener('resize',onResize);
-  addEventListener('mousemove',onMM);
-  requestAnimationFrame(anim);
-}
-
-function anim(){
-  requestAnimationFrame(anim);
-  const t=clock.getElapsedTime();
-  mouse.x+=(mouse.tx-mouse.x)*.05;mouse.y+=(mouse.ty-mouse.y)*.05;
-
-  if(particles){
-    const p=particles.geometry.attributes.position.array,v=particles.geometry.userData.vel;
-    for(let i=0;i<p.length;i+=3){p[i]+=v[i];p[i+1]+=v[i+1];p[i+2]+=v[i+2];if(p[i]>70)p[i]=-70;if(p[i]<-70)p[i]=70;if(p[i+1]>70)p[i+1]=-70;if(p[i+1]<-70)p[i+1]=70;}
-    particles.geometry.attributes.position.needsUpdate=true;
-    particles.rotation.y=t*.015+mouse.x*.08;particles.rotation.x=mouse.y*.04;
-    if(distort>0){for(let i=0;i<p.length;i+=3){p[i]+=(Math.random()-.5)*distort*.04;p[i+1]+=(Math.random()-.5)*distort*.04;}particles.geometry.attributes.position.needsUpdate=true;}
-  }
-  if(rings)rings.children.forEach(r=>{r.rotation.x+=r.userData.rsx;r.rotation.y+=r.userData.rsy;r.position.y+=Math.sin(t*r.userData.fs+r.userData.fo)*.008;});
-  if(textSprites)textSprites.children.forEach(s=>{s.position.x+=s.userData.vx;s.position.y+=s.userData.vy;s.rotation.z+=s.userData.vr;if(s.position.x>65)s.position.x=-65;if(s.position.x<-65)s.position.x=65;if(s.position.y>35)s.position.y=-35;if(s.position.y<-35)s.position.y=35;});
-  scene.children.forEach(c=>{if(c.userData.orb){const sc=1+Math.sin(t*2)*.08;c.scale.set(sc,sc,sc);}});
-  camera.position.x=mouse.x*2.5;camera.position.y=-mouse.y*1.5;camera.lookAt(0,0,0);
-  if(renderer&&scene&&camera)renderer.render(scene,camera);
-}
-function onResize(){if(!camera||!renderer)return;camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);}
-function onMM(e){mouse.tx=(e.clientX/innerWidth)*2-1;mouse.ty=-(e.clientY/innerHeight)*2+1;}
 
 // ===== LOADER =====
 function initLoader(){
@@ -130,7 +27,8 @@ function initRain(){
 function initDistort(){
   const s=document.getElementById('distortion-slider');
   if(!s)return;
-  s.addEventListener('input',e=>{distort=parseFloat(e.target.value);document.body.style.filter=`hue-rotate(${distort*35}deg) saturate(${1+distort}) blur(${distort*1.5}px)`;});
+  // v3.2: `distort` global removed (was three.js particle chaos). Now just CSS filter.
+  s.addEventListener('input',e=>{const d=parseFloat(e.target.value);document.body.style.filter=`hue-rotate(${d*35}deg) saturate(${1+d}) blur(${d*1.5}px)`;});
 }
 
 // ===== KONAMI =====
@@ -275,7 +173,7 @@ function initCardScroll(){
 
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded',()=>{
-  initLoader();init3D();initRain();initDistort();initKonami();initEasterEgg();
+  initLoader();initRain();initDistort();initKonami();initEasterEgg();
   initRedPill();initSimCalc();initScroll();initGlitch();init3DCards();
   initSearch();initMemoryChecks();initMobileNav();initCardScroll();
 });

@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LETHOMETRY — The Simulation Archive">
   <meta name="twitter:description" content="What Time Tries to Forget, We Defy.">
-  <link rel="stylesheet" href="css/style.css?v=11">
+  <link rel="stylesheet" href="css/style.css?v=14">
   <link rel="canonical" href="https://lethometry.com/">
   <meta property="og:site_name" content="LETHOMETRY">
   <meta property="article:author" content="Lethometry Research">
@@ -72,7 +72,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <noscript>
   <div style="background:#ff3;padding:.8rem 1rem;text-align:center;color:#000;font-family:monospace;font-size:.85rem;border-bottom:2px solid #000;">
-    ⚠️ JavaScript is disabled. All articles and content remain fully readable — only the 3D hero animation and interactive lab are unavailable.
+    ⚠️ JavaScript is disabled. All articles and content remain fully readable — only the interactive lab features (scroll reveal, distortion easter egg, simulation calculator, Konami console) are unavailable. The 2D hero scene renders without JavaScript.
   </div>
 </noscript>
 
@@ -103,7 +103,33 @@
 
 <!-- Hero -->
 <section id="hero" aria-label="Hero">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div id="hero-scene" aria-hidden="true">
+    <div class="hs-halo"></div>
+    <div class="hs-orb"></div>
+    <svg class="hs-rings" viewBox="-110 -110 220 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hsrg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00ff41" stop-opacity=".9"/><stop offset="100%" stop-color="#00e5ff" stop-opacity=".15"/></linearGradient>
+        <linearGradient id="hsrg2" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00e5ff" stop-opacity=".7"/><stop offset="100%" stop-color="#aa00ff" stop-opacity=".1"/></linearGradient>
+      </defs>
+      <g class="hs-rr1"><circle r="52" fill="none" stroke="url(#hsrg1)" stroke-width=".6"/><circle r="52" fill="none" stroke="rgba(0,229,255,.25)" stroke-width=".15" stroke-dasharray="1 6"/></g>
+      <g class="hs-rr2"><circle r="72" fill="none" stroke="url(#hsrg2)" stroke-width=".5"/><circle r="72" fill="none" stroke="rgba(0,255,65,.2)" stroke-width=".12" stroke-dasharray="1 9"/></g>
+      <g class="hs-rr3"><circle r="92" fill="none" stroke="rgba(0,255,65,.18)" stroke-width=".25" stroke-dasharray="2 8"/></g>
+      <path d="M-58,-14 A60,60 0 0 1 -14,-58" fill="none" stroke="rgba(0,229,255,.55)" stroke-width="1"/>
+      <path d="M40,55 A68,68 0 0 0 66,28" fill="none" stroke="rgba(255,170,0,.45)" stroke-width=".8"/>
+      <circle r="2" fill="#00ff41" opacity=".7"/>
+      <circle r="1.2" fill="#00e5ff" opacity=".6" cx="-72" cy="-12"/>
+      <circle r="1" fill="#ffaa00" opacity=".5" cx="48" cy="58"/>
+    </svg>
+    <div class="hs-particles">
+      <span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span>
+      <span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span>
+      <span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span>
+    </div>
+    <div class="hs-words">
+      <span class="hs-w">MEMORY</span><span class="hs-w">OBLIVION</span><span class="hs-w">TIME</span><span class="hs-w">DEEP</span><span class="hs-w">TRUTH</span><span class="hs-w">VOID</span>
+      <span class="hs-w">PHANTOM</span><span class="hs-w">CIPHER</span><span class="hs-w">RECLINE</span><span class="hs-w">INFINITY</span><span class="hs-w">STILL</span><span class="hs-w">SIGNAL</span>
+    </div>
+  </div>
   <div class="h-content">
     <div class="h-badge">// THE SIMULATION ARCHIVE //</div>
     <h1 class="h-title glt" data-text="LETHOMETRY">LETHOMETRY</h1>
@@ -278,27 +304,8 @@
 <!-- Distortion Control (developer easter egg, hidden from a11y) -->
 <div class="dc" hidden><label for="distortion-slider">REALITY distortion</label><input type="range" id="distortion-slider" aria-label="Reality distortion (developer easter egg)" min="0" max="1" step="0.01" value="0" tabindex="-1"></div>
 
-<!-- main.js: deferred. three.min.js: lazy-loaded only when hero canvas is visible.
-     This saves ~600KB on article pages (which never need Three.js). -->
+<!-- main.js: deferred. Hero is now pure CSS+SVG (no three.js, no lazy-load). -->
 <script src="js/main.js" defer></script>
-<script>
-  // Lazy-load Three.js only when hero canvas scrolls into view.
-  if ('IntersectionObserver' in window) {
-    const c = document.getElementById('hero-canvas');
-    if (c) {
-      const io = new IntersectionObserver((es) => {
-        if (es[0].isIntersecting) {
-          const s = document.createElement('script');
-          s.src = 'js/three.min.js';
-          s.async = true;
-          document.head.appendChild(s);
-          io.disconnect();
-        }
-      }, { rootMargin: '200px' });
-      io.observe(c);
-    }
-  }
-</script>
 
 <!-- Lightweight error reporting -->
 <script>
