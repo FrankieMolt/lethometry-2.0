@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
+  <meta name="theme-color" content="#050508">
+  <meta name="color-scheme" content="dark">
+  <title>Deja Vu Is a Simulation Glitch | LETHOMETRY</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="Déjà vu as a render-pipeline stutter in a simulated reality — a brutalist archive analysis.">
+  <link rel="canonical" href="https://lethometry.com/articles/deja-vu-simulation-glitch.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Deja Vu Is a Simulation Glitch">
+  <meta property="og:description" content="Déjà vu as a render-pipeline stutter in a simulated reality — a brutalist archive analysis.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lethometry.com/articles/deja-vu-simulation-glitch.html">
+  <meta property="og:image" content="https://lethometry.com/og-image.png">
+  <meta property="og:site_name" content="LETHOMETRY">
+  <meta property="article:section" content="ARCHIVE">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/style.css?v=17">
+  <style>
+    .aw{max-width:880px;margin:0 auto;padding:90px 2rem 4rem}
+    .am{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .acls{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--a);letter-spacing:2px;padding:.25rem .65rem;background:rgba(255,170,0,.06);border:1px solid rgba(255,170,0,.12);border-radius:4px}
+    .adt{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--tk);letter-spacing:1px}
+    .at{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:800;color:#fff;text-shadow:0 0 25px rgba(0,255,65,.25);margin-bottom:.4rem;letter-spacing:2px;line-height:1.3}
+    .asub{font-family:"Rajdhani",sans-serif;font-size:1.05rem;color:var(--td);margin-bottom:1.5rem;line-height:1.65}
+    .ab h2{font-family:'Orbitron',sans-serif;font-size:1.25rem;color:var(--c);letter-spacing:2px;margin:2rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid rgba(0,229,255,.12)}
+    .ab h2::after{display:none}
+    .ab h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--a);letter-spacing:1px;margin:1.5rem 0 .6rem}
+    .ab p{font-family:"Rajdhani",sans-serif;font-size:1.0625rem;line-height:1.85;color:var(--t);margin-bottom:1rem}
+    .ab strong{color:var(--g);font-weight:600}
+    .ab em{color:var(--c);font-style:italic}
+    .ab ul,.ab ol{margin:.8rem 0 1.2rem 1.4rem;color:var(--t)}
+    .ab li{font-family:'Rajdhani',sans-serif;font-size:.95rem;margin-bottom:.4rem;line-height:1.6}
+    .ab li::marker{color:var(--g)}
+    .ab hr{border:none;border-top:1px solid rgba(0,255,65,.1);margin:1.5rem 0}
+    .ab blockquote{border-left:3px solid var(--g);padding:.8rem 1.2rem;margin:1.2rem 0;background:rgba(0,255,65,.02);border-radius:0 6px 6px 0}
+    .ab blockquote p{color:var(--c);font-size:1.05rem;margin:0}
+    .ab table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.85rem}
+    .ab table th{background:rgba(0,255,65,.06);color:var(--g);padding:.5rem .8rem;text-align:left;border:1px solid rgba(0,255,65,.12);font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:1px}
+    .ab table td{padding:.5rem .8rem;border:1px solid rgba(0,255,65,.06);color:var(--t);font-family:'Rajdhani',sans-serif}
+    .ve{position:relative;padding-bottom:56.25%;height:0;margin:1.5rem 0;border-radius:8px;overflow:hidden;border:1px solid rgba(0,255,65,.12)}
+    .ve iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+    .src{margin-top:2.5rem;padding:1.2rem;background:rgba(0,255,65,.02);border:1px solid rgba(0,255,65,.08);border-radius:8px}
+    .src h3{color:var(--g);font-size:.9rem;margin-bottom:.8rem}
+    .src ul{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--td)}
+    .src li{margin-bottom:.3rem;line-height:1.5}
+    .bta{display:inline-flex;align-items:center;gap:.4rem;font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--c);letter-spacing:2px;margin-bottom:1.5rem;transition:all .3s;text-decoration:none}
+    .bta:hover{gap:.8rem;text-shadow:var(--gc)}
+    .af{text-align:center;padding:2.5rem 0 .8rem;border-top:1px solid var(--border);margin-top:2.5rem}
+    .af .afl{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:800;color:var(--g);text-shadow:var(--gm);letter-spacing:4px}
+    .af .aft{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:2px;margin-top:.2rem}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Deja Vu Is a Simulation Glitch",
+    "description": "Déjà vu as a render-pipeline stutter in a simulated reality.",
+    "author": {"@type":"Organization","name":"LETHOMETRY"},
+    "publisher": {"@type":"Organization","name":"LETHOMETRY"},
+    "datePublished": "2026-08-15",
+    "mainEntityOfPage": "https://lethometry.com/articles/deja-vu-simulation-glitch.html",
+    "image": "https://lethometry.com/og-image.png"
+  }
+  </script>
+</head>
+<body>
+  <div class="aw">
+    <a href="../articles.html" class="bta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      RETURN TO ARCHIVE
+    </a>
+    <div class="am">
+      <span class="acls">CLASSIFIED // EYES ONLY</span>
+      <span class="adt">FILE ID: DEJAVU-01</span>
+    </div>
+    <h1 class="at">Deja Vu Is a Simulation Glitch</h1>
+    <p class="asub">The physical reality render pipeline stuttering in real-time.</p>
+    <div class="ab">
+      <p>You walk into a room you have never visited before. The light hits the wall at the same angle. A stranger repeats a sentence you heard five minutes ago, word for word. For a split second, the present collapses into the past. This is <strong>d&eacute;j&agrave; vu</strong> — the oldest undocumented bug report in human experience.</p>
+
+      <h2>The Standard Explanation Is Incomplete</h2>
+      <p>Neuroscience offers a <em>delayed pathway</em> model: the rhinal cortex and the hippocampus encode the same moment twice, slightly out of phase. The sensation is real, but the mechanism is biological. The problem with this explanation is not that it is wrong; it is that it explains the <em>symptom</em> without explaining why the symptom feels like a <strong>memory of the future</strong>.</p>
+
+      <p>D&eacute;j&agrave; vu is not merely repetition. It is repetition with <em>correct prophecy</em>. You do not just feel that you have been here before; you feel that you <strong>knew</strong> what would happen next. That is not a processing delay. That is a cache hit on a frame that has not rendered yet.</p>
+
+      <h2>The Simulation Framework</h2>
+      <p>Nick Bostrom&rsquo;s trilemma argues that one of three propositions must be true: civilizations almost never reach posthuman computing power; posthuman civilizations almost never run ancestor-simulations; or we are almost certainly living in a simulation. If you accept even the possibility of the third, d&eacute;j&agrave; vu stops being a neurological curiosity and starts looking like a <strong>system artifact</strong>.</p>
+
+      <p>A rendered reality would not load every object, sound, and shadow with equal fidelity at every moment. It would <em>stream</em> detail, caching nearby assets and prefetching likely paths. When two cached states collide — when the prefetch buffer overlaps with the live render — you get the sensation of having already lived the current moment. You have. You cached it before the system streamed it into your sensory input.</p>
+
+      <h2>Timeline Drift and the Mandela Overlap</h2>
+      <p>The Mandela Effect already established that <strong>collective memory</strong> can diverge from recorded history. D&eacute;j&agrave; vu is the individual version of the same divergence. Where Mandela Effect survivors recall a different past, d&eacute;j&agrave; vu experiencers briefly <em>inhabit</em> a different present — one that the cache remembers but the live render has not caught up to.</p>
+
+      <p>This overlap is not coincidental. Both phenomena point to the same substrate flaw: <em>reality is being patched in real-time</em>, and occasionally the patch lags behind the render. The Mandela Effect is the patch note. D&eacute;j&agrave; vu is the lag spike.</p>
+
+      <h2>Quantum Time-Slips and the Observer Effect</h2>
+      <p>If reality is a simulation, time is not a river. It is a <strong>frame buffer</strong>. The observer collapses the wavefunction by loading the next frame into consciousness. Sometimes the observer loads frame N+1 before the renderer has finished compositing frame N. The result is a two-frame overlap: past and present simultaneously visible. That overlap is d&eacute;j&agrave; vu.</p>
+
+      <p>This is not poetry. It is a functional model. It predicts that d&eacute;j&agrave; vu should be more common during states of high cognitive load — when the observer is demanding more frames than the system can safely prefetch. And it is. Peak incidence occurs in young adults, during stress, and in sleep-deprived states. The system is thrashing. The cache is leaking. You are seeing the world as it is stitched together, not as it is meant to be seen.</p>
+
+      <h2>The Render Pipeline Metaphor Is Testable</h2>
+      <p>A real-time renderer would show telltale signatures: frame tearing, temporal aliasing, and z-fighting between cached and live geometry. D&eacute;j&agrave; vu reports consistently describe <em>temporal z-fighting</em> — two moments occupying the same spatial coordinates, one rendered slightly behind the other. This is not metaphor. It is the exact vocabulary used in computer graphics.</p>
+
+      <blockquote><p>The brain does not remember the future. It prefetches it. The simulation framework simply takes that one step further: the future exists in the cache before it exists in the world.</p></blockquote>
+
+      <h2>What This Means for Lethometry</h2>
+      <p>Lethometry archives anomalies. D&eacute;j&agrave; vu is the most common anomaly that humanity ignores because it is too personal, too fleeting, too hard to photograph. But it is not rare. Most people experience it at least once. If it is a system artifact, then every person who has ever walked into a room and felt time fold back on themselves has touched the edge of the simulation directly.</p>
+
+      <p>That is not a metaphor. That is a user report.</p>
+
+      <div class="src">
+        <h3>RECORDS & REFERENCES</h3>
+        <ul>
+          <li>[REF-01] Bostrom, N. (2003). "Are You Living in a Computer Simulation?" <em>Philosophical Quarterly</em>, 53(211), 243-255.</li>
+          <li>[REF-02] Brown, A.S. (2004). "The Deja Vu Experience." Psychology Press.</li>
+          <li>[REF-03] Banister, H. & Zangwill, O.L. (1941). "Experimentally induced d&eacute;j&agrave; vu." <em>British Journal of Psychology</em>, 32, 45-55.</li>
+          <li>[REF-04] See also: Lethometry, "Mandela Effect: Collective False Memory" — the collective analog of this individual phenomenon.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="af">
+      <div class="afl">LETHOMETRY</div>
+      <div class="aft">ARCHIVE // CLEARANCE: PUBLIC</div>
+    </div>
+  </div>
+</body>
+</html>
