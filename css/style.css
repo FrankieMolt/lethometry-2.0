@@ -426,3 +426,64 @@ footer{position:relative;z-index:1;text-align:center;padding:3.5rem 2rem;border-
 .share-block .share-icon{font-weight:700;font-size:.85rem}
 .share-block .share-copied{color:var(--g);border-color:var(--g);background:rgba(74,222,128,.06);text-shadow:var(--gm)}
 @media(max-width:480px){.share-block{font-size:.65rem;padding:.8rem .9rem;gap:.5rem}.share-block a,.share-block button{padding:.35rem .6rem}}
+
+/* v4.0: Video grid block */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem 0;
+  padding: 1rem;
+  border: 1px solid var(--gc);
+  background: linear-gradient(180deg, rgba(154,230,180,0.04), rgba(154,230,180,0.01));
+}
+.vg-title {
+  grid-column: 1 / -1;
+  font-family: var(--tk);
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: var(--g);
+  margin: 0 0 0.4rem 0;
+  text-transform: uppercase;
+}
+.video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.9rem;
+  border: 1px solid var(--gc);
+  background: var(--td);
+  color: var(--c);
+  text-decoration: none;
+  transition: border-color 0.12s ease, transform 0.12s ease;
+  position: relative;
+  overflow: hidden;
+}
+.video-card:hover, .video-card:focus-visible {
+  border-color: var(--g);
+  transform: translateY(-2px);
+  outline: none;
+}
+.video-card:focus-visible {
+  box-shadow: 0 0 0 2px var(--g);
+}
+.vc-tag {
+  font-family: var(--tk);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--g);
+  opacity: 0.85;
+}
+.vc-title {
+  font-family: var(--t);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--c);
+}
+.vc-meta {
+  font-family: var(--tk);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  opacity: 0.75;
+}
