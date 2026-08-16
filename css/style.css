@@ -6,20 +6,20 @@
    - Rajdhani: 400 (body), 500 (medium emphasis), 600 (semibold) — used in body text
    - Share Tech Mono: 400 (regular), 700 (bold for skip-link) — used for monospace tech text
    Previous version loaded 12 font files (~600KB); this cuts to 8 (~400KB) and saves ~30% on article pages. */
-@font-face{font-family:'Orbitron';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6xpg.ttf) format('truetype')}
-@font-face{font-family:'Orbitron';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyxSmxpg.ttf) format('truetype')}
-@font-face{font-family:'Orbitron';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1ny_Cmxpg.ttf) format('truetype')}
-@font-face{font-family:'Orbitron';font-style:normal;font-weight:800;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nymymxpg.ttf) format('truetype')}
-@font-face{font-family:'Orbitron';font-style:normal;font-weight:900;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nysimxpg.ttf) format('truetype')}
-@font-face{font-family:'Rajdhani';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/rajdhani/v17/LDIxapCSOBg7S-QT7q4A.ttf) format('truetype')}
-@font-face{font-family:'Rajdhani';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pb0EMOs.ttf) format('truetype')}
-@font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF8Os.ttf) format('truetype')}
-@font-face{font-family:'Share Tech Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sharetechmono/v16/J7aHnp1uDWRBEqV98dVQztYldFc7pA.ttf) format('truetype')}
+@font-face{font-family:'Orbitron';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2')}
+@font-face{font-family:'Orbitron';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2')}
+@font-face{font-family:'Orbitron';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2')}
+@font-face{font-family:'Orbitron';font-style:normal;font-weight:800;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2')}
+@font-face{font-family:'Orbitron';font-style:normal;font-weight:900;font-display:swap;src:url(https://fonts.gstatic.com/s/orbitron/v35/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2')}
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/rajdhani/v17/LDIxapCSOBg7S-QT7p4HM-Y.woff2) format('woff2')}
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pb0EPOreec.woff2) format('woff2')}
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2) format('woff2')}
+@font-face{font-family:'Share Tech Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sharetechmono/v16/J7aHnp1uDWRBEqV98dVQztYldFcLowEF.woff2) format('woff2')}
 
 :root {
   --bg: #0a0a0e; --bg2: #131319; --bg3: #1a1a23; --border: #25252f;
   --g: #4ade80; --c: #38bdf8; --a: #f59e0b; --r: #ef4444; --p: #a855f7;
-  --t: #ececf1; --td: #a1a1aa; --tk: #71717a;
+  --t: #ececf1; --td: #a1a1aa; --tk: #858594;
   --g-text: #00cc33; /* WCAG AA green for body text (9.4:1) — kept for accessibility */
   --a-text: #ff8800; /* WCAG AA amber for body text (7.0:1) */
   --gm: 0 0 8px rgba(74,222,128,.5),0 0 20px rgba(74,222,128,.25);
@@ -70,7 +70,7 @@ body{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);background-
 .hs-p:nth-child(5n){background:#ffaa00;box-shadow:0 0 6px rgba(255,170,0,.8);width:1.5px;height:1.5px}
 .hs-p:nth-child(7n){width:3px;height:3px;box-shadow:0 0 10px rgba(0,255,65,.9)}
 @keyframes twinkle{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:.95;transform:scale(1.3)}}
-.hs-words{position:absolute;inset:0;font-family:'Share Tech Mono',monospace;font-size:clamp(.6rem,1.1vw,.85rem);letter-spacing:3px;font-weight:700;opacity:.5;white-space:nowrap;text-shadow:0 0 8px currentColor}
+.hs-words{position:absolute;inset:0;font-family:'Share Tech Mono',monospace;font-size:clamp(.6rem,1.1vw,.85rem);letter-spacing:3px;font-weight:700;opacity:.5;white-space:nowrap;text-shadow:0 0 8px currentColor;overflow:hidden}
 .hs-w{position:absolute;will-change:transform}
 @keyframes drift1{0%{transform:translateX(0)}100%{transform:translateX(calc(100vw + 200px))}}
 @keyframes drift2{0%{transform:translateX(0)}100%{transform:translateX(calc(100vw + 200px))}}
@@ -280,7 +280,7 @@ a.cc{text-decoration:none;color:inherit}
 footer{position:relative;z-index:1;text-align:center;padding:3.5rem 2rem;border-top:1px solid var(--border)}
 .f-logo{font-family:'Orbitron',sans-serif;font-size:1.3rem;font-weight:800;color:var(--g);text-shadow:var(--gm);letter-spacing:5px;margin-bottom:.3rem}
 .f-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--tk);letter-spacing:3px;margin-bottom:1.2rem}
-.f-links{display:flex;gap:1.5rem;justify-content:center;margin-bottom:1rem}
+.f-links{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:center;margin-bottom:1rem;row-gap:.5rem}
 .f-links a{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--td);letter-spacing:2px}
 .f-copy{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:1px}
 
@@ -375,7 +375,7 @@ footer{position:relative;z-index:1;text-align:center;padding:3.5rem 2rem;border-
 .at-sep{color:var(--tk);font-family:'Share Tech Mono',monospace;opacity:.5}
 .at-stat{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c);letter-spacing:1px}
 .at-stat b{color:var(--t);font-weight:600}
-.at-stat.at-warn{color:var(--a)}
+
 
 /* Table of contents — desktop sticky sidebar */
 .toc-side{position:sticky;top:90px;width:200px;flex-shrink:0;font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--td);letter-spacing:1px;align-self:flex-start;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:.5rem;scrollbar-width:thin;scrollbar-color:rgba(74,222,128,.3) transparent}
@@ -391,8 +391,9 @@ footer{position:relative;z-index:1;text-align:center;padding:3.5rem 2rem;border-
 /* Hide desktop TOC on mobile (the mobile accordion below handles it). */
 @media(max-width:1024px){.toc-side{display:none}}
 
-/* Article body — when TOC is present, the body sits in a flex row with the sidebar. */
-.aw.toc-on{display:flex;gap:2.5rem;align-items:flex-start}
+/* Article body — when TOC present, sidebar sits in a fixed col-1, article content stacks in col-2. */
+.aw.toc-on{display:grid;grid-template-columns:200px minmax(0,1fr);gap:2rem;align-items:start}
+.aw.toc-on > .toc-side{grid-column:1}
 .aw.toc-on > .bta,
 .aw.toc-on > .at-meta,
 .aw.toc-on > .at,
@@ -400,8 +401,8 @@ footer{position:relative;z-index:1;text-align:center;padding:3.5rem 2rem;border-
 .aw.toc-on > hr,
 .aw.toc-on > .ab,
 .aw.toc-on > .src,
-.aw.toc-on > .af{flex:1;min-width:0}
-.aw.toc-on > hr{flex:0 0 auto;width:100%}
+.aw.toc-on > .af{grid-column:2;min-width:0}
+.aw.toc-on > hr{width:100%}
 @media(max-width:1024px){.aw.toc-on{display:block}}
 
 /* Mobile TOC accordion (toggled by .toc-mob-btn). Hidden by default. */
@@ -487,3 +488,8 @@ footer{position:relative;z-index:1;text-align:center;padding:3.5rem 2rem;border-
   letter-spacing: 0.1em;
   opacity: 0.75;
 }
+
+/* === LETHOMETRY consolidated article-template styles (v22) ===
+   Extracted from the 38 standard article pages that shared this identical block,
+   removing ~121KB of duplicated inline CSS. Keep in sync with the article template. */
+.aw{max-width:880px;margin:0 auto;padding:90px 2rem 4rem} .am{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;flex-wrap:wrap} .acls{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--a);letter-spacing:2px;padding:.25rem .65rem;background:rgba(255,170,0,.06);border:1px solid rgba(255,170,0,.12);border-radius:4px} .adt{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--tk);letter-spacing:1px} .at{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:800;color:#fff;text-shadow:0 0 25px rgba(0,255,65,.25);margin-bottom:.4rem;letter-spacing:2px;line-height:1.3} .asub{font-family:"Rajdhani",sans-serif;font-size:1.05rem;color:var(--td);margin-bottom:1.5rem;line-height:1.65} .ab h2{font-family:'Orbitron',sans-serif;font-size:1.25rem;color:var(--c);letter-spacing:2px;margin:2rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid rgba(0,229,255,.12)} .ab h2::after{display:none} .ab h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--a);letter-spacing:1px;margin:1.5rem 0 .6rem} .ab p{font-family:"Rajdhani",sans-serif;font-size:1.0625rem;line-height:1.85;color:var(--t);margin-bottom:1rem} .ab strong{color:var(--g);font-weight:600} .ab em{color:var(--c);font-style:italic} .ab ul,.ab ol{margin:.8rem 0 1.2rem 1.4rem;color:var(--t)} .ab li{font-family:'Rajdhani',sans-serif;font-size:.95rem;margin-bottom:.4rem;line-height:1.6} .ab li::marker{color:var(--g)} .ab hr{border:none;border-top:1px solid rgba(0,255,65,.1);margin:1.5rem 0} .ab blockquote{border-left:3px solid var(--g);padding:.8rem 1.2rem;margin:1.2rem 0;background:rgba(0,255,65,.02);border-radius:0 6px 6px 0} .ab blockquote p{color:var(--c);font-size:1.05rem;margin:0} .ab table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.85rem} .ab table th{background:rgba(0,255,65,.06);color:var(--g);padding:.5rem .8rem;text-align:left;border:1px solid rgba(0,255,65,.12);font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:1px} .ab table td{padding:.5rem .8rem;border:1px solid rgba(0,255,65,.06);color:var(--t);font-family:'Rajdhani',sans-serif} .ve{position:relative;padding-bottom:56.25%;height:0;margin:1.5rem 0;border-radius:8px;overflow:hidden;border:1px solid rgba(0,255,65,.12)} .ve iframe{position:absolute;top:0;left:0;width:100%;height:100%} .src{margin-top:2.5rem;padding:1.2rem;background:rgba(0,255,65,.02);border:1px solid rgba(0,255,65,.08);border-radius:8px} .src h3{color:var(--g);font-size:.9rem;margin-bottom:.8rem} .src ul{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--td)} .src li{margin-bottom:.3rem;line-height:1.5} .bta{display:inline-flex;align-items:center;gap:.4rem;font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--c);letter-spacing:2px;margin-bottom:1.5rem;transition:all .3s;text-decoration:none} .bta:hover{gap:.8rem;text-shadow:var(--gc)} .af{text-align:center;padding:2.5rem 0 .8rem;border-top:1px solid var(--border);margin-top:2.5rem} .af .afl{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:800;color:var(--g);text-shadow:var(--gm);letter-spacing:4px} .af .aft{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:2px;margin-top:.2rem}

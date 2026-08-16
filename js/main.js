@@ -40,7 +40,7 @@ function initKonami(){
 }
 function showEgg(){
   const eg=document.getElementById('eg');if(!eg)return;
-  eg.style.display='block';eg.setAttribute('aria-hidden','false');
+  eg.style.display='block';eg.hidden=false;eg.setAttribute('aria-hidden','false');
   const c=eg.querySelector('.ec');c.innerHTML='';
   const lines=['> KONAMI CODE ACCEPTED','> ACCESSING BACKEND...','> WELCOME TO REALITY v3.1.0','','> SIMULATION: ACTIVE','> TIMELINE: 2026.38','> RENDER: 93B LY','> PARTICLES: 10^80','> GLITCHES: 68','> CERN: OPERATIONAL','> WATCHERS: CONFIRMED','','> "THE ONLY WAY TO DEAL WITH AN','>  UNFREE WORLD IS TO BECOME SO','>  ABSOLUTELY FREE THAT YOUR VERY','>  EXISTENCE IS AN ACT OF REBELLION."','>  — ALBERT CAMUS','','> REMEMBER: THE RIVER LETHE FORGETS.','> BUT WE DO NOT.','','> [END TRANSMISSION]'];
   let i=0;
@@ -49,10 +49,10 @@ function showEgg(){
 function initEasterEgg(){
   const btn=document.getElementById('eg-close');
   if(btn)btn.addEventListener('click',()=>{
-    const eg=document.getElementById('eg');if(eg){eg.style.display='none';eg.setAttribute('aria-hidden','true');}
+    const eg=document.getElementById('eg');if(eg){eg.style.display='none';eg.hidden=true;eg.setAttribute('aria-hidden','true');}
   });
   const eg=document.getElementById('eg');
-  if(eg)eg.addEventListener('keydown',e=>{if(e.key==='Escape'){eg.style.display='none';eg.setAttribute('aria-hidden','true');}});
+  if(eg)eg.addEventListener('keydown',e=>{if(e.key==='Escape'){eg.style.display='none';eg.hidden=true;eg.setAttribute('aria-hidden','true');}});
 }
 
 // ===== RED PILL =====
