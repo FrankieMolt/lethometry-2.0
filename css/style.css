@@ -496,3 +496,11 @@ footer{position:relative;z-index:1;text-align:center;padding:3.5rem 2rem;border-
 /* Inline article media (v22) */
 .ab img{max-width:100%;height:auto;display:block;margin:1.6rem auto;border:1px solid rgba(0,255,65,.25);border-radius:6px;box-shadow:0 0 24px rgba(0,255,65,.08);filter:saturate(1.05) contrast(1.02)}
 .ab figcaption{font-family:'Share Tech Mono',monospace;font-size:.78rem;color:var(--muted-text,#858594);text-align:center;margin:-1rem auto 1.6rem;max-width:80%}
+/* Click-to-load YouTube facade (v23) */
+.yt-facade{position:relative;width:100%;aspect-ratio:16/9;margin:1.6rem auto;border:1px solid rgba(0,255,65,.25);border-radius:6px;background:#050508 center/cover no-repeat;box-shadow:0 0 24px rgba(0,255,65,.07);overflow:hidden;cursor:pointer}
+.yt-facade.has-thumb{background-size:cover}
+.yt-facade::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,8,.15),rgba(5,5,8,.55))}
+.yt-facade-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;width:76px;height:76px;border-radius:50%;border:2px solid rgba(0,255,65,.7);background:rgba(5,5,8,.55);color:#00ff41;font-size:1.9rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;font-family:'Share Tech Mono',monospace}
+.yt-facade-play::before{content:'▶';letter-spacing:-2px;text-indent:3px}
+.yt-facade-play:hover{border-color:#00ff41;background:rgba(0,255,65,.15);box-shadow:0 0 30px rgba(0,255,65,.35);transform:translate(-50%,-50%) scale(1.08)}
+.yt-facade-frame{position:absolute;inset:0;width:100%;height:100%;border:0}
