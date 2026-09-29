@@ -13,10 +13,14 @@
   var THREE_READY = (typeof THREE !== 'undefined');
   if (!THREE_READY) return;
 
+  // z-index:0 (not -1) is REQUIRED. `body` paints an opaque linear-gradient background,
+  // so a z-index:-1 child renders *behind* it and is never visible — 589KB of three.js
+  // silently producing nothing. At z-index:0 the canvas sits above the body background but
+  // below every positioned element in #hero-scene and the page content.
   var canvas = document.createElement('canvas');
   canvas.id = 'stars3d';
   canvas.setAttribute('aria-hidden', 'true');
-  canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.55;';
+  canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.55;';
   document.body.insertBefore(canvas, document.body.firstChild);
 
   var renderer;
