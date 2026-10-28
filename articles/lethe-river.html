@@ -1,104 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
-  <meta name="theme-color" content="#050508">
-  <meta name="color-scheme" content="dark">
-  <title>Lethe — The River That Erased Us | LETHOMETRY</title>
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="description" content="The Greeks built a river you drink from to forget your past life. We built it again — in software.">
-    <link rel="canonical" href="https://lethometry.com/articles/lethe-river.html">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Lethe — The River That Erased Us">
-  <meta property="og:description" content="The Greeks built a river you drink from to forget your past life. We built it again — in software.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://lethometry.com/articles/lethe-river.html">
-  <meta property="og:image" content="https://lethometry.com/og-image.png">
-  <meta property="og:site_name" content="LETHOMETRY">
-  <meta property="article:section" content="ARCHIVE">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="../css/style.css?v=24">
-  <style>
-    .aw{max-width:880px;margin:0 auto;padding:90px 2rem 4rem}
-    .am{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;flex-wrap:wrap}
-    .acls{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--a);letter-spacing:2px;padding:.25rem .65rem;background:rgba(255,170,0,.06);border:1px solid rgba(255,170,0,.12);border-radius:4px}
-    .adt{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--tk);letter-spacing:1px}
-    .at{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:800;color:#fff;text-shadow:0 0 25px rgba(0,255,65,.25);margin-bottom:.4rem;letter-spacing:2px;line-height:1.3}
-    .asub{font-family:"Rajdhani",sans-serif;font-size:1.05rem;color:var(--td);margin-bottom:1.5rem;line-height:1.65}
-    .ab h2{font-family:'Orbitron',sans-serif;font-size:1.25rem;color:var(--c);letter-spacing:2px;margin:2rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid rgba(0,229,255,.12)}
-    .ab h2::after{display:none}
-    .ab h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--a);letter-spacing:1px;margin:1.5rem 0 .6rem}
-    .ab p{font-family:"Rajdhani",sans-serif;font-size:1.0625rem;line-height:1.85;color:var(--t);margin-bottom:1rem}
-    .ab strong{color:var(--g);font-weight:600}
-    .ab em{color:var(--c);font-style:italic}
-    .ab ul,.ab ol{margin:.8rem 0 1.2rem 1.4rem;color:var(--t)}
-    .ab li{font-family:'Rajdhani',sans-serif;font-size:.95rem;margin-bottom:.4rem;line-height:1.6}
-    .ab li::marker{color:var(--g)}
-    .ab hr{border:none;border-top:1px solid rgba(0,255,65,.1);margin:1.5rem 0}
-    .ab blockquote{border-left:3px solid var(--g);padding:.8rem 1.2rem;margin:1.2rem 0;background:rgba(0,255,65,.02);border-radius:0 6px 6px 0}
-    .ab blockquote p{color:var(--c);font-size:1.05rem;margin:0}
-    .ab table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.85rem}
-    .ab table th{background:rgba(0,255,65,.06);color:var(--g);padding:.5rem .8rem;text-align:left;border:1px solid rgba(0,255,65,.12);font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:1px}
-    .ab table td{padding:.5rem .8rem;border:1px solid rgba(0,255,65,.06);color:var(--t);font-family:'Rajdhani',sans-serif}
-    .ve{position:relative;padding-bottom:56.25%;height:0;margin:1.5rem 0;border-radius:8px;overflow:hidden;border:1px solid rgba(0,255,65,.12)}
-    .ve iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-    .src{margin-top:2.5rem;padding:1.2rem;background:rgba(0,255,65,.02);border:1px solid rgba(0,255,65,.08);border-radius:8px}
-    .src h3{color:var(--g);font-size:.9rem;margin-bottom:.8rem}
-    .src ul{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--td)}
-    .src li{margin-bottom:.3rem;line-height:1.5}
-    .bta{display:inline-flex;align-items:center;gap:.4rem;font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--c);letter-spacing:2px;margin-bottom:1.5rem;transition:all .3s;text-decoration:none}
-    .bta:hover{gap:.8rem;text-shadow:var(--gc)}
-    .af{text-align:center;padding:2.5rem 0 .8rem;border-top:1px solid var(--border);margin-top:2.5rem}
-    .af .afl{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:800;color:var(--g);text-shadow:var(--gm);letter-spacing:4px}
-    .af .aft{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:2px;margin-top:.2rem}
-    .stat-box{background:rgba(0,255,65,.03);border:1px solid rgba(0,255,65,.1);border-radius:8px;padding:1.2rem;margin:1.5rem 0;text-align:center}
-    .stat-box .num{font-family:'Orbitron',sans-serif;font-size:2.5rem;color:var(--g);text-shadow:var(--gm)}
-    .stat-box .label{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--tk);letter-spacing:2px;margin-top:.3rem}
-    .equation{font-family:'Share Tech Mono',monospace;background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.15);padding:1rem 1.5rem;border-radius:6px;margin:1.5rem 0;text-align:center;font-size:.9rem;color:var(--c)}
-    .paradox{border:2px solid var(--g);border-radius:12px;padding:1.5rem;margin:2rem 0;background:rgba(0,255,65,.02)}
-    .paradox h3{color:var(--g);margin-top:0!important;font-size:1.1rem!important}
-  </style>
-  <!-- Structured Data: Article -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Lethe — The River That Erased Us",
-    "description": "The Greeks built a river you drink from to forget your past life. We built it again — in software.",
-    "articleSection": "ANCIENT SIMULATION CLUES", "datePublished": "2026-08-15",
-    "url": "https://lethometry.com/articles/lethe-river.html",
-    "mainEntityOfPage": "https://lethometry.com/articles/lethe-river.html",
-    "image": "https://lethometry.com/og-image.png",
-    "author": {"@type": "Organization", "name": "Lethometry Research"},
-    "publisher": {"@type": "Organization", "name": "LETHOMETRY", "logo": {"@type": "ImageObject", "url": "https://lethometry.com/favicon.svg"}}}
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
+<meta name="theme-color" content="#050508">
+<meta name="color-scheme" content="dark">
+<title>Lethe — The River That Erased Us | LETHOMETRY</title>
+<meta name="description" content="The Greeks built a river you drink from to forget your past life. We built it again — in software.">
+<link rel="canonical" href="https://lethometry.com/articles/lethe-river.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lethe — The River That Erased Us">
+<meta property="og:description" content="The Greeks built a river you drink from to forget your past life. We built it again — in software.">
+<meta property="og:url" content="https://lethometry.com/articles/lethe-river.html">
+<meta property="og:site_name" content="LETHOMETRY">
+<meta property="og:image" content="https://lethometry.com/og/lethe-river.png">
+  <meta property="article:published_time" content="2026-06-18T00:00:00+00:00">
+  <meta property="article:modified_time" content="2026-08-17T00:00:00+00:00">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lethe — The River That Erased Us">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lethe — The River That Erased Us">
+<meta name="twitter:description" content="The Greeks built a river you drink from to forget your past life. We built it again — in software.">
+<meta name="twitter:image" content="https://lethometry.com/og/lethe-river.png">
+<meta property="article:section" content="ANCIENT SIMULATION CLUES">
+<meta property="article:author" content="Lethometry Research">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/css/style.css?v=406">
+<script src="/js/consent.js?v=405" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LETHE — THE RIVER THAT ERASED US",
+  "description": "The Greeks built a river you drink from to forget your past life. We built it again — in software.",
+  "datePublished": "2026-06-18",
+  "dateModified": "2026-08-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Lethometry Research"
+  },
+  "image": "https://lethometry.com/og/lethe-river.png",
+  "url": "https://lethometry.com/articles/lethe-river.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lethometry.com/articles/lethe-river.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Lethometry Research",
+    "url": "https://lethometry.com"
+  },
+  "articleSection": "ANCIENT SIMULATION CLUES",
+  "wordCount": 1568
+}
+  </script><script async src="https://www.googletagmanager.com/gtag/js?id=G-E3VRH9TCBC"></script><script>window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments)}g('js',new Date());g('config','G-E3VRH9TCBC',{anonymize_ip:true,cookie_flags:'SameSite=None;Secure'});</script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-  <div class="crt" aria-hidden="true"></div>
-  <nav role="navigation" aria-label="Main navigation">
-    <div class="n-logo">LETHOMETRY</div>
-    <button class="n-toggle" aria-label="Toggle menu" type="button"><span></span><span></span><span></span></button>
-    <ul class="n-links">
-      <li><a href="../index.html">HOME</a></li>
-      <li><a href="../index.html#categories">ARCHIVE</a></li>
-      <li><a href="../mandela.html">MANDELA LAB</a></li>
-      <li><a href="../timeline.html">TIMELINE</a></li>
-      <li><a href="../calculator.html">CALCULATOR</a></li>
-      <li><a href="../index.html#articles">ARTICLES</a></li>
-    </ul>
-  </nav>
-
-  <main id="main"><div class="aw">
-    <a href="../index.html#articles" class="bta">← BACK TO ARCHIVE</a>
-    <div class="am"><span class="acls">ANCIENT SIMULATION CLUES</span><span class="adt">RECORDED: c. 700 BCE | RECOVERED: 1843</span> <span class="art">// ~7 MIN READ</span></div>
-    <h1 class="at">LETHE — THE RIVER THAT ERASED US</h1>
-    <p class="asub">The Greek myth of forgetfulness that became the operating system of the modern world.</p>
-    <hr>
-    <div class="ab">
-
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav class="nav" aria-label="Primary"><a class="brand" href="/">LETHOMETRY</a><button class="n-toggle" aria-label="Menu" aria-expanded="false">☰</button><div class="n-links"><a href="/">HOME</a><a href="/articles.html">ARCHIVE</a><a href="/mandela.html">MANDELA LAB</a><a href="/timeline.html">TIMELINE</a><a href="/calculator.html">CALCULATOR</a><a href="/privacy.html">PRIVACY</a></div></nav><main id="main"><div class="aw">
+<div class="rp" id="rp" aria-hidden="true"></div>
+<a class="bta" href="/articles.html">&larr; BACK TO ARCHIVE</a>
+<header class="ah">
+<div class="am"><span class="acls">ANCIENT SIMULATION CLUES</span><span class="adt">RECORDED: c. 700 BCE | RECOVERED: 1843</span></div>
+<h1 class="at">LETHE — THE RIVER THAT ERASED US</h1>
+<p class="asub">The Greek myth of forgetfulness that became the operating system of the modern world.</p>
+</header>
+<article class="ab">
 <p><strong>Classification: ANCIENT SIMULATION CLUES | Confidence: PRIMARY SOURCE — ARCHAEOLOGICAL + PHILOSOPHICAL</strong></p>
 
 <h2>The River That Has No Name You Can Easily Say</h2>
@@ -202,72 +174,12 @@
 <p>The 21st century teaches the opposite lesson. Mayer-Schönberger: the right answer is to forget. GDPR: the right answer is to be forgotten. The feed: the right answer is to drink continuously and never ask what is in the cup. <em>Both projects recognize that forgetting and memory are technologies, not accidents.</em> The question this site is named after — <strong>lethometry, the measurement of forgetfulness</strong> — is the same question the Orphics were asking 2,500 years ago: how much oblivion is necessary, and how much is a crime?</p>
 
 <p>The Orphic initiate, holding the gold tablet in a dead hand, was asking the right question. The 21st century has simply changed the medium. The river is no longer a river. It is a server, in a data center, drinking from you in real time. The password is no longer <em>"I am a child of Earth and Starry Heaven."</em> The password is: <em>pay the subscription, opt out of the deletion, archive your own life</em>. The dead still need a way to remember. They just need a different gold.</p>
-
-    </div>
-    <div class="src">
-      <h3>SOURCES & REFERENCES</h3>
-      <ul>
-        <li>Hesiod. <em>Theogony</em> 226–232 (Loeb Classical Library, trans. Hugh G. Evelyn-White, 1914).</li>
-        <li>Plato. <em>Republic</em> 614a–621d — the Myth of Er (trans. Paul Shorey, Loeb, 1930; or Allan Bloom, Basic Books, 1968).</li>
-        <li>Plato. <em>Phaedrus</em> 245c–257b — the soul's procession (trans. Robin Waterfield, Oxford World's Classics, 2002).</li>
-        <li>Aristophanes. <em>Frogs</em> (Loeb, trans. Jeffrey Henderson, 2002).</li>
-        <li>Virgil. <em>Aeneid</em> VI.540–543, 703–715 (trans. Robert Fagles, Viking, 2006; or Allen Mandelbaum, Bantam, 1971).</li>
-        <li>Cicero. <em>De Re Publica</em> VI / <em>Somnium Scipionis</em> (Loeb, trans. Clinton Walker Keyes, 1928).</li>
-        <li>Plutarch. <em>De Facie in Orbe Lunae</em> 943b–e (Loeb, trans. Harold Cherniss, 1957).</li>
-        <li>Pausanias. <em>Description of Greece</em> X.28.1–2 — the Trophonius pit (Loeb, trans. W.H.S. Jones, 1918).</li>
-        <li>Graf, Fritz &amp; Johnston, Sarah Iles. <em>Greek Ritual Texts of the Late Roman Period</em> (2007). [Edition of the Orphic gold tablets.]</li>
-        <li>Bernabé, Alberto &amp; Jiménez San Cristóbal, Ana Isabel. <em>Instructions for the Netherworld: The Orphic Gold Tablets</em> (Brill, 2008).</li>
-        <li>Sparrow, Betsy; Liu, Jenny; Wegner, Daniel M. "Google Effects on Memory," <em>Science</em> 333.6043 (5 Aug 2011), 776–778.</li>
-        <li>Mayer-Schönberger, Viktor. <em>Delete: The Virtue of Forgetting in the Digital Age</em> (Princeton, 2009).</li>
-        <li>Anderson, Michael C. &amp; Green, Collin. "Suppressing Unwanted Memories by Executive Control," <em>Nature</em> 410 (2001).</li>
-        <li>Kahneman, Daniel. <em>Thinking, Fast and Slow</em> (FSG, 2011).</li>
-        <li>Levitin, Daniel J. <em>The Organized Mind: Thinking Straight in the Age of Information Overload</em> (Dutton, 2014).</li>
-        <li>Harris, Tristan. "How Technology Hijacks People's Minds" (Center for Humane Technology / <em>Medium</em>, 2016).</li>
-        <li>European Union. <em>GDPR Article 17</em> — Right to be forgotten (2018).</li>
-      </ul>
-    </div>
-    <div class="af"><div class="afl">LETHOMETRY</div><div class="aft">// THE SIMULATION ARCHIVE //</div></div>
-  </div>
-
-  
-        <div class="share-block">
-      <span class="share-lbl">// SHARE //</span>
-      <a data-share="twitter" href="#" rel="noopener" target="_blank"><span class="share-icon">𝕏</span> TWITTER</a>
-      <a data-share="facebook" href="#" rel="noopener" target="_blank"><span class="share-icon">f</span> FACEBOOK</a>
-      <a data-share="linkedin" href="#" rel="noopener" target="_blank"><span class="share-icon">in</span> LINKEDIN</a>
-      <button data-share="copy" type="button"><span class="share-icon">⎘</span> COPY LINK</button>
-    </div>
-  <div class="related">
-      <h3 class="rh">// RELATED INVESTIGATIONS //</h3>
-      <div class="rg">
-        <a href="cicero-somnium.html" class="rc">
-          <span class="rcls">ANCIENT SIMULATION CLUES</span>
-          <h4>Cicero's Somnium: First Simulation Story</h4>
-          <p>Around 50 BCE, the Roman statesman and philosopher Cicero wrote De Re Publica (On the Republic). Embedded inside it, the sixth and final book contains the Somnium Scipionis — the D...</p>
-          <span class="rrm">READ →</span>
-        </a>
-        <a href="antikythera-mechanism.html" class="rc">
-          <span class="rcls">ANCIENT SIMULATION CLUES</span>
-          <h4>The Antikythera Mechanism: Ancient Computer</h4>
-          <p>In 1901, sponge divers off the Greek island of Antikythera pulled up a shipwreck dating to around 65 BCE. Among the artifacts was a green, calcified lump of corroded bronze. It too...</p>
-          <span class="rrm">READ →</span>
-        </a>
-        <a href="gobekli-tepe.html" class="rc">
-          <span class="rcls">ANCIENT SIMULATION CLUES</span>
-          <h4>Göbekli Tepe: World's First Monument</h4>
-          <p>Göbekli Tepe ("Potbelly Hill") sits in southeastern Turkey. It was built around 9600 BCE — 6,000 years before Stonehenge, 7,000 years before the Egyptian pyramids. The mainstream n...</p>
-          <span class="rrm">READ →</span>
-        </a>
-      </div>
-    </div>
-  <div class="dc" hidden><label>REALITY</label><input type="range" id="distortion-slider" min="0" max="1" step="0.01" value="0"></div>
-    <!-- Article page UX v3.6: progress, back-to-top, TOC (desktop+mobile), share. -->
-  <div id="rp" class="rp" aria-hidden="true"></div>
-  <button id="btt" class="btt" type="button" aria-label="Back to top" title="Back to top">↑</button>
-  <aside id="toc-side" class="toc-side" aria-label="Table of contents"><h4>// CONTENTS //</h4></aside>
-  <button id="toc-mob-btn" class="toc-mob-btn" type="button" aria-expanded="false" aria-controls="toc-mob"><span>// CONTENTS //</span><span class="toc-mob-arrow">▾</span></button>
-  <nav id="toc-mob" class="toc-mob" aria-label="Table of contents (mobile)"></nav>
-  <script src="../js/main.js" defer></script>
-</main>
+</article>
+<section class="rel" aria-labelledby="rel-h"><h2 id="rel-h">// RELATED FILE</h2><ul><li><a href="/articles/cicero-somnium.html"><span class="ar-cat">ANCIENT SIMULATION CLUES</span><span class="ar-ti">Cicero&#x27;s Somnium Scipionis: The First Simulation Story</span></a></li><li><a href="/articles/gobekli-tepe.html"><span class="ar-cat">ANCIENT SIMULATION CLUES</span><span class="ar-ti">Göbekli Tepe: The World&#x27;s First Monument — Or a Time Capsule?</span></a></li><li><a href="/articles/lethe-river.html"><span class="ar-cat">ANCIENT SIMULATION CLUES</span><span class="ar-ti">LETHE — THE RIVER THAT ERASED US</span></a></li><li><a href="/articles/platos-cave.html"><span class="ar-cat">ANCIENT SIMULATION CLUES</span><span class="ar-ti">Plato&#x27;s Cave: The First Simulation Theory</span></a></li></ul></section>
+<footer class="af"><div class="afl">LETHOMETRY</div><div class="aft">// The Simulation Archive //</div></footer>
+</div></main>
+<footer class="f-nav"><div class="f-nav-in"><span class="f-nav-brand">LETHOMETRY</span><nav class="f-links" aria-label="Footer"><a href="/">HOME</a><a href="/articles.html">ARCHIVE</a><a href="/mandela.html">MANDELA LAB</a><a href="/timeline.html">TIMELINE</a><a href="/calculator.html">CALCULATOR</a><a href="/privacy.html">PRIVACY</a></nav><span class="f-nav-c">// The Simulation Archive //</span></div></footer>
+<script src="/js/main.js?v=406" defer></script>
+<script src="/js/youtube-facade.js"></script>
 </body>
 </html>

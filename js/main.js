@@ -1,444 +1,422 @@
-// LETHOMETRY 3.2 — Main JS
-// v3.2: Removed three.js hero (replaced with pure CSS+SVG in index.html).
-//        Saves ~145KB gzip on every page that loads main.js.
+// LETHOMETRY v4.0 — main.js
+//
+// Replaces the v3.6 script. Same feature set, minus the parts that either did
+// nothing (the three.js starfield rendered behind an opaque body background, so
+// 589KB produced zero visible pixels) or referenced markup the build no longer
+// emits. Every init below guards on element existence, so one script safely
+// serves the home page, the archive index and all 52 article pages.
 'use strict';
 
-// ===== LOADER =====
-function initLoader(){
-  addEventListener('load',()=>{
-    setTimeout(()=>{
-      const l=document.getElementById('loader');
-      if(l){l.classList.add('off');setTimeout(()=>l.remove(),600);}
-      document.querySelectorAll('.fu').forEach(el=>el.classList.add('v'));
-    },1800);
-  });
-}
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ===== PARTICLE RAIN =====
-function initRain(){
-  // Home-only: don't add 40 DOM divs to every article page.
-  if(!document.querySelector('.h-title,#hero'))return;
-  const c=document.createElement('div');c.className='rain';
-  document.body.insertBefore(c,document.body.firstChild);
-  for(let i=0;i<40;i++){const d=document.createElement('div');d.className='dr';d.style.left=Math.random()*100+'%';d.style.height=(Math.random()*25+8)+'px';d.style.animationDuration=(Math.random()*3+2)+'s';d.style.animationDelay=Math.random()*5+'s';d.style.opacity=Math.random()*.2+.08;c.appendChild(d);}
-}
-
-// ===== DISTORTION =====
-function initDistort(){
-  const s=document.getElementById('distortion-slider');
-  if(!s)return;
-  // v3.2: `distort` global removed (was three.js particle chaos). Now just CSS filter.
-  s.addEventListener('input',e=>{const d=parseFloat(e.target.value);document.body.style.filter=`hue-rotate(${d*35}deg) saturate(${1+d}) blur(${d*1.5}px)`;});
-}
-
-// ===== KONAMI =====
-let ki=0;const kc=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-function initKonami(){
-  addEventListener('keydown',e=>{
-    if(e.key===kc[ki]){ki++;if(ki===kc.length){showEgg();ki=0;}}else{ki=0;}
-  });
-}
-function showEgg(){
-  const eg=document.getElementById('eg');if(!eg)return;
-  eg.style.display='block';eg.hidden=false;eg.setAttribute('aria-hidden','false');
-  const c=eg.querySelector('.ec');c.innerHTML='';
-  const lines=['> KONAMI CODE ACCEPTED','> ACCESSING BACKEND...','> WELCOME TO REALITY v3.1.0','','> SIMULATION: ACTIVE','> TIMELINE: 2026.38','> RENDER: 93B LY','> PARTICLES: 10^80','> GLITCHES: 68','> CERN: OPERATIONAL','> WATCHERS: CONFIRMED','','> "THE ONLY WAY TO DEAL WITH AN','>  UNFREE WORLD IS TO BECOME SO','>  ABSOLUTELY FREE THAT YOUR VERY','>  EXISTENCE IS AN ACT OF REBELLION."','>  — ALBERT CAMUS','','> REMEMBER: THE RIVER LETHE FORGETS.','> BUT WE DO NOT.','','> [END TRANSMISSION]'];
-  let i=0;
-  (function t(){if(i>=lines.length)return;const p=document.createElement('div');p.textContent=lines[i];c.appendChild(p);c.scrollTop=c.scrollHeight;i++;setTimeout(t,70+Math.random()*30);})();
-}
-function initEasterEgg(){
-  const btn=document.getElementById('eg-close');
-  if(btn)btn.addEventListener('click',()=>{
-    const eg=document.getElementById('eg');if(eg){eg.style.display='none';eg.hidden=true;eg.setAttribute('aria-hidden','true');}
-  });
-  const eg=document.getElementById('eg');
-  if(eg)eg.addEventListener('keydown',e=>{if(e.key==='Escape'){eg.style.display='none';eg.hidden=true;eg.setAttribute('aria-hidden','true');}});
-}
-
-// ===== RED PILL =====
-function initRedPill(){
-  const btn=document.getElementById('red-pill-btn');
-  if(!btn)return;
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.hc').forEach(el=>{el.style.display='block';el.classList.add('v');});
-    const cat=document.getElementById('categories');
-    if(cat)setTimeout(()=>cat.scrollIntoView({behavior:'smooth'}),200);
-  });
-}
-
-// ===== SIM CALC =====
-function initSimCalc(){
-  const calc=document.getElementById('sim-calc');
-  if(!calc)return;
-  const qs=calc.querySelectorAll('.sim-q');let cq=0,score=0;
-  qs.forEach((q)=>{
-    q.querySelectorAll('button').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        score+=parseInt(btn.dataset.value);
-        q.classList.add('answered');cq++;
-        const next=calc.querySelector(`.sim-q[data-q="${cq}"]`);
-        if(next)next.classList.add('active');
-        else{const sr=document.getElementById('sim-result');sr.classList.add('show');const pct=Math.min(97,Math.max(15,48+score*6));sr.querySelector('.pct').textContent=pct+'%';let m='';if(pct>80)m='HIGH: You are almost certainly in a simulation.';else if(pct>60)m='MODERATE-HIGH: The simulation hypothesis is strongly supported.';else if(pct>40)m='MODERATE: You are questioning reality. That is the first step.';else m='LOW: You may be an NPC. Or not asking the right questions.';sr.querySelector('.msg').textContent=m;}
-      });
+// ===== REVEAL ON SCROLL =====
+function initReveal() {
+  const els = document.querySelectorAll('.fu');
+  if (!els.length) return;
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('v'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('v');
+        io.unobserve(e.target);
+      }
     });
-  });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  els.forEach((el) => io.observe(el));
 }
 
-// ===== SCROLL ANIM =====
-function initScroll(){
-  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v');});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
-  const nav=document.querySelector('nav');
-  if(nav)addEventListener('scroll',()=>{
-    const sy=window.scrollY||window.pageYOffset;
-    if(sy>40)nav.classList.add('scrolled');else nav.classList.remove('scrolled');
-  },{passive:true});
-}
-
-// ===== GLITCH RANDOM =====
-function initGlitch(){
-  // Home-only: scope to the hero title/sub. Article h2s must stay readable.
-  if(!document.querySelector('.h-title,.h-sub'))return;
-  setInterval(()=>{
-    const els=document.querySelectorAll('.h-title,.h-sub');
-    if(!els.length)return;
-    const el=els[Math.floor(Math.random()*els.length)],orig=el.textContent;
-    el.textContent=orig.split('').map(c=>Math.random()<.06?'アイウエオカキクケコ0123456789@#$%&'[Math.floor(Math.random()*22)]:c).join('');
-    setTimeout(()=>el.textContent=orig,120);
-  },5000);
-}
-
-// ===== 3D CARDS =====
-function init3DCards(){
-  document.querySelectorAll('.cc,.ac').forEach(card=>{
-    card.addEventListener('mousemove',e=>{
-      const r=card.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,cx=r.width/2,cy=r.height/2;
-      card.style.transform=`perspective(800px) rotateX(${(y-cy)/18}deg) rotateY(${(cx-x)/18}deg) translateY(-6px)`;
+// ===== NAV: mobile toggle + scrolled state =====
+function initNav() {
+  const toggle = document.querySelector('.n-toggle');
+  const links = document.querySelector('.n-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
-    card.addEventListener('mouseleave',()=>card.style.transform='');
-  });
-}
-
-// ===== SEARCH =====
-function initSearch(){
-  const inp=document.getElementById('search-input');
-  if(!inp)return;
-  // Add live region for results announcement (a11y)
-  const live=document.createElement('div');
-  live.id='search-status';
-  live.setAttribute('role','status');
-  live.setAttribute('aria-live','polite');
-  live.style.cssText='position:absolute;left:-9999px;width:1px;height:1px;';
-  inp.parentNode.appendChild(live);
-  inp.addEventListener('input',e=>{
-    const q=e.target.value.toLowerCase();
-    let visible=0,total=0;
-    document.querySelectorAll('.cc,.ac').forEach(card=>{
-      total++;
-      const match=card.textContent.toLowerCase().includes(q);
-      card.style.display=match?'':'none';
-      if(match)visible++;
+    links.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     });
-    live.textContent=q?`${visible} of ${total} results`:`${total} items`;
+    document.addEventListener('click', (e) => {
+      if (!links.contains(e.target) && !toggle.contains(e.target)) {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+}
+
+// ===== GLITCH: occasional character corruption on the hero title =====
+// A11y note: the title text is never actually replaced, only decorated via
+// ::before/::after text-shadow layers, so screen readers get clean text.
+function initGlitch() {
+  const title = document.querySelector('.h-title');
+  if (!title || reduceMotion) return;
+  title.classList.add('glitch');
+}
+
+// ===== REALITY DISTORTION SLIDER =====
+function initDistort() {
+  const s = document.getElementById('distortion-slider');
+  if (!s) return;
+  s.addEventListener('input', (e) => {
+    const d = parseFloat(e.target.value);
+    document.body.style.filter =
+      `hue-rotate(${d * 35}deg) saturate(${1 + d}) blur(${d * 1.5}px)`;
   });
 }
 
-// ===== MEMORY CHECK (event delegation) =====
-function initMemoryChecks(){
-  document.body.addEventListener('click',e=>{
-    const btn=e.target.closest('.mco button');
-    if(!btn)return;
-    const fb=btn.closest('.mc')?.querySelector('.mcf');
-    if(fb){fb.style.display='block';}
+// ===== 3D TILT ON CARDS =====
+function initTilt() {
+  if (reduceMotion || matchMedia('(hover: none)').matches) return;
+  document.querySelectorAll('.cc, .ac').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      card.style.transform =
+        `perspective(800px) rotateX(${(y - r.height / 2) / 18}deg) ` +
+        `rotateY(${(r.width / 2 - x) / 18}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
   });
 }
 
-// ===== MOBILE NAV =====
-function initMobileNav(){
-  const t=document.querySelector('.n-toggle'),l=document.querySelector('.n-links');
-  if(!t||!l)return;
-  t.addEventListener('click',e=>{e.stopPropagation();l.classList.toggle('open');});
-  l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
-  addEventListener('click',e=>{if(!l.contains(e.target)&&!t.contains(e.target))l.classList.remove('open');});
-}
+// ===== ARCHIVE SEARCH (live filter + a11y announcements) =====
+function initSearch() {
+  const inp = document.getElementById('search-input');
+  const grid = document.getElementById('archive');
+  if (!inp || !grid) return;
 
-// ===== CARD SCROLL =====
-function initCardScroll(){
-  document.querySelectorAll('[data-scrollto]').forEach(el=>{
-    const handler=()=>{const t=document.getElementById(el.dataset.scrollto);if(t)t.scrollIntoView({behavior:'smooth'});};
-    el.addEventListener('click',handler);
-    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();handler();}});
-  });
-}
+  const live = document.createElement('div');
+  live.id = 'search-status';
+  live.setAttribute('role', 'status');
+  live.setAttribute('aria-live', 'polite');
+  live.className = 'sr-only';
+  document.body.appendChild(live);
 
-// ===== ARTICLE PAGE UX (v3.6) =====
-// Detects article pages and wires up: reading progress, back-to-top, table of contents,
-// header meta (word count + read time), and share buttons.
-// Marked by presence of <main><div class="aw"> on the page.
-function isArticlePage(){return !!document.querySelector('main .aw');}
+  const cards = Array.from(grid.querySelectorAll('.ac'));
+  // Pre-lowercase once; doing it per keystroke on 52 nodes is wasteful.
+  const hay = cards.map((c) => c.textContent.toLowerCase());
 
-// 1) READING PROGRESS BAR — fills as user scrolls the article area.
-function initReadingProgress(){
-  if(!isArticlePage())return;
-  // Element is rendered inline in each article; if missing (older pages), skip.
-  const bar=document.getElementById('rp');
-  if(!bar)return;
-  // Prefer measuring the article container so the % matches actual reading progress,
-  // not the whole page (which includes the related block + footer at 100%).
-  const aw=document.querySelector('main .aw');
-  const target=aw||document.body;
-  let ticking=false;
-  const update=()=>{
-    ticking=false;
-    const rect=target.getBoundingClientRect();
-    const total=rect.height-window.innerHeight;
-    if(total<=0){bar.style.width='100%';return;}
-    const scrolled=Math.min(Math.max(-rect.top,0),total);
-    const pct=(scrolled/total)*100;
-    bar.style.width=pct.toFixed(2)+'%';
+  // Support ?cat=ARCHIVE deep links from the home page category grid.
+  // The category is a separate filter axis from the text query: typing in the box
+  // replaces the box contents, so the category must NOT be inferred from the box
+  // (doing so makes the two filters inseparable and a search that matches nothing
+  // in the active category reports 0 with no way to recover).
+  const params = new URLSearchParams(location.search);
+  let cat = (params.get('cat') || '').toUpperCase();
+
+  const apply = () => {
+    const q = inp.value.trim().toLowerCase();
+    // A ?cat= filter stays active until the visitor edits the box, at which point
+    // the query takes over and the category is released.
+    const textOk = (c, i) => !q || hay[i].includes(q);
+    const catOk = (c) => !cat || c.dataset.cat === cat;
+    let visible = 0;
+    cards.forEach((c, i) => {
+      const show = textOk(c, i) && catOk(c);
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    live.textContent = q
+      ? `${visible} of ${cards.length} results`
+      : cat
+        ? `${visible} of ${cards.length} files in ${cat}`
+        : `${cards.length} files`;
+    return visible;
   };
-  const onScroll=()=>{if(!ticking){ticking=true;requestAnimationFrame(update);}};
-  addEventListener('scroll',onScroll,{passive:true});
-  addEventListener('resize',onScroll,{passive:true});
+
+  if (cat) {
+    inp.value = cat;
+    inp.setAttribute('aria-label', `Filtered by category ${cat}`);
+  }
+  apply();
+
+  inp.addEventListener('input', () => {
+    // The visitor is now searching, not browsing a category.
+    if (inp.value.trim().toUpperCase() !== cat) cat = '';
+    apply();
+  });
+
+  // A ?cat= link with no results (e.g. a typo'd query) should say so rather than
+  // showing an empty grid with no explanation.
+  if (cat && apply() === 0) {
+    const note = document.createElement('p');
+    note.className = 'no-results';
+    note.textContent = `No files match "${cat}".`;
+    grid.before(note);
+  }
+}
+
+// ===== ARTICLE: reading progress =====
+// A11y bug (fixed): this used to no-op under prefers-reduced-motion, so the
+// progress bar stayed at 0% and the back-to-top button never appeared for
+// visitors who have reduced motion enabled — the exact people least likely to
+// want a janky animated bar. Reduced motion must suppress the *animation*, not
+// the *function*: the bar still updates, it just does not transition.
+function initProgress() {
+  const bar = document.getElementById('rp');
+  const body = document.querySelector('.ab');
+  if (!bar || !body) return;
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const r = body.getBoundingClientRect();
+    const total = r.height - window.innerHeight;
+    if (total <= 0) { bar.style.width = '100%'; return; }
+    const scrolled = Math.min(Math.max(-r.top, 0), total);
+    bar.style.width = ((scrolled / total) * 100).toFixed(2) + '%';
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll, { passive: true });
   update();
 }
 
-// 2) BACK-TO-TOP BUTTON — fixed bottom-right, mint border, ↑ icon. Shows past 30% scroll.
-function initBackToTop(){
-  if(!isArticlePage())return;
-  const btn=document.getElementById('btt');
-  if(!btn)return;
-  let ticking=false;
-  const update=()=>{
-    ticking=false;
-    const aw=document.querySelector('main .aw');
-    const target=aw||document.body;
-    const rect=target.getBoundingClientRect();
-    const total=rect.height-window.innerHeight;
-    const scrolled=Math.min(Math.max(-rect.top,0),Math.max(total,1));
-    const pct=total>0?(scrolled/total)*100:0;
-    btn.classList.toggle('show',pct>30);
-  };
-  const onScroll=()=>{if(!ticking){ticking=true;requestAnimationFrame(update);}};
-  addEventListener('scroll',onScroll,{passive:true});
-  btn.addEventListener('click',()=>{
-    // Respect reduced motion: jump rather than smooth-scroll.
-    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
-  });
-  update();
+// ===== ARTICLE: table of contents from h2 =====
+function slugify(s) {
+  return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '').slice(0, 60) || 'section';
 }
 
-// 3) TABLE OF CONTENTS — auto-built from <h2> in .ab. Desktop: sticky sidebar.
-//    Mobile: collapsible accordion above the article body.
-function initTOC(){
-  if(!isArticlePage())return;
-  const side=document.getElementById('toc-side');
-  const mob=document.getElementById('toc-mob');
-  const mobBtn=document.getElementById('toc-mob-btn');
-  const aw=document.querySelector('main .aw');
-  const body=aw?aw.querySelector('.ab'):null;
-  if(!body)return;
-  // Pull h2 elements out of the body and ensure each has a stable id we can link to.
-  const h2s=Array.from(body.querySelectorAll('h2'));
-  if(h2s.length<2)return; // Not worth a TOC for one section.
-  h2s.forEach((h,i)=>{
-    if(!h.id)h.id='sec-'+(i+1)+'-'+slugify(h.textContent);
+function initTOC() {
+  const body = document.querySelector('.ab');
+  if (!body) return;
+  const h2s = Array.from(body.querySelectorAll('h2'));
+  if (h2s.length < 2) return;
+  h2s.forEach((h, i) => { if (!h.id) h.id = 'sec-' + (i + 1) + '-' + slugify(h.textContent); });
+
+  const wrap = document.createElement('nav');
+  wrap.className = 'toc';
+  wrap.setAttribute('aria-label', 'Table of contents');
+  const ol = document.createElement('ol');
+  h2s.forEach((h) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    a.dataset.target = h.id;
+    li.appendChild(a);
+    ol.appendChild(li);
   });
-  // Build sidebar (desktop).
-  if(side){
-    const ol=document.createElement('ol');
-    h2s.forEach(h=>{
-      const li=document.createElement('li');
-      const a=document.createElement('a');
-      a.href='#'+h.id;
-      a.textContent=h.textContent;
-      a.dataset.target=h.id;
-      li.appendChild(a);
-      ol.appendChild(li);
-    });
-    side.appendChild(ol);
-    if(aw)aw.classList.add('toc-on');
-    // Insert sidebar as the FIRST child so it sits to the left of the article body
-    // in the flex row.
-    if(aw)aw.insertBefore(side,aw.firstChild);
-  }
-  // Build mobile accordion.
-  if(mob){
-    const ol=document.createElement('ol');
-    h2s.forEach(h=>{
-      const li=document.createElement('li');
-      const a=document.createElement('a');
-      a.href='#'+h.id;
-      a.textContent=h.textContent;
-      a.dataset.target=h.id;
-      li.appendChild(a);
-      ol.appendChild(li);
-    });
-    mob.appendChild(ol);
-    if(mobBtn){
-      mobBtn.addEventListener('click',()=>{
-        const open=mob.classList.toggle('open');
-        mobBtn.classList.toggle('open',open);
-        mobBtn.setAttribute('aria-expanded',String(open));
-      });
-    }
-    // Insert mobile button + accordion right after the back-to-archive link.
-    const bta=aw?aw.querySelector('.bta'):null;
-    if(bta&&bta.parentNode){
-      bta.parentNode.insertBefore(mobBtn,bta.nextSibling);
-      bta.parentNode.insertBefore(mob,bta.nextSibling);
-    }
-  }
-  // Scroll-spy — highlight the section currently in view in both sidebars.
-  const links=Array.from(document.querySelectorAll('#toc-side a, #toc-mob a'));
-  if(!links.length)return;
-  const setActive=(id)=>{
-    links.forEach(a=>{
-      if(a.dataset.target===id)a.classList.add('active');
-      else a.classList.remove('active');
-    });
-  };
-  let spyTicking=false;
-  const spy=()=>{
-    spyTicking=false;
-    const y=window.scrollY+120;
-    let current=h2s[0].id;
-    for(const h of h2s){
-      if(h.offsetTop<=y)current=h.id;else break;
-    }
-    setActive(current);
-  };
-  const onSpy=()=>{if(!spyTicking){spyTicking=true;requestAnimationFrame(spy);}};
-  addEventListener('scroll',onSpy,{passive:true});
-  // Smooth-scroll for TOC links (respects reduced motion via global html rule).
-  links.forEach(a=>{
-    a.addEventListener('click',(e)=>{
-      const id=a.dataset.target;
-      const t=document.getElementById(id);
-      if(!t)return;
+  wrap.appendChild(ol);
+  body.parentNode.insertBefore(wrap, body);
+
+  const links = Array.from(wrap.querySelectorAll('a'));
+  links.forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const t = document.getElementById(a.dataset.target);
+      if (!t) return;
       e.preventDefault();
-      const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-      t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
-      history.replaceState(null,'','#'+id);
+      t.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + a.dataset.target);
     });
   });
+
+  let ticking = false;
+  const spy = () => {
+    ticking = false;
+    const y = window.scrollY + 140;
+    let current = h2s[0].id;
+    for (const h of h2s) { if (h.offsetTop <= y) current = h.id; else break; }
+    links.forEach((a) => a.classList.toggle('active', a.dataset.target === current));
+  };
+  addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(spy); }
+  }, { passive: true });
   spy();
 }
-function slugify(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60)||'section';}
 
-// 4) ARTICLE HEADER META — surface word count + read time, format the category badge,
-//    and inject a prominent "FILED" date derived from the existing adt field.
-function initHeaderMeta(){
-  if(!isArticlePage())return;
-  const aw=document.querySelector('main .aw');
-  if(!aw)return;
-  const h1=aw.querySelector('.at');
-  if(!h1)return;
-  // Compute word count from the article body.
-  const body=aw.querySelector('.ab');
-  let words=0;
-  if(body){
-    // Walk text nodes (skipping <script>/<style>) so tables/code don't inflate count.
-    const walker=document.createTreeWalker(body,NodeFilter.SHOW_TEXT,{
-      acceptNode:(n)=>{
-        const p=n.parentNode;
-        if(!p)return NodeFilter.FILTER_REJECT;
-        const tag=p.nodeName;
-        if(tag==='SCRIPT'||tag==='STYLE')return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
-    let n;
-    while((n=walker.nextNode())){
-      const t=n.textContent.trim();
-      if(!t)continue;
-      words+=t.split(/\s+/).length;
+// ===== ARTICLE: header meta (category, filed date, read time, word count) =====
+function initHeaderMeta() {
+  const aw = document.querySelector('.aw');
+  if (!aw) return;
+  const h1 = aw.querySelector('.at');
+  if (!h1) return;
+  const body = aw.querySelector('.ab');
+  if (!body) return;
+
+  let words = 0;
+  const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, {
+    acceptNode: (n) => {
+      const tag = n.parentNode && n.parentNode.nodeName;
+      if (tag === 'SCRIPT' || tag === 'STYLE') return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
     }
+  });
+  let n;
+  while ((n = walker.nextNode())) {
+    const t = n.textContent.trim();
+    if (t) words += t.split(/\s+/).length;
   }
-  // Read time at 230 wpm (long-form reading speed for engaged readers).
-  const wpm=230;
-  const mins=Math.max(1,Math.round(words/wpm));
-  // Category from .acls, FILED date from .adt (best-effort: pull any 4-digit year plus optional -MM-DD).
-  const acls=aw.querySelector('.acls');
-  const adt=aw.querySelector('.adt');
-  const cat=acls?acls.textContent.trim():'';
-  let filed='';
-  if(adt){
-    // Prefer a YYYY-MM-DD or YYYY-MM pattern. Fall back to any 4-digit year.
-    const iso=adt.textContent.match(/(\d{4}-\d{2}-\d{2})/);
-    const ym=adt.textContent.match(/(\d{4}-\d{2})/);
-    const yr=adt.textContent.match(/(\d{4})/);
-    if(iso)filed='FILED '+iso[1];
-    else if(ym)filed='FILED '+ym[1];
-    else if(yr)filed='FILED '+yr[1];
-  }
-  // Format word count compactly.
-  let wcLabel;
-  if(words>=1000)wcLabel=(words/1000).toFixed(1).replace(/\.0$/,'')+'K WORDS';
-  else wcLabel=words+' WORDS';
-  // Build the meta strip.
-  const meta=document.createElement('div');
-  meta.className='at-meta';
-  meta.innerHTML=
-    (cat?`<span class="at-cat">${escapeHtml(cat)}</span>`:'')+
-    (filed?`<span class="at-filed">${escapeHtml(filed)}</span>`:'')+
-    (cat||filed?'<span class="at-sep">//</span>':'')+
-    `<span class="at-stat">READ TIME: <b>~${mins} MIN</b></span>`+
-    `<span class="at-sep">//</span>`+
-    `<span class="at-stat">${escapeHtml(wcLabel)}</span>`;
-  h1.parentNode.insertBefore(meta,h1);
-  // Also enhance the existing .acls/.adt row: make the category badge more prominent
-  // by adding the at-cat class (the strip above already does this; we just hide the
-  // original small badge to avoid duplication).
-  if(acls)acls.style.display='none';
-  if(adt)adt.style.display='none';
-  // Store on the element for share buttons / debug.
-  aw.dataset.words=String(words);
-  aw.dataset.readMins=String(mins);
-}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);}
 
-// 5) SHARE BUTTONS — wire up the inline share block. No external scripts.
-function initShare(){
-  if(!isArticlePage())return;
-  const block=document.querySelector('.share-block');
-  if(!block)return;
-  const url=encodeURIComponent(location.href);
-  const title=encodeURIComponent(document.title);
-  const tw=block.querySelector('[data-share="twitter"]');
-  const fb=block.querySelector('[data-share="facebook"]');
-  const ln=block.querySelector('[data-share="linkedin"]');
-  const cp=block.querySelector('[data-share="copy"]');
-  if(tw)tw.href=`https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-  if(fb)fb.href=`https://www.facebook.com/sharer/sharer.php?u=${url}`;
-  if(ln)ln.href=`https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-  if(cp)cp.addEventListener('click',async()=>{
-    let ok=false;
-    try{
-      if(navigator.clipboard&&navigator.clipboard.writeText){
-        await navigator.clipboard.writeText(location.href);
-        ok=true;
-      }else{
-        // Fallback for older browsers / non-secure contexts.
-        const ta=document.createElement('textarea');
-        ta.value=location.href;ta.setAttribute('readonly','');
-        ta.style.position='fixed';ta.style.opacity='0';
-        document.body.appendChild(ta);ta.select();
-        ok=document.execCommand('copy');document.body.removeChild(ta);
+  const mins = Math.max(1, Math.round(words / 230));
+  const wc = words >= 1000
+    ? (words / 1000).toFixed(1).replace(/\.0$/, '') + 'K WORDS'
+    : words + ' WORDS';
+
+  const meta = document.createElement('div');
+  meta.className = 'at-meta';
+  meta.textContent = `READ TIME ~${mins} MIN // ${wc}`;
+
+  h1.parentNode.insertBefore(meta, h1);
+  // The build renders the category/date into the .am strip already, so the
+  // original badges stay visible and are not hidden like v3.6 did.
+}
+
+// ===== ARTICLE: back to top =====
+// Same reduced-motion rule as initProgress: the button is a functional control,
+// not decoration, so it must appear regardless of motion preference.
+function initBackToTop() {
+  if (!document.querySelector('.ab')) return;
+  const btn = document.createElement('button');
+  btn.className = 'btt';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML = '<span class="btt-arrow" aria-hidden="true">&#8593;</span>'
+    + '<span class="btt-label">TOP</span>';
+  document.body.appendChild(btn);
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    btn.classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
+  };
+  addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  btn.addEventListener('click', () =>
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+  update();
+}
+
+// ===== KONAMI EASTER EGG =====
+function initKonami() {
+  const seq = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft',
+    'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+  let i = 0;
+  addEventListener('keydown', (e) => {
+    if (e.key === seq[i]) {
+      i++;
+      if (i === seq.length) { i = 0; showEgg(); }
+    } else i = 0;
+  });
+}
+
+function showEgg() {
+  const lines = [
+    '> KONAMI CODE ACCEPTED', '> ESTABLISHING HANDSHAKE...', '',
+    '> LETHOMETRY v4.0', '> SIMULATION: ACTIVE', '> RENDER: CSS/SVG',
+    '> THREE.JS: REMOVED (IT NEVER RENDERED)', '> PARTICLES: CSS',
+    '> CONTENT: 52 FILES', '', '> THE ARCHIVE REMEMBERS.', '',
+    '> [END TRANSMISSION]',
+  ];
+  const d = document.createElement('div');
+  d.className = 'egg';
+  d.setAttribute('role', 'dialog');
+  d.setAttribute('aria-label', 'Terminal message');
+  const pre = document.createElement('pre');
+  pre.className = 'terminal';
+  pre.textContent = lines.join('\n');
+  d.appendChild(pre);
+  d.addEventListener('click', () => d.remove());
+  document.body.appendChild(d);
+}
+
+// ===== SIMULATION CALCULATOR (calculator.html) =====
+function initCalc() {
+  const calc = document.getElementById('sim-calc');
+  if (!calc) return;
+  const questions = Array.from(calc.querySelectorAll('.sim-q'));
+  const result = document.getElementById('sim-result');
+  let idx = 0;
+  let score = 0;
+
+  const activate = (i) => {
+    questions.forEach((q, j) => {
+      q.classList.toggle('active', j === i);
+      q.hidden = j !== i;
+    });
+  };
+  activate(0);
+
+  calc.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-value]');
+    if (!btn) return;
+    score += parseInt(btn.dataset.value, 10) || 0;
+    idx++;
+    if (idx < questions.length) { activate(idx); return; }
+    const pct = Math.min(97, Math.max(15, 48 + score * 6));
+    if (result) {
+      result.hidden = false;
+      result.classList.add('show');
+      const pctEl = result.querySelector('.pct');
+      const msgEl = result.querySelector('.msg');
+      if (pctEl) pctEl.textContent = pct + '%';
+      if (msgEl) {
+        msgEl.textContent = pct > 80
+          ? 'HIGH: You are almost certainly in a simulation.'
+          : pct > 60
+            ? 'MODERATE-HIGH: The hypothesis is strongly supported.'
+            : pct > 40
+              ? 'MODERATE: You are questioning reality. That is the first step.'
+              : 'LOW: You may be an NPC. Or not asking the right questions.';
       }
-    }catch(e){ok=false;}
-    const orig=cp.innerHTML;
-    cp.classList.add('share-copied');
-    cp.innerHTML=ok?'<span class="share-icon">✓</span> COPIED':'<span class="share-icon">✗</span> COPY FAILED';
-    setTimeout(()=>{cp.classList.remove('share-copied');cp.innerHTML=orig;},1800);
+    }
+  });
+}
+
+// ===== RED PILL reveals the category section =====
+function initRedPill() {
+  const btn = document.querySelector('.btn-rp');
+  const cats = document.getElementById('categories');
+  if (!btn || !cats) return;
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    cats.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   });
 }
 
 // ===== INIT =====
-document.addEventListener('DOMContentLoaded',()=>{
-  initLoader();initRain();initDistort();initKonami();initEasterEgg();
-  initRedPill();initSimCalc();initScroll();initGlitch();init3DCards();
-  initSearch();initMemoryChecks();initMobileNav();initCardScroll();
-  initReadingProgress();initBackToTop();initHeaderMeta();initTOC();initShare();
+// Order matters. initTOC inserts a nav element directly above .ab, which shifts
+// the article down the page. Anything that measures .ab's position must run
+// AFTER that insertion or it caches a stale baseline — that is why the reading
+// progress bar sat at 0% while the page was scrolled to the end.
+document.addEventListener('DOMContentLoaded', () => {
+  initReveal();
+  initNav();
+  initGlitch();
+  initDistort();
+  initTilt();
+  initSearch();
+  initRedPill();
+  initCalc();
+  initHeaderMeta();
+  initTOC();          // inserts the TOC nav — do this before any position measuring
+  initProgress();     // measures .ab, so it must follow initTOC
+  initBackToTop();
+  initKonami();
 });
+
+// Memory check quiz (mandela.html) — reveal answer on click, then lock buttons
+(function(){
+  document.querySelectorAll('.mco').forEach(function(quiz){
+    var buttons = quiz.querySelectorAll('button');
+    var box = quiz.closest('.mc');
+    var answer = box ? box.querySelector('.mcf') : null;
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if (answer) answer.classList.add('revealed');
+        buttons.forEach(function(b){ b.disabled = true; });
+        btn.classList.add('picked');
+      });
+    });
+  });
+})();

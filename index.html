@@ -1,297 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
-  <meta name="theme-color" content="#050508">
-  <meta name="color-scheme" content="dark">
-  <title>LETHOMETRY — The Simulation Archive</title>
-  <meta name="description" content="What Time Tries to Forget, We Defy. 46 investigations into simulation theory, Mandela effects, suppressed technology, and the anomalies reality tries to hide.">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta property="og:title" content="LETHOMETRY — The Simulation Archive">
-  <meta property="og:description" content="What Time Tries to Forget, We Defy. 46 investigations into simulation theory, Mandela effects, suppressed technology, and the anomalies reality tries to hide.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lethometry.com">
-  <meta property="og:image" content="https://lethometry.com/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LETHOMETRY — The Simulation Archive">
-  <meta name="twitter:description" content="What Time Tries to Forget, We Defy.">
-  <link rel="stylesheet" href="css/style.css?v=24">
-  <link rel="canonical" href="https://lethometry.com/">
-  <meta property="og:site_name" content="LETHOMETRY">
-  <meta property="article:author" content="Lethometry Research">
-  <meta name="robots" content="index, follow">
-  <link rel="alternate" hreflang="en" href="https://lethometry.com/">
-  <link rel="alternate" hreflang="x-default" href="https://lethometry.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
+<meta name="theme-color" content="#050508">
+<meta name="color-scheme" content="dark">
+<title>LETHOMETRY — The Simulation Archive</title>
+<meta name="description" content="Deep investigations into simulation theory, Mandela effects, suppressed technology, and the anomalies reality tries to hide. 52 files in the archive.">
+<link rel="canonical" href="https://lethometry.com/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LETHOMETRY — The Simulation Archive">
+<meta property="og:description" content="Deep investigations into simulation theory, Mandela effects, suppressed technology, and the anomalies reality tries to hide. 52 files in the archive.">
+<meta property="og:url" content="https://lethometry.com/">
+<meta property="og:site_name" content="LETHOMETRY">
+<meta property="og:image" content="https://lethometry.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LETHOMETRY — The Simulation Archive">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LETHOMETRY — The Simulation Archive">
+<meta name="twitter:description" content="Deep investigations into simulation theory, Mandela effects, suppressed technology, and the anomalies reality tries to hide. 52 files in the archive.">
+<meta name="twitter:image" content="https://lethometry.com/og-image.png">
 
-  <!-- Preconnect to font CDN -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="//static.cloudflareinsights.com">
-
-  <!-- Skip-link: target is the main content region -->
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- Structured Data: WebSite + SearchAction -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "LETHOMETRY",
-    "alternateName": "The Simulation Archive",
-    "url": "https://lethometry.com",
-    "description": "46 deep investigations into simulation theory, Mandela effects, suppressed technology, and the anomalies reality tries to hide.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Lethometry Research",
-      "url": "https://lethometry.com"
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://lethometry.com/articles.html?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "LETHOMETRY",
-    "url": "https://lethometry.com",
-    "logo": "https://lethometry.com/favicon.svg",
-    "sameAs": ["https://github.com/NosytLabs"]
-  }
-  </script>
-  <style>
-    /* ===== Home-only compactness overrides (don't modify css/style.css) ===== */
-    /* Cap hero so the page is scannable; was 100vh (~900px), now ~80vh with 720px ceiling */
-    #hero{min-height:min(80vh,720px) !important}
-    section#categories, section#tools, section#articles{padding:4rem 2rem}
-    .sh{margin-bottom:1.6rem}
-    .sh p{font-size:.92rem}
-    #categories .cc,#articles .ac{min-height:170px;padding:1.1rem}
-    #categories .cc h3{font-size:.95rem}
-    #articles .ac h3{font-size:.9rem;min-height:2.4em}
-    #articles .ac .exc{font-size:.78rem;line-height:1.5}
-    #categories .cgrid,#articles .agrid{gap:.8rem}
-    /* ===== TOOLS landing (home-only) ===== */
-    .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;max-width:1100px;margin:0 auto}
-    .tc{background:linear-gradient(145deg,rgba(17,17,24,.92),rgba(10,10,18,.96));border:1px solid rgba(0,229,255,.28);border-radius:12px;padding:1.5rem 1.3rem;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;transition:all .4s cubic-bezier(.175,.885,.32,1.275);min-height:170px}
-    .tc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--c),transparent);opacity:.6}
-    .tc::after{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle at top right,rgba(0,229,255,.08),transparent 70%);pointer-events:none}
-    .tc:hover{transform:translateY(-4px);border-color:var(--c);box-shadow:0 14px 40px rgba(0,0,0,.35),0 0 30px rgba(0,229,255,.12)}
-    .tc .tnum{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:3px}
-    .tc .tname{font-family:'Orbitron',sans-serif;font-size:1.2rem;color:var(--c);letter-spacing:2px;text-shadow:0 0 18px rgba(0,229,255,.25);line-height:1.25}
-    .tc .tdesc{font-family:"Rajdhani",sans-serif;font-size:.95rem;color:var(--td);line-height:1.6;flex-grow:1}
-    .tc .tmore{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--g);letter-spacing:2px;display:inline-flex;align-items:center;gap:.4rem;margin-top:.4rem;transition:all .3s}
-    .tc:hover .tmore{gap:.8rem;text-shadow:var(--gc)}
-    .tc .ticon{position:absolute;bottom:1.2rem;right:1.2rem;font-family:'Orbitron',sans-serif;font-size:1.6rem;color:rgba(0,229,255,.15);font-weight:800;letter-spacing:1px}
-    .tc:hover .ticon{color:rgba(0,229,255,.3)}
-    @media(max-width:600px){.tgrid{grid-template-columns:1fr}}
-  </style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/css/style.css?v=406">
+<script src="/js/consent.js?v=405" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "LETHOMETRY", "alternateName": "The Simulation Archive", "url": "https://lethometry.com", "description": "Deep investigations into simulation theory, Mandela effects, suppressed technology, and the anomalies reality tries to hide. 52 files in the archive.", "publisher": {"@type": "Organization", "name": "Lethometry Research", "url": "https://lethometry.com"}, "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": "https://lethometry.com/articles.html?q={search_term_string}"}, "query-input": "required name=search_term_string"}}</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-E3VRH9TCBC"></script><script>window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments)}g('js',new Date());g('config','G-E3VRH9TCBC',{anonymize_ip:true,cookie_flags:'SameSite=None;Secure'});</script>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-
-<!-- Detect JS early; controls loader visibility. Content is visible without JS. -->
-<script>document.documentElement.classList.add('js');</script>
-<noscript>
-  <div style="background:#ff3;padding:.8rem 1rem;text-align:center;color:#000;font-family:monospace;font-size:.85rem;border-bottom:2px solid #000;">
-    ⚠️ JavaScript is disabled. All articles and content remain fully readable — only the interactive lab features (scroll reveal, distortion easter egg, simulation calculator, Konami console) are unavailable. The 2D hero scene renders without JavaScript.
-  </div>
-</noscript>
-
-<div id="loader" aria-hidden="true"><div class="ldr-ring"></div><div class="ldr-txt">INITIALIZING ARCHIVE...</div></div>
-<div class="crt" aria-hidden="true"></div>
-
-<!-- Easter Egg -->
-<div id="eg" role="dialog" aria-label="Developer Console" hidden>
-  <div class="eh"><span>// DEVELOPER CONSOLE</span><button id="eg-close" type="button" aria-label="Close developer console"><span aria-hidden="true">[X]</span></button></div>
-  <div class="ec"></div>
-</div>
-
-<!-- Nav -->
-<nav role="navigation" aria-label="Main navigation">
-  <div class="n-logo">LETHOMETRY</div>
-  <button class="n-toggle" aria-label="Toggle menu" type="button"><span></span><span></span><span></span></button>
-  <ul class="n-links">
-    <li><a href="#hero">HOME</a></li>
-    <li><a href="#categories">ARCHIVE</a></li>
-    <li><a href="mandela.html">MANDELA LAB</a></li>
-    <li><a href="timeline.html">TIMELINE</a></li>
-    <li><a href="calculator.html">CALCULATOR</a></li>
-    <li><a href="#articles">ARTICLES</a></li>
-  </ul>
-</nav>
-
-<main id="main">
-
-<!-- Hero -->
-<section id="hero" aria-label="Hero">
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav class="nav" aria-label="Primary"><a class="brand" href="/">LETHOMETRY</a><button class="n-toggle" aria-label="Menu" aria-expanded="false">☰</button><div class="n-links"><a href="/">HOME</a><a href="/articles.html">ARCHIVE</a><a href="/mandela.html">MANDELA LAB</a><a href="/timeline.html">TIMELINE</a><a href="/calculator.html">CALCULATOR</a><a href="/privacy.html">PRIVACY</a></div></nav><main id="main">
+<section id="hero" class="hero">
   <div id="hero-scene" aria-hidden="true">
-    <div class="hs-halo"></div>
-    <div class="hs-orb"></div>
-    <svg class="hs-rings" viewBox="-110 -110 220 220" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="hsrg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00ff41" stop-opacity=".9"/><stop offset="100%" stop-color="#00e5ff" stop-opacity=".15"/></linearGradient>
-        <linearGradient id="hsrg2" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00e5ff" stop-opacity=".7"/><stop offset="100%" stop-color="#aa00ff" stop-opacity=".1"/></linearGradient>
-      </defs>
-      <g class="hs-rr1"><circle r="52" fill="none" stroke="url(#hsrg1)" stroke-width=".6"/><circle r="52" fill="none" stroke="rgba(0,229,255,.25)" stroke-width=".15" stroke-dasharray="1 6"/></g>
-      <g class="hs-rr2"><circle r="72" fill="none" stroke="url(#hsrg2)" stroke-width=".5"/><circle r="72" fill="none" stroke="rgba(0,255,65,.2)" stroke-width=".12" stroke-dasharray="1 9"/></g>
-      <g class="hs-rr3"><circle r="92" fill="none" stroke="rgba(0,255,65,.18)" stroke-width=".25" stroke-dasharray="2 8"/></g>
-      <path d="M-58,-14 A60,60 0 0 1 -14,-58" fill="none" stroke="rgba(0,229,255,.55)" stroke-width="1"/>
-      <path d="M40,55 A68,68 0 0 0 66,28" fill="none" stroke="rgba(255,170,0,.45)" stroke-width=".8"/>
-      <circle r="2" fill="#00ff41" opacity=".7"/>
-      <circle r="1.2" fill="#00e5ff" opacity=".6" cx="-72" cy="-12"/>
-      <circle r="1" fill="#ffaa00" opacity=".5" cx="48" cy="58"/>
-    </svg>
-    <div class="hs-particles">
-      <span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span>
-      <span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span>
-      <span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span><span class="hs-p"></span>
-    </div>
-    <div class="hs-words">
-      <span class="hs-w">MEMORY</span><span class="hs-w">OBLIVION</span><span class="hs-w">TIME</span><span class="hs-w">DEEP</span><span class="hs-w">TRUTH</span><span class="hs-w">VOID</span>
-      <span class="hs-w">PHANTOM</span><span class="hs-w">CIPHER</span><span class="hs-w">RECLINE</span><span class="hs-w">INFINITY</span><span class="hs-w">STILL</span><span class="hs-w">SIGNAL</span>
-    </div>
+    <div class="hs-orb"></div><div class="hs-halo"></div>
+    <svg class="hs-rings" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="rgba(0,255,65,.18)" stroke-width=".3"/><circle cx="50" cy="50" r="34" fill="none" stroke="rgba(0,229,255,.16)" stroke-width=".3" stroke-dasharray="2 4"/><circle cx="50" cy="50" r="22" fill="none" stroke="rgba(255,170,0,.14)" stroke-width=".3"/></svg>
+    <div class="hs-particles"></div>
   </div>
   <div class="h-content">
-    <div class="h-badge">// THE SIMULATION ARCHIVE //</div>
-    <h1 class="h-title glt" data-text="LETHOMETRY">LETHOMETRY</h1>
-    <div class="h-sub">WHAT TIME TRIES TO FORGET, WE DEFY</div>
-    <p class="h-desc">An immersive exploration of simulation theory, Mandela effects, suppressed technology, and the anomalies that reality tries to hide.</p>
-    <div class="h-btns">
-      <button class="btn-rp" id="red-pill-btn" type="button">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
-        Take the Red Pill
-      </button>
-      <a href="#categories" class="btn-sec">Explore the Archive →</a>
+    <span class="h-cap">OBSERVATION // THE SIMULATION ARCHIVE</span>
+    <h1 class="h-title" data-text="LETHOMETRY">LETHOMETRY</h1>
+    <p class="h-sub">WHAT TIME TRIES TO FORGET, WE DEFY.</p>
+    <p class="h-lede">Deep investigations into simulation theory, Mandela effects, suppressed technology, and the anomalies reality tries to hide. 52 files in the archive.</p>
+    <div class="h-cta">
+      <a class="btn-rp" href="#categories">TAKE THE RED PILL</a>
+      <a class="btn-sec" href="/articles.html">EXPLORE THE ARCHIVE &rarr;</a>
     </div>
   </div>
-  <div class="scroll-id" aria-hidden="true"><div class="mouse"></div><span>SCROLL</span></div>
-</section>
-
-<!-- Categories -->
-<section id="categories" aria-label="Archive categories">
-  <div class="sh fu"><span class="stag">// ARCHIVE DATABASE</span><h2>EXPLORE THE ARCHIVE</h2><p>Ten categories of anomalies, each meticulously documented and sourced.</p></div>
-  <div class="srch fu"><input type="text" id="search-input" placeholder="Search the archive..." aria-label="Search archive"></div>
-  <div class="cgrid sca">
-    <a class="cc fu" href="mandela.html">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 7V7a3 3 0 0 1 6 0v2H9z"/></svg></div>
-      <h3>MANDELA EFFECT LAB</h3><p>Interactive comparisons documenting 69+ reality shifts. Berenstain vs Berenstein, Shazaam, Mirror Mirror.</p><span class="cnt">69+ DOCUMENTED CASES</span>
-    </a>
-    <a class="cc fu" href="timeline.html">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-      <h3>TEMPORAL ANOMALY</h3><p>Events that shouldn't align but do. FDR's Thanksgiving, Baron Trump, De Beers, Fermi Paradox, Philadelphia Experiment.</p><span class="cnt">15 ANOMALIES CATALOGED</span>
-    </a>
-    <a class="cc fu" href="articles.html?cat=SIMULATION%20THEORY">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 12h10M12 7v10"/></svg></div>
-      <h3>SIMULATION THEORY</h3><p>The mathematical case. Bostrom's trilemma, fine-tuning, the Planck length, quantum observer effect, holographic principle.</p><span class="cnt">6 ARGUMENTS MAPPED</span>
-    </a>
-    <a class="cc fu" href="articles.html?cat=SUPPRESSED%20TECHNOLOGY">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <h3>SUPPRESSED TECHNOLOGY</h3><p>Tesla's free energy, Baghdad Battery, Dendera Light Bulb, Coral Castle, HAARP, Electrogravitics.</p><span class="cnt">10 TECHNOLOGIES EXPOSED</span>
-    </a>
-    <a class="cc fu" href="articles.html?cat=ANCIENT%20SIMULATION%20CLUES">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      <h3>ANCIENT SIMULATION CLUES</h3><p>Cicero's Somnium Scipionis, Plato's Cave, Emerald Tablet, Egyptian Helicopter Hieroglyphs, Göbekli Tepe, Antikythera Mechanism.</p><span class="cnt">12 ANCIENT ANOMALIES</span>
-    </a>
-    <a class="cc fu" href="articles.html?cat=LONGEVITY%20NEXUS">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></svg></div>
-      <h3>LONGEVITY NEXUS</h3><p>Aubrey de Grey's Longevity Escape Velocity, rapamycin, NAD+, senolytics, cryonics as save states.</p><span class="cnt">6 BREAKTHROUGHS TRACKED</span>
-    </a>
-    <a class="cc fu" href="articles.html?cat=GOVERNMENT%20%E2%80%94%20DECLASSIFIED">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-      <h3>GOVERNMENT DECLASSIFIED</h3><p>MKUltra, Operation Northwoods, Tuskegee, Philadelphia Experiment, Stargate. Declassified proof of what they did.</p><span class="cnt">5 PROGRAMS DECLASSIFIED</span>
-    </a>
-    <a class="cc fu" href="articles.html?cat=THE%20WATCHERS">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-      <h3>THE WATCHERS</h3><p>Hydrogen Bomb UFO spike (1952), Project Blue Book, Kecksburg, UFO flap patterns, USO encounters.</p><span class="cnt">10 ENCOUNTERS DOCUMENTED</span>
-    </a>
-    <a class="cc fu" href="articles.html?cat=RELIGION%20AS%20SIMULATION">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg></div>
-      <h3>RELIGION AS SIMULATION</h3><p>Roman Imperial Cult, Constantine's Nicaea, Indulgences, Divine Right of Kings. The original control system.</p><span class="cnt">5 CONTROL SYSTEMS ANALYZED</span>
-    </a>
-    <a class="cc fu" href="articles.html?cat=SOCIAL%20MEDIA%20CONTROL">
-      <div class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
-      <h3>SOCIAL MEDIA CONTROL</h3><p>Attention economy, algorithmic manipulation, dopamine hacking, surveillance capitalism. The new religion.</p><span class="cnt">6 MECHANISMS EXPOSED</span>
-    </a>
+  <div class="dc" aria-label="Reality distortion">
+    <label for="distortion-slider">REALITY DISTORTION</label>
+    <input type="range" id="distortion-slider" min="0" max="1" step="0.01" value="0">
   </div>
 </section>
-
-<!-- Tools (new — replaces inline mandela/timeline/calc sections) -->
-<section id="tools" aria-label="Interactive tools">
-  <div class="sh fu"><span class="stag">// INTERACTIVE TOOLS //</span><h2>LABORATORIES &amp; SIMULATORS</h2><p>Three standalone instruments for testing memory, time, and probability.</p></div>
-  <div class="tgrid sca">
-    <a class="tc fu" href="mandela.html">
-      <span class="tnum">// TOOL 01</span>
-      <span class="tname">MANDELA EFFECT LAB</span>
-      <p class="tdesc">Five direct memory-vs-reality comparisons plus the Sinbad Shazaam test. Includes the CERN timeline correlation declassified box.</p>
-      <span class="tmore">OPEN LAB →</span>
-      <span class="ticon" aria-hidden="true">01</span>
-    </a>
-    <a class="tc fu" href="timeline.html">
-      <span class="tnum">// TOOL 02</span>
-      <span class="tname">TEMPORAL ANOMALY</span>
-      <p class="tdesc">Fourteen chronological entries across 130 years. Baron Trump's 1893 premonition, the 1898 Titanic novel, MKUltra, CERN, UAPs.</p>
-      <span class="tmore">VIEW TIMELINE →</span>
-      <span class="ticon" aria-hidden="true">02</span>
-    </a>
-    <a class="tc fu" href="calculator.html">
-      <span class="tnum">// TOOL 03</span>
-      <span class="tname">SIMULATION CALCULATOR</span>
-      <p class="tdesc">Six questions grounded in Bostrom's trilemma. Fine-tuning, Mandela Effect, government lies, quantum mechanics, consciousness, glitches.</p>
-      <span class="tmore">RUN CALCULATOR →</span>
-      <span class="ticon" aria-hidden="true">03</span>
-    </a>
-  </div>
+<section id="categories" class="sec" aria-labelledby="cat-h">
+  <h2 id="cat-h" class="fu">// CLASSIFY THE ANOMALY</h2>
+  <div class="cc-grid"><a class="cc" href="/articles.html?cat=TEMPORAL%20ANOMALY"><span class="cc-n">8</span><span class="cc-l">TEMPORAL ANOMALY</span></a><a class="cc" href="/articles.html?cat=SIMULATION%20THEORY"><span class="cc-n">6</span><span class="cc-l">SIMULATION THEORY</span></a><a class="cc" href="/articles.html?cat=ANCIENT%20SIMULATION%20CLUES"><span class="cc-n">5</span><span class="cc-l">ANCIENT SIMULATION CLUES</span></a><a class="cc" href="/articles.html?cat=CLASSIFIED%20//%20EYES%20ONLY"><span class="cc-n">5</span><span class="cc-l">CLASSIFIED // EYES ONLY</span></a><a class="cc" href="/articles.html?cat=LONGEVITY%20NEXUS"><span class="cc-n">5</span><span class="cc-l">LONGEVITY NEXUS</span></a><a class="cc" href="/articles.html?cat=THE%20WATCHERS"><span class="cc-n">5</span><span class="cc-l">THE WATCHERS</span></a><a class="cc" href="/articles.html?cat=GOVERNMENT%20%E2%80%94%20DECLASSIFIED"><span class="cc-n">4</span><span class="cc-l">GOVERNMENT — DECLASSIFIED</span></a><a class="cc" href="/articles.html?cat=MANDELA%20EFFECT%20LAB"><span class="cc-n">4</span><span class="cc-l">MANDELA EFFECT LAB</span></a><a class="cc" href="/articles.html?cat=SOCIAL%20MEDIA%20CONTROL"><span class="cc-n">4</span><span class="cc-l">SOCIAL MEDIA CONTROL</span></a><a class="cc" href="/articles.html?cat=SUPPRESSED%20TECHNOLOGY"><span class="cc-n">4</span><span class="cc-l">SUPPRESSED TECHNOLOGY</span></a><a class="cc" href="/articles.html?cat=RELIGION%20AS%20SIMULATION"><span class="cc-n">2</span><span class="cc-l">RELIGION AS SIMULATION</span></a></div>
 </section>
-
-<!-- Articles -->
-<section id="articles" aria-label="Featured articles">
-  <div class="sh fu"><span class="stag">// DEEP ANALYSIS</span><h2>FEATURED ARTICLES</h2><p>Eight recent investigations. Browse all 52 in the archive.</p></div>
-  <div class="agrid sca">
-    <a href="articles/lethe-river.html" class="ac fu"><span class="cls">ANCIENT SIMULATION CLUES</span><h3>LETHE — The River That Erased Us</h3><p class="exc">The Greeks built a river you drink from to forget your past life. We built it again — in software.</p><span class="crt">// ~7 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles/agi-12-endings.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>AGI's 12 Endings: How MIT Maps the Death of Man</h3><p class="exc">Max Tegmark ran the math. 60% of his peers rate one outcome worse than extinction. Welcome to the future.</p><span class="crt">// ~15 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles/digital-amnesia.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>When Memory Became a Subscription</h3><p class="exc">We outsourced our memory to the cloud. The ancient Greeks warned us about this. They called the river Lethe.</p><span class="crt">// ~6 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles/stargate-files.html" class="ac fu"><span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>Stargate: The Army's Psychic Spy Program</h3><p class="exc">$20M, 23 years, three agencies. "Viewer" Pat Price saw Soviet submarines in real time. The question was never really asked.</p><span class="crt">// ~9 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles/the-near-death-archive.html" class="ac fu"><span class="cls">RELIGION AS SIMULATION</span><h3>The Near-Death Archive</h3><p class="exc">AWARE trial. 2,060 cardiac arrests. The data says consciousness is not a brain output. The simulation hypothesis agrees.</p><span class="crt">// ~10 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles/mkultra.html" class="ac fu"><span class="cls">GOVERNMENT — DECLASSIFIED</span><h3>MKUltra: The CIA's Mind Control Program</h3><p class="exc">20 years of experiments on unwitting subjects. LSD, sensory deprivation, electroshock. Helms destroyed the evidence.</p><span class="crt">// ~4 MIN</span> <span class="rm">READ →</span></a>
-    <a href="articles/simulation-theory.html" class="ac fu"><span class="cls">SIMULATION THEORY</span><h3>We Are Almost Certainly Living in a Simulation</h3><p class="exc">Bostrom's trilemma, fine-tuning, Planck length, quantum observer effect, holographic principle. The mathematical case.</p><span class="crt">// ~4 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles/religion-simulation.html" class="ac fu"><span class="cls">RELIGION AS SIMULATION</span><h3>Religion as the Original Simulation</h3><p class="exc">Roman Imperial Cult, Constantine's Nicaea, Indulgences. The first control technology: invisible authorities enforcing visible control.</p><span class="crt">// ~3 MIN</span><span class="rm">READ →</span></a>
-    <a href="articles.html" class="ac fu" style="border:1px dashed rgba(0,229,255,.3);background:rgba(0,229,255,.02)"><span class="cls" style="color:var(--c);background:rgba(0,229,255,.06);border-color:rgba(0,229,255,.12)">EXPLORE ALL</span><h3>View All 52 Articles</h3><p class="exc">Browse the full archive with category filters. Temporal anomalies, suppressed technology, ancient simulation clues, and the watchers.</p><span class="rm" style="color:var(--c)">BROWSE ARCHIVE →</span></a>
-  </div>
+<section id="articles" class="sec" aria-labelledby="art-h">
+  <h2 id="art-h" class="fu">// FEATURED FILES</h2>
+  <div class="ac-grid"><a class="ac fu" href="/articles/agi-12-endings.html"><span class="ac-cat">SIMULATION THEORY</span><h3 class="ac-ti">AGI&#x27;S 12 ENDINGS — HOW MIT MAPS THE DEATH OF MAN</h3><p class="ac-de">Max Tegmark&#x27;s 12 scenarios for the future of humanity under AGI. Hard numbers. Real names. The one scenario worse than extinction.</p><span class="ac-mt">3,179 WORDS</span></a><a class="ac fu" href="/articles/decade-forgot-y2k.html"><span class="ac-cat">TEMPORAL ANOMALY</span><h3 class="ac-ti">The Decade We Forgot the Y2K Panic</h3><p class="ac-de">1998-2000. $300B spent. The rollover that was nothing. Except it wasn&#x27;t nothing.</p><span class="ac-mt">1,684 WORDS</span></a><a class="ac fu" href="/articles/social-media-control.html"><span class="ac-cat">SOCIAL MEDIA CONTROL</span><h3 class="ac-ti">Social Media Is the New Religion</h3><p class="ac-de">“Your phone is a slot machine in your pocket.” — Tristan Harris. The attention economy, algorithmic manipulation, dopamine hacking.</p><span class="ac-mt">1,650 WORDS</span></a><a class="ac fu" href="/articles/windows-meant-something-different.html"><span class="ac-cat">TEMPORAL ANOMALY</span><h3 class="ac-ti">I Remember When Windows Meant Something Different</h3><p class="ac-de">Windows 95/98/XP Bliss. Mac OS 9 &#x27;Happy Mac.&#x27; The OS was a personality, not a service. Then it became a delivery surface for ads.</p><span class="ac-mt">1,627 WORDS</span></a><a class="ac fu" href="/articles/club-penguin-was-a-country.html"><span class="ac-cat">SOCIAL MEDIA CONTROL</span><h3 class="ac-ti">When Club Penguin Was a Country</h3><p class="ac-de">The 2005-2017 era when a Disney kids&#x27; game built a parallel society, an economy, and a national mourning.</p><span class="ac-mt">1,623 WORDS</span></a><a class="ac fu" href="/articles/religion-simulation.html"><span class="ac-cat">RELIGION AS SIMULATION</span><h3 class="ac-ti">Religion as the Original Simulation</h3><p class="ac-de">Roman Imperial Cult, Constantine&#x27;s Nicaea, Indulgences. The first control technology.</p><span class="ac-mt">1,593 WORDS</span></a></div>
+  <p class="sec-more"><a href="/articles.html">VIEW ALL 52 FILES &rarr;</a></p>
 </section>
-
-<!-- Footer -->
-<footer role="contentinfo">
-  <div class="f-logo">LETHOMETRY</div>
-  <div class="f-tag">// THE SIMULATION ARCHIVE //</div>
-  <div class="f-links"><a href="#hero">HOME</a><a href="#categories">ARCHIVE</a><a href="#tools">TOOLS</a><a href="mandela.html">MANDELA LAB</a><a href="timeline.html">TIMELINE</a><a href="calculator.html">CALCULATOR</a><a href="articles.html">ALL 52</a></div>
-  <div class="f-copy">WHAT TIME TRIES TO FORGET, WE DEFY © 2026</div>
-</footer>
-
-<!-- Distortion Control (developer easter egg, hidden from a11y) -->
-<div class="dc" hidden><label for="distortion-slider">REALITY distortion</label><input type="range" id="distortion-slider" aria-label="Reality distortion (developer easter egg)" min="0" max="1" step="0.01" value="0" tabindex="-1"></div>
-
-<!-- main.js: deferred. Hero is pure CSS+SVG; three.js starfield is an optional progressive-enhancement layer (WebGL + no-reduced-motion, fail-soft). -->
-<script src="js/three.min.js" defer></script>
-<script src="js/starfield.js" defer></script>
-<script src="js/main.js" defer></script>
-
-<!-- Lightweight error reporting -->
-<script>
-  window.addEventListener('error', (e) => {
-    try {
-      navigator.sendBeacon('/api/errors', JSON.stringify({
-        msg: e.message, file: e.filename, line: e.lineno, col: e.colno,
-        url: location.href, ua: navigator.userAgent, ts: Date.now()
-      }));
-    } catch (_) {}
-  });
-</script>
 </main>
+
+<script src="/js/main.js?v=406" defer></script>
+
 </body>
 </html>

@@ -1,53 +1,47 @@
-/* LETHOMETRY click-to-load YouTube facade.
- * Shows a thumbnail + play button; only injects the youtube-nocookie iframe on click.
- * No YouTube JS runs until the user actually plays — keeps the page fast & GDPR-friendly.
- * Usage: <div class="yt-facade" data-vid="VIDEO_ID" data-label="optional a11y label">
- *         <div class="yt-facade-bg"></div>
- *         <button class="yt-facade-play" type="button" aria-label="Play video"></button>
- *       </div>
- */
-(function () {
-  var facades = document.querySelectorAll('.yt-facade');
-  if (!facades.length) return;
+// LETHOMETRY v4.0 — youtube-facade.js
+//
+// Click-to-load YouTube embeds. The v3.6 markup was a static <div> facade plus a
+// separate script; this version keeps the same privacy property (no request to
+// youtube.com or ytimg.com is made until the visitor clicks) and adds keyboard
+// support, which the v3.6 facade lacked entirely: it was a plain div, so it was
+// unreachable by keyboard and invisible to assistive tech.
+'use strict';
 
-  // Explicit consent handler — run once per video.
-  function load(f) {
-    var vid = f.getAttribute('data-vid');
-    if (!vid || f.__loaded) return;
-    f.__loaded = true;
-    var label = f.getAttribute('data-label') || 'Play video';
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0&modestbranding=1';
-    iframe.title = label;
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+(function () {
+  const FACADE_SELECTOR = '.yt-facade';
+
+  function mount(facade) {
+    if (facade.dataset.mounted === '1') return;
+    facade.dataset.mounted = '1';
+
+    const vid = facade.dataset.vid;
+    if (!vid) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${vid}?autoplay=1&rel=0`;
+    iframe.title = facade.getAttribute('aria-label') || 'YouTube video';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;
-    iframe.setAttribute('loading', 'lazy');
-    iframe.setAttribute('frameborder', '0');
-    iframe.className = 'yt-facade-frame';
-    // swap: clear children, inject iframe
-    f.textContent = '';
-    f.appendChild(iframe);
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+
+    facade.replaceChildren(iframe);
+    iframe.focus();
   }
 
-  facades.forEach(function (f) {
-    // Set the thumbnail as background once YouTube thumbnail host responds
-    var vid = f.getAttribute('data-vid');
-    if (vid) {
-      f.classList.add('has-thumb');
-      var img = new Image();
-      img.onload = function () {
-        f.style.backgroundImage = "url('https://i.ytimg.com/vi/" + vid + "/maxresdefault.jpg')";
-        if (!img.naturalWidth || img.naturalWidth < 120) {
-          f.style.backgroundImage = "url('https://i.ytimg.com/vi/" + vid + "/hqdefault.jpg')";
-        }
-      };
-      img.src = 'https://i.ytimg.com/vi/' + vid + '/maxresdefault.jpg';
-    }
-    var btn = f.querySelector('.yt-facade-play');
-    var target = btn || f;
-    target.addEventListener('click', function (e) {
-      e.preventDefault();
-      load(f);
-    });
-  });
+  function onClick(e) {
+    const facade = e.target.closest(FACADE_SELECTOR);
+    if (facade) mount(facade);
+  }
+
+  function onKey(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const facade = e.target.closest(FACADE_SELECTOR);
+    if (!facade) return;
+    e.preventDefault();
+    mount(facade);
+  }
+
+  document.addEventListener('click', onClick);
+  document.addEventListener('keydown', onKey);
 })();

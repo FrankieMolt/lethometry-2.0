@@ -1,0 +1,67 @@
+> LETHOMETRY — The Simulation Archive. A source-cited archive of simulation theory, Mandela effects, suppressed technology, temporal anomalies, and the anomalies reality tries to hide.
+
+# Lethometry
+
+## Articles (52)
+
+- [AGI's 12 Endings — How MIT Maps the Death of Man](https://lethometry.com/articles/agi-12-endings.html): Max Tegmark's 12 scenarios for the future of humanity under AGI. Hard numbers. Real names. The one scenario worse than extinction.
+- [When AIM Away Messages Were Poetry](https://lethometry.com/articles/aim-away-messages.html): The 2002-2008 era when 180 characters said everything. The Lycos, NeoGaf, Yahoo parallel timelines. The death rattle when AOL killed it in 2017.
+- [The Antikythera Mechanism: A Computer from 100 BCE](https://lethometry.com/articles/antikythera-mechanism.html): A 2,000-year-old Greek analog computer that predicted eclipses and tracked the four-year Olympiad cycle. We had to wait until 2021 to understand it.
+- [The Baghdad Battery: 2,000-Year-Old Electrochemistry](https://lethometry.com/articles/baghdad-battery.html): A 2,000-year-old clay jar with a copper cylinder and iron rod. Is it a battery? A galvanic cell? A religious relic? Nobody agrees.
+- [Baron Trump's Marvelous Underground Journey](https://lethometry.com/articles/baron-trump.html): Ingersoll Lockwood's 1893 novel features a protagonist named Von Trump who travels to Russia.
+- [Cicada 3301: The Internet's Most Patient Cryptographic Mystery](https://lethometry.com/articles/cicada-3301.html): Walks through the puzzle trails of Cicada 3301 and its unresolved cryptographic final chapters.
+- [Cicero's Somnium Scipionis: The First Simulation Story](https://lethometry.com/articles/cicero-somnium.html): Cicero's Dream of Scipio (c. 50 BCE) describes a multiverse of nested realities — written 2,000 years before the simulation hypothesis.
+- [When Club Penguin Was a Country](https://lethometry.com/articles/club-penguin-was-a-country.html): The 2005-2017 era when a Disney kids' game built a parallel society, an economy, and a national mourning.
+- [The Cornucopia Was Never in Fruits Basket — Until It Was](https://lethometry.com/articles/cornucopia-fruits-basket.html): Thousands of anime fans remember the Cornucopia scene in Fruits Basket. Half remember it. Half never saw it. Both have recordings.
+- [Cryonics: Pausing the Simulation Before It Crashes](https://lethometry.com/articles/cryonics-save-state.html): Freeze the body, wait for the technology, restore it. The last save-state contingency for a crashing system.
+- [The Dancing Plague of 1518: The City That Couldn't Stop](https://lethometry.com/articles/dancing-plague-1518.html): In July 1518, Strasbourg citizens danced uncontrollably for weeks — to exhaustion, collapse, and death. Well documented. Never fully explained.
+- [De Beers and the Diamond Programming](https://lethometry.com/articles/de-beers-diamonds.html): The diamond engagement ring tradition is 78 years old. Invented by marketing. De Beers' 1947 campaign.
+- [The Decade We Forgot the Y2K Panic](https://lethometry.com/articles/decade-forgot-y2k.html): 1998-2000. $300B spent. The rollover that was nothing. Except it wasn't nothing.
+- [Deja Vu Is a Simulation Glitch](https://lethometry.com/articles/deja-vu-simulation-glitch.html): Déjà vu as a render-pipeline stutter in a simulated reality — a brutalist archive analysis.
+- [When Memory Became a Subscription](https://lethometry.com/articles/digital-amnesia.html): Betsy Sparrow proved in 2011 that we stopped remembering when search got easy. We outsourced forgetting to an algorithm. The Greeks called this river Lethe.
+- [The Fermi Paradox — Where Is Everyone?](https://lethometry.com/articles/fermi-paradox.html): If the universe is billions of years old and contains billions of galaxies with billions of stars... where is everyone? The silence is deafening.
+- [GeoCities Was the Last Honest Internet](https://lethometry.com/articles/geocities-last-honest-internet.html): 1994-2009. Animated GIF shrines, MIDI files, and the death of the personal homepage.
+- [Göbekli Tepe: The World's First Monument — Or a Time Capsule?](https://lethometry.com/articles/gobekli-tepe.html): Built 12,000 years ago. Pre-agricultural. Pre-writing. Pre-stone tools. Who built Göbekli Tepe and why was it buried?
+- [HAARP: Weather Weapon or Science Project?](https://lethometry.com/articles/haarp.html): The High Frequency Active Auroral Research Program. 180 antennas. 3.6 megawatts. Conspiracy theories from earthquakes to mind control. What's real.
+- [The Hydrogen Bomb Attracted Something](https://lethometry.com/articles/hydrogen-bomb-ufos.html): UFO sightings spiked 162% after the first hydrogen bomb test. The nuclear-UFO correlation has repeated throughout history.
+- [I Remember Dial-Up Like a Trauma Bond](https://lethometry.com/articles/i-remember-dialup.html): The dial-up handshake, AOL CDs in the mailbox, family phone hostage situations. What we lost when the internet went instant.
+- [I Remember When Google Only Gave You Ten Links](https://lethometry.com/articles/i-remember-google.html): The death of the librarian and the birth of the casino. AltaVista, Ask Jeeves, and the clean 2001 Google that no longer exists.
+- [The Kecksburg UFO: 60 Years of Denial](https://lethometry.com/articles/kecksburg-ufo.html): December 9, 1965. A fireball over Ohio. A metallic acorn in the Pennsylvania woods. The military sealed the crash site.
+- [Lethe — The River That Erased Us](https://lethometry.com/articles/lethe-river.html): The Greeks built a river you drink from to forget your past life. We built it again — in software.
+- [Longevity Escape Velocity](https://lethometry.com/articles/longevity-simulation.html): Aubrey de Grey's thesis: cure aging faster than it kills us = escape velocity.
+- [The Lost Episode That Wasn't — Mandela Effect in Children's TV](https://lethometry.com/articles/lost-episode-childrens-tv.html): Creepypasta taught a generation to remember TV that didn't air. By 2018, the false memories bled into real ones.
+- [Collective False Memory: Why Millions Remember Things That Never Happened](https://lethometry.com/articles/mandela-effect.html): The science of why large groups of people remember events differently. Berenstain, Shazaam, the Cornucopia. What's really happening.
+- [The Mandela Effect as Render-Backend Anomaly](https://lethometry.com/articles/mandela-glitch.html): A technical analysis of reality-shift glitches. The Mandela Effect is not misremembering; it is a stale memory cache writing to an orphaned timeline.
+- [MKUltra: The CIA's Mind Control Program](https://lethometry.com/articles/mkultra.html): For 20 years, the CIA conducted mind control experiments on unwitting subjects.
+- [The Montauk Project: The Conspiracy That Eats Every Other Conspiracy](https://lethometry.com/articles/montauk-project.html): Traces the Camp Hero Air Force Station legends, connecting the Philadelphia Experiment to modern-day remote viewing programs.
+- [NAD+: The Molecule That Flips the Aging Switch](https://lethometry.com/articles/nadplus-longevity.html): NAD+ falls with age. Sirtuins need it. Supplements raise it. Whether that extends life is another question.
+- [Operation Northwoods](https://lethometry.com/articles/operation-northwoods.html): The Joint Chiefs proposed staging terrorist attacks on US soil and blaming Cuba.
+- [The Philadelphia Experiment: When the Navy Tried to Make a Ship Invisible](https://lethometry.com/articles/philadelphia-experiment.html): October 28, 1943. The USS Eldridge. Cloaking device. Men teleported. Time slips. The story that won't stay in the past.
+- [Plato's Cave: The First Simulation Theory](https://lethometry.com/articles/platos-cave.html): 400 BCE. A philosopher describes prisoners chained in a cave watching shadows. The original proof that reality might not be what it seems.
+- [Project Blue Book: What the Air Force Really Found](https://lethometry.com/articles/project-blue-book.html): 12,000 sightings investigated. 701 unexplained. What Project Blue Book's final report really revealed.
+- [Quantum Consciousness: Does Observation Create Reality?](https://lethometry.com/articles/quantum-consciousness.html): The double-slit experiment, wave function collapse, and why consciousness might be fundamental to the simulation.
+- [Rapamycin: The Easter Island Aging Hacker](https://lethometry.com/articles/rapamycin-mtor.html): A transplant-rejection drug from Rapa Nui soil extends mouse lifespan by ~15%. Human trial data is thinner.
+- [Religion as the Original Simulation](https://lethometry.com/articles/religion-simulation.html): Roman Imperial Cult, Constantine's Nicaea, Indulgences. The first control technology.
+- [Room-Temperature Superconductors Keep Almost Being Real](https://lethometry.com/articles/room-temp-superconductors.html): Every decade since 1986, a 'room-temperature superconductor' paper drops. The pattern is suspicious. The physics is fascinating.
+- [Senolytics: Deleting the Simulation's Zombie Cells](https://lethometry.com/articles/senolytics-zombie-cells.html): Senescent 'zombie' cells stop dividing but poison their neighbors. New drugs hunt them down. The first human proof is in.
+- [We Are Almost Certainly Living in a Simulation](https://lethometry.com/articles/simulation-theory.html): Bostrom's trilemma. Fine-tuning. Planck length. Quantum observer effect. The case we might be living in a simulation.
+- [Skinwalker Ranch: America's Paranormal Ground Zero](https://lethometry.com/articles/skinwalker-ranch.html): Chronicles the Utah ranch's declassified AAWSAP research and the military's quiet interest in localized reality-distortion anomalies.
+- [Sleep Paralysis and the Shadow People](https://lethometry.com/articles/sleep-paralysis.html): Explores sleep paralysis and the recurring entities reported globally, framing it as a biological glitch or a render-pipeline leak.
+- [Social Media Is the New Religion](https://lethometry.com/articles/social-media-control.html): “Your phone is a slot machine in your pocket.” — Tristan Harris. The attention economy, algorithmic manipulation, dopamine hacking.
+- [STARGATE: The Army's Psychic Spy Program](https://lethometry.com/articles/stargate-files.html): From 1972 to 1995, the US Army trained remote viewers to spy on the Soviet Union using only their minds. The records stayed classified.
+- [Tesla's Free Energy Suppressed](https://lethometry.com/articles/tesla-free-energy.html): “Where do I put the meter?” — J.P. Morgan. Tesla’s free energy system could not be metered. The tower was demolished.
+- [The 1939 Thanksgiving Glitch](https://lethometry.com/articles/thanksgiving-glitch.html): FDR moved Thanksgiving by executive decree to extend the Christmas shopping season.
+- [The Near-Death Archive: What Happens When the Simulation Stalls](https://lethometry.com/articles/the-near-death-archive.html): For 50 years, researchers have collected what people see when they're clinically dead. The data is inconsistent with materialism.
+- [The Wow! Signal: 72 Seconds That Never Came Back](https://lethometry.com/articles/the-wow-signal.html): On August 15, 1977, Ohio State's Big Ear telescope caught a 72-second signal from Sagittarius. The printout read 6EQUJ5. It never returned. It was never explained.
+- [Tuskegee: The 40-Year Medical Experiment](https://lethometry.com/articles/tuskegee-experiment.html): From 1932 to 1972, the US Public Health Service watched 600 Black men die of syphilis. They told the men they were being treated.
+- [The Pentagon's 2023 UAP Report: What They Admitted](https://lethometry.com/articles/uap-2023-report.html): In 2023, the US government released a report admitting 800+ UAP encounters. Most remain unexplained. Physics-defying maneuvers. No origins.
+- [I Remember When Windows Meant Something Different](https://lethometry.com/articles/windows-meant-something-different.html): Windows 95/98/XP Bliss. Mac OS 9 'Happy Mac.' The OS was a personality, not a service. Then it became a delivery surface for ads.
+
+## Pages
+
+- [Home](https://lethometry.com/): featured investigations and archive entry
+- [Archive](https://lethometry.com/articles.html): all 52 investigations by category
+- [Mandela Effect Lab](https://lethometry.com/mandela.html)
+- [Timeline](https://lethometry.com/timeline.html)
+- [Calculator](https://lethometry.com/calculator.html)
+- [Privacy](https://lethometry.com/privacy.html)

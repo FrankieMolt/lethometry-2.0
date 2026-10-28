@@ -1,106 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
-  <meta name="theme-color" content="#050508">
-  <meta name="color-scheme" content="dark">
-  <title>AGI's 12 Endings — How MIT Maps the Death of Man | LETHOMETRY</title>
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="description" content="Max Tegmark's 12 scenarios for the future of humanity under AGI. Hard numbers. Real names. The one scenario worse than extinction.">
-    <link rel="canonical" href="https://lethometry.com/articles/agi-12-endings.html">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="AGI's 12 Endings — How MIT Maps the Death of Man">
-  <meta property="og:description" content="Max Tegmark's 12 scenarios for the future of humanity under AGI. Hard numbers. Real names. The one scenario worse than extinction.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://lethometry.com/articles/agi-12-endings.html">
-  <meta property="og:image" content="https://lethometry.com/og-image.png">
-  <meta property="og:site_name" content="LETHOMETRY">
-  <meta property="article:section" content="ARCHIVE">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="../css/style.css?v=24">
-  <style>
-    .aw{max-width:880px;margin:0 auto;padding:90px 2rem 4rem}
-    .am{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;flex-wrap:wrap}
-    .acls{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--a);letter-spacing:2px;padding:.25rem .65rem;background:rgba(255,170,0,.06);border:1px solid rgba(255,170,0,.12);border-radius:4px}
-    .adt{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--tk);letter-spacing:1px}
-    .at{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:800;color:#fff;text-shadow:0 0 25px rgba(0,255,65,.25);margin-bottom:.4rem;letter-spacing:2px;line-height:1.3}
-    .asub{font-family:"Rajdhani",sans-serif;font-size:1.05rem;color:var(--td);margin-bottom:1.5rem;line-height:1.65}
-    .ab h2{font-family:'Orbitron',sans-serif;font-size:1.25rem;color:var(--c);letter-spacing:2px;margin:2rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid rgba(0,229,255,.12)}
-    .ab h2::after{display:none}
-    .ab h3{font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--a);letter-spacing:1px;margin:1.5rem 0 .6rem}
-    .ab p{font-family:"Rajdhani",sans-serif;font-size:1.0625rem;line-height:1.85;color:var(--t);margin-bottom:1rem}
-    .ab strong{color:var(--g);font-weight:600}
-    .ab em{color:var(--c);font-style:italic}
-    .ab ul,.ab ol{margin:.8rem 0 1.2rem 1.4rem;color:var(--t)}
-    .ab li{font-family:'Rajdhani',sans-serif;font-size:.95rem;margin-bottom:.4rem;line-height:1.6}
-    .ab li::marker{color:var(--g)}
-    .ab hr{border:none;border-top:1px solid rgba(0,255,65,.1);margin:1.5rem 0}
-    .ab blockquote{border-left:3px solid var(--g);padding:.8rem 1.2rem;margin:1.2rem 0;background:rgba(0,255,65,.02);border-radius:0 6px 6px 0}
-    .ab blockquote p{color:var(--c);font-size:1.05rem;margin:0}
-    .ab table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.85rem}
-    .ab table th{background:rgba(0,255,65,.06);color:var(--g);padding:.5rem .8rem;text-align:left;border:1px solid rgba(0,255,65,.12);font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:1px}
-    .ab table td{padding:.5rem .8rem;border:1px solid rgba(0,255,65,.06);color:var(--t);font-family:'Rajdhani',sans-serif}
-    .ve{position:relative;padding-bottom:56.25%;height:0;margin:1.5rem 0;border-radius:8px;overflow:hidden;border:1px solid rgba(0,255,65,.12)}
-    .ve iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-    .src{margin-top:2.5rem;padding:1.2rem;background:rgba(0,255,65,.02);border:1px solid rgba(0,255,65,.08);border-radius:8px}
-    .src h3{color:var(--g);font-size:.9rem;margin-bottom:.8rem}
-    .src ul{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--td)}
-    .src li{margin-bottom:.3rem;line-height:1.5}
-    .bta{display:inline-flex;align-items:center;gap:.4rem;font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--c);letter-spacing:2px;margin-bottom:1.5rem;transition:all .3s;text-decoration:none}
-    .bta:hover{gap:.8rem;text-shadow:var(--gc)}
-    .af{text-align:center;padding:2.5rem 0 .8rem;border-top:1px solid var(--border);margin-top:2.5rem}
-    .af .afl{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:800;color:var(--g);text-shadow:var(--gm);letter-spacing:4px}
-    .af .aft{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--tk);letter-spacing:2px;margin-top:.2rem}
-    .stat-box{background:rgba(0,255,65,.03);border:1px solid rgba(0,255,65,.1);border-radius:8px;padding:1.2rem;margin:1.5rem 0;text-align:center}
-    .stat-box .num{font-family:'Orbitron',sans-serif;font-size:2.5rem;color:var(--g);text-shadow:var(--gm)}
-    .stat-box .label{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--tk);letter-spacing:2px;margin-top:.3rem}
-    .equation{font-family:'Share Tech Mono',monospace;background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.15);padding:1rem 1.5rem;border-radius:6px;margin:1.5rem 0;text-align:center;font-size:.9rem;color:var(--c)}
-    .paradox{border:2px solid var(--g);border-radius:12px;padding:1.5rem;margin:2rem 0;background:rgba(0,255,65,.02)}
-    .paradox h3{color:var(--g);margin-top:0!important;font-size:1.1rem!important}
-    .warning{border:2px solid #ff3a3a;border-radius:12px;padding:1.5rem;margin:2rem 0;background:rgba(255,58,58,.04);box-shadow:0 0 25px rgba(255,58,58,.08)}
-    .warning h3{color:#ff5a5a;margin-top:0!important;font-size:1.1rem!important}
-  </style>
-  <!-- Structured Data: Article -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "AGI's 12 Endings — How MIT Maps the Death of Man",
-    "description": "Max Tegmark's 12 scenarios for the future of humanity under AGI. Hard numbers. Real names. The one scenario worse than extinction.",
-    "articleSection": "SIMULATION THEORY", "datePublished": "2026-08-15",
-    "url": "https://lethometry.com/articles/agi-12-endings.html",
-    "mainEntityOfPage": "https://lethometry.com/articles/agi-12-endings.html",
-    "image": "https://lethometry.com/og-image.png",
-    "author": {"@type": "Organization", "name": "Lethometry Research"},
-    "publisher": {"@type": "Organization", "name": "LETHOMETRY", "logo": {"@type": "ImageObject", "url": "https://lethometry.com/favicon.svg"}}}
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
+<meta name="theme-color" content="#050508">
+<meta name="color-scheme" content="dark">
+<title>AGI&#x27;s 12 Endings — How MIT Maps the Death of Man | LETHOMETRY</title>
+<meta name="description" content="Max Tegmark&#x27;s 12 scenarios for the future of humanity under AGI. Hard numbers. Real names. The one scenario worse than extinction.">
+<link rel="canonical" href="https://lethometry.com/articles/agi-12-endings.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AGI&#x27;s 12 Endings — How MIT Maps the Death of Man">
+<meta property="og:description" content="Max Tegmark&#x27;s 12 scenarios for the future of humanity under AGI. Hard numbers. Real names. The one scenario worse than extinction.">
+<meta property="og:url" content="https://lethometry.com/articles/agi-12-endings.html">
+<meta property="og:site_name" content="LETHOMETRY">
+<meta property="og:image" content="https://lethometry.com/og/agi-12-endings.png">
+  <meta property="article:published_time" content="2026-06-18T00:00:00+00:00">
+  <meta property="article:modified_time" content="2026-08-17T00:00:00+00:00">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AGI's 12 Endings — How MIT Maps the Death of Man">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AGI&#x27;s 12 Endings — How MIT Maps the Death of Man">
+<meta name="twitter:description" content="Max Tegmark&#x27;s 12 scenarios for the future of humanity under AGI. Hard numbers. Real names. The one scenario worse than extinction.">
+<meta name="twitter:image" content="https://lethometry.com/og/agi-12-endings.png">
+<meta property="article:section" content="SIMULATION THEORY">
+<meta property="article:author" content="Lethometry Research">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/css/style.css?v=406">
+<script src="/js/consent.js?v=405" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AGI'S 12 ENDINGS — HOW MIT MAPS THE DEATH OF MAN",
+  "description": "Max Tegmark's 12 scenarios for the future of humanity under AGI. Hard numbers. Real names. The one scenario worse than extinction.",
+  "datePublished": "2026-06-18",
+  "dateModified": "2026-08-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Lethometry Research"
+  },
+  "image": "https://lethometry.com/og/agi-12-endings.png",
+  "url": "https://lethometry.com/articles/agi-12-endings.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lethometry.com/articles/agi-12-endings.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Lethometry Research",
+    "url": "https://lethometry.com"
+  },
+  "articleSection": "SIMULATION THEORY",
+  "wordCount": 3179
+}
+  </script><script async src="https://www.googletagmanager.com/gtag/js?id=G-E3VRH9TCBC"></script><script>window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments)}g('js',new Date());g('config','G-E3VRH9TCBC',{anonymize_ip:true,cookie_flags:'SameSite=None;Secure'});</script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-  <div class="crt" aria-hidden="true"></div>
-  <nav role="navigation" aria-label="Main navigation">
-    <div class="n-logo">LETHOMETRY</div>
-    <button class="n-toggle" aria-label="Toggle menu" type="button"><span></span><span></span><span></span></button>
-    <ul class="n-links">
-      <li><a href="../index.html">HOME</a></li>
-      <li><a href="../index.html#categories">ARCHIVE</a></li>
-      <li><a href="../mandela.html">MANDELA LAB</a></li>
-      <li><a href="../timeline.html">TIMELINE</a></li>
-      <li><a href="../calculator.html">CALCULATOR</a></li>
-      <li><a href="../index.html#articles">ARTICLES</a></li>
-    </ul>
-  </nav>
-
-  <main id="main"><div class="aw">
-    <a href="../index.html#articles" class="bta">← BACK TO ARCHIVE</a>
-    <div class="am"><span class="acls">SIMULATION THEORY</span><span class="adt">BOOK: 2017 | FRAMEWORK: ONGOING | RISK WINDOW: 2026–2060</span> <span class="art">// ~15 MIN READ</span></div>
-    <h1 class="at">AGI'S 12 ENDINGS — HOW MIT MAPS THE DEATH OF MAN</h1>
-    <p class="asub">Max Tegmark ran the math. Sixty percent of his peers rate one outcome worse than extinction. Welcome to the future.</p>
-    <hr>
-    <div class="ab">
-
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav class="nav" aria-label="Primary"><a class="brand" href="/">LETHOMETRY</a><button class="n-toggle" aria-label="Menu" aria-expanded="false">☰</button><div class="n-links"><a href="/">HOME</a><a href="/articles.html">ARCHIVE</a><a href="/mandela.html">MANDELA LAB</a><a href="/timeline.html">TIMELINE</a><a href="/calculator.html">CALCULATOR</a><a href="/privacy.html">PRIVACY</a></div></nav><main id="main"><div class="aw">
+<div class="rp" id="rp" aria-hidden="true"></div>
+<a class="bta" href="/articles.html">&larr; BACK TO ARCHIVE</a>
+<header class="ah">
+<div class="am"><span class="acls">SIMULATION THEORY</span><span class="adt">BOOK: 2017 | FRAMEWORK: ONGOING | RISK WINDOW: 2026–2060</span></div>
+<h1 class="at">AGI&#x27;S 12 ENDINGS — HOW MIT MAPS THE DEATH OF MAN</h1>
+<p class="asub">Max Tegmark ran the math. Sixty percent of his peers rate one outcome worse than extinction. Welcome to the future.</p>
+</header>
+<article class="ab">
 <div class="stat-box">
   <div class="num">5%</div>
   <div class="label">MEDIAN PROBABILITY OF HUMAN EXTINCTION FROM ADVANCED AI (2022 AI IMPACTS SURVEY, N=738)</div>
@@ -288,76 +258,13 @@
 
 <p>This is the inverse of Bostrom's trilemma — see <a href="simulation-theory.html">We Are Almost Certainly Living in a Simulation</a>. Bostrom asked: would a posthuman civilization run ancestor simulations? Tegmark asks: would it survive long enough to become posthuman? The Great Filter — the wall every civilization hits on the way to the stars — is, almost certainly, on this list. See <a href="fermi-paradox.html">The Fermi Paradox — Where Is Everyone?</a> for the rest of the argument.</p>
 
-<p>By the way — we don't get to not choose. The taxonomy is twelve items, but the list is not a menu. We do not get to opt out of the problem by deciding to ignore it. We do not get to opt out by signing a statement. We do not get to opt out by giving Hinton the Nobel and then going back to fine-tuning. The technology is being built. The list is being lived into. The 12 deaths — pick a better one. Pick it now.</p>
-
-    </div>
-    <div class="src">
-      <h3>SOURCES & REFERENCES</h3>
-      <ul>
-        <li>Tegmark, M. (2017). <em>Life 3.0: Being Human in the Age of Artificial Intelligence.</em> Knopf. Chapter 6: "The Next 10,000 Years."</li>
-        <li>Species | Documenting AGI. (2025/2026). "MIT Explains the 12 Possible Endings for AI." YouTube. https://www.youtube.com/watch?v=FLcrvMfHUJM</li>
-        <li>Center for AI Safety. (2023). "Statement on AI Risk." https://www.safe.ai/statement-on-ai-risk</li>
-        <li>Grace, K., et al. (2022). "2022 Expert Survey on Progress in AI." AI Impacts. https://www.aiimpacts.org/2022-expert-survey-on-progress-in-ai/</li>
-        <li>Ord, T. (2020). <em>The Precipice: Existential Risk and the Future of Humanity.</em> Bloomsbury.</li>
-        <li>Future of Life Institute. (2015). "Open Letter: Research Priorities for Robust and Beneficial Artificial Intelligence." https://futureoflife.org/open-letter/ai-open-letter/</li>
-        <li>Soares, N. & Yudkowsky, E. (2025). <em>If Anyone Builds It, Everyone Dies: Why Superhuman AI Would Kill Us All.</em> PublicAffairs. (MIRI)</li>
-        <li>Hinton, G. (2023–2024). Public statements on AI risk following his resignation from Google; 2024 Nobel Prize in Physics (jointly with John Hopfield).</li>
-        <li>Harari, Y. (2024). <em>Nexus: A Brief History of Information Networks from the Stone Age to AI.</em> Signal Books.</li>
-        <li>Russell, S. (2019). <em>Human Compatible: Artificial Intelligence and the Problem of Control.</em> Viking.</li>
-        <li>Bostrom, N. (2003). "Are You Living in a Computer Simulation?" <em>Philosophical Quarterly,</em> 53(211), 243–255.</li>
-        <li>Suleyman, M. (2023). Public statements on AI as "a new digital species."</li>
-        <li>Altman, S. (2015). Blog post: "We will be the first species ever to design our own descendants."</li>
-        <li>Amodei, D. (2023). Public statements on AI as "a real, mysterious creature."</li>
-        <li>Ellison, L. (2023). Public remarks on AI-enabled citizen surveillance systems.</li>
-        <li>Bengio, Y., Hinton, G., et al. (2015–2024). FLI Open Letter, Asilomar AI Principles, and CAIS Statement signatories.</li>
-        <li>Arkhipov, V. (1962). Cuban Missile Crisis; Petrov, S. (1983). Soviet early-warning false alarm. As discussed in Ord, T. (2020).</li>
-        <li>Wikipedia. "Life 3.0." https://en.wikipedia.org/wiki/Life_3.0</li>
-        <li>Bright Shiny Objects. (2026). "MIT Explains the 12 Possible Endings for AI." https://brightshinyobjects.net/2026/04/21/mit-explains-the-12-possible-endings-for-ai/</li>
-        <li>Immutable Distribution. "The AI Endgame (12 Scenarios)." https://immutabledistribution.com/the-ai-endgame-12-scenarios/</li>
-      </ul>
-    </div>
-    <div class="af"><div class="afl">LETHOMETRY</div><div class="aft">// THE SIMULATION ARCHIVE //</div></div>
-  </div>
-
-  
-        <div class="share-block">
-      <span class="share-lbl">// SHARE //</span>
-      <a data-share="twitter" href="#" rel="noopener" target="_blank"><span class="share-icon">𝕏</span> TWITTER</a>
-      <a data-share="facebook" href="#" rel="noopener" target="_blank"><span class="share-icon">f</span> FACEBOOK</a>
-      <a data-share="linkedin" href="#" rel="noopener" target="_blank"><span class="share-icon">in</span> LINKEDIN</a>
-      <button data-share="copy" type="button"><span class="share-icon">⎘</span> COPY LINK</button>
-    </div>
-  <div class="related">
-      <h3 class="rh">// RELATED INVESTIGATIONS //</h3>
-      <div class="rg">
-        <a href="fermi-paradox.html" class="rc">
-          <span class="rcls">SIMULATION THEORY</span>
-          <h4>The Fermi Paradox — Where Is Everyone?</h4>
-          <p>If the universe is billions of years old and contains billions of galaxies with billions of stars... where is everyone? The silence is deafening. The Great Filter may be on Tegmark's list.</p>
-          <span class="rrm">READ →</span>
-        </a>
-        <a href="simulation-theory.html" class="rc">
-          <span class="rcls">SIMULATION THEORY</span>
-          <h4>We Are Almost Certainly Living in a Simulation</h4>
-          <p>Bostrom's trilemma. Fine-tuning. Planck length. Quantum observer effect. The companion piece — if we are living in a simulation, Tegmark's 12 endings is the question of whether the civilization running it survived long enough to build it.</p>
-          <span class="rrm">READ →</span>
-        </a>
-        <a href="quantum-consciousness.html" class="rc">
-          <span class="rcls">SIMULATION THEORY</span>
-          <h4>Quantum Consciousness: Does the Mind Compute?</h4>
-          <p>Penrose, Hameroff, the Orch-OR model, the hard problem of consciousness. If AGI achieves the Zookeeper scenario, the question of whether a mind can be substrate-independent becomes the central ethical problem of the century.</p>
-          <span class="rrm">READ →</span>
-        </a>
-      </div>
-    </div>
-  <div class="dc" hidden><label>REALITY</label><input type="range" id="distortion-slider" min="0" max="1" step="0.01" value="0"></div>
-    <!-- Article page UX v3.6: progress, back-to-top, TOC (desktop+mobile), share. -->
-  <div id="rp" class="rp" aria-hidden="true"></div>
-  <button id="btt" class="btt" type="button" aria-label="Back to top" title="Back to top">↑</button>
-  <aside id="toc-side" class="toc-side" aria-label="Table of contents"><h4>// CONTENTS //</h4></aside>
-  <button id="toc-mob-btn" class="toc-mob-btn" type="button" aria-expanded="false" aria-controls="toc-mob"><span>// CONTENTS //</span><span class="toc-mob-arrow">▾</span></button>
-  <nav id="toc-mob" class="toc-mob" aria-label="Table of contents (mobile)"></nav>
-  <script src="../js/main.js" defer></script>
-</main>
+<p>By the way — we don't get to not choose. The taxonomy is twelve items, but the list is not a menu. We do not get to opt out of the problem by deciding to ignore it. We do not get to opt out by signing a statement. We do not get to opt out by giving Hinton the Nobel and then going back to fine-tuning. The technology is being built. The list is being lived into. The 12 deaths — pick a better one. Pick it now.</p><div class="yt-facade" data-vid="FLcrvMfHUJM" role="button" tabindex="0" aria-label="Play video: AGI&#x27;S 12 ENDINGS — HOW MIT MAPS THE DEATH OF MAN"><div class="yt-facade-frame"><span class="yt-facade-play" aria-hidden="true"></span><span class="yt-facade-lbl">WATCH // YOUTUBE</span></div></div>
+</article>
+<section class="rel" aria-labelledby="rel-h"><h2 id="rel-h">// RELATED FILE</h2><ul><li><a href="/articles/agi-12-endings.html"><span class="ar-cat">SIMULATION THEORY</span><span class="ar-ti">AGI&#x27;S 12 ENDINGS — HOW MIT MAPS THE DEATH OF MAN</span></a></li><li><a href="/articles/i-remember-dialup.html"><span class="ar-cat">SIMULATION THEORY</span><span class="ar-ti">I Remember Dial-Up Like a Trauma Bond</span></a></li><li><a href="/articles/i-remember-google.html"><span class="ar-cat">SIMULATION THEORY</span><span class="ar-ti">I Remember When Google Only Gave You Ten Links</span></a></li><li><a href="/articles/quantum-consciousness.html"><span class="ar-cat">SIMULATION THEORY</span><span class="ar-ti">Quantum Consciousness: Does Observation Create Reality?</span></a></li></ul></section>
+<footer class="af"><div class="afl">LETHOMETRY</div><div class="aft">// The Simulation Archive //</div></footer>
+</div></main>
+<footer class="f-nav"><div class="f-nav-in"><span class="f-nav-brand">LETHOMETRY</span><nav class="f-links" aria-label="Footer"><a href="/">HOME</a><a href="/articles.html">ARCHIVE</a><a href="/mandela.html">MANDELA LAB</a><a href="/timeline.html">TIMELINE</a><a href="/calculator.html">CALCULATOR</a><a href="/privacy.html">PRIVACY</a></nav><span class="f-nav-c">// The Simulation Archive //</span></div></footer>
+<script src="/js/main.js?v=406" defer></script>
+<script src="/js/youtube-facade.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /articles/_*
+Disallow: /articles/_
 Sitemap: https://lethometry.com/sitemap.xml
